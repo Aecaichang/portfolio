@@ -1,0 +1,182 @@
+{
+    "nav.home": "Home",
+    "nav.experience": "Experience",
+    "nav.education": "Education",
+    "nav.skills": "Skills",
+    "nav.portfolio": "Portfolio",
+    "nav.contact": "Contact Me",
+    "nav.downloadCv": "Download CV",
+    "titles.experience": "Work Experience",
+    "titles.education": "Education",
+    "titles.skills": "Skills & Expertise",
+    "titles.certifications": "Licenses & Certifications",
+    "titles.featuredWorks": "Featured Works",
+    "titles.viewProject": "View Project",
+    "personalInfo.name": "Chanchai Tasujai",
+
+    "personalInfo.phone": "081-234-5678",
+    "personalInfo.email": "aecaicahng@gmail.com",
+    "personalInfo.location": "Lamphun, Thailand",
+    "personalInfo.birthDate": "1994-01-01",
+    "personalInfo.socials.github": "https://github.com/Aecaichang",
+    "personalInfo.socials.linkedin": "https://linkedin.com",
+    "personalInfo.socials.facebook": "https://facebook.com",
+    "education": [
+      {
+        "degree": "Bachelor's degree, Information Technology",
+        "university": "Rajamangala University of Technology Lanna",
+        "year": "Graduated",
+        "honors": "Grade: 3.44",
+        "description": ""
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Green Digital Skills",
+        "issuer": "INCO",
+        "date": "Issued Jun 2023",
+        "credentialId": "1193903779CT",
+        "link": "#"
+      },
+      {
+        "name": "Automated Software Tester Class 2",
+        "issuer": "indythaitester",
+        "skill": "Software Testing",
+        "date": "",
+        "link": "#"
+      }
+    ],
+    "skills": [
+      { "category": "Languages", "items": ["Thai (Native)", "English (Basic)"] },
+      { "category": "Technical", "items": ["JavaScript/TypeScript", "React", "Node.js", "Python", "SQL", ".NET/C#"] },
+      { "category": "AI & Automation", "items": ["Generative AI", "Prompt Engineering", "Cursor / Copilot", "Stable Diffusion"] },
+      { "category": "Testing & Tools", "items": ["Selenium", "Robot Framework", "Postman", "Jira", "Git", "Figma"] },
+      { "category": "Development Tools", "items": ["Android Studio", "Xcode", "VSCode", "DBeaver", "Supabase", "Antigravity"] },
+      { "category": "Soft Skills", "items": ["Leadership", "Communication", "Problem Solving", "Agile/Scrum"] }
+    ],
+    "experience": [
+      {
+        "company": "Zeabix Company Limited",
+        "type": "Full-time · 9 mos",
+        "location": "Bangkok, Thailand",
+        "roles": [
+          {
+            "title": "Project Manager",
+            "period": "Oct 2025 - Present · 4 mos",
+            "description": [
+              "Leading development teams and managing project timelines."
+            ]
+          },
+          {
+            "title": "Senior Software Tester",
+            "period": "May 2025 - Oct 2025 · 6 mos",
+            "description": [
+              "Ensured software quality through rigorous testing and test automation."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "Green2Get",
+        "type": "Full-time",
+        "location": "Chiang Mai, Thailand · Hybrid",
+        "roles": [
+          {
+            "title": "Software Tester",
+            "period": "Apr 2021 - Mar 2025 · 4 yrs",
+            "description": [
+              "System Analysis & Design: Analyzed requirements and designed system architecture.",
+              "Project Management: Managed timelines and coordinated with teams.",
+              "QA & Testing: Designed Test Cases and performed Manual/Functional testing.",
+              "Infrastructure: Managed Server and Database stability.",
+              "Issue Tracking: Handled bug tracking and Root Cause Analysis."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "Ekapanya Hariphunchai Vocational College",
+        "type": "Full-time",
+        "location": "Lamphun, Thailand",
+        "roles": [
+          {
+            "title": "Computer Teacher",
+            "period": "Apr 2020 - Mar 2021 · 1 yr",
+            "description": [
+              "Teaching Management: Responsible for teaching Computer Science and Technology subjects, imparting theoretical and practical knowledge to vocational students.",
+              "Curriculum Preparation: Planning lessons aligned with current technology to develop digital skills for learners.",
+              "Measurement and Evaluation: Monitoring student progress through various computer activities and projects."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "Nextzy Technologies",
+        "type": "Full-time",
+        "location": "Bangkok City, Thailand",
+        "roles": [
+          {
+            "title": "Software Quality Assurance Engineer",
+            "period": "Oct 2018 - Jan 2020 · 1 yr 4 mos",
+            "description": [
+              "Quality assurance and testing for enterprise software solutions."
+            ]
+          }
+        ]
+      }
+    ],
+    "portfolio": [
+      {
+        "id": 4,
+        "title": "Suchada 2019 TMS",
+        "category": "Web Application",
+        "images": [
+          "/images/suchada2019.png"
+        ],
+        "image": "/images/suchada2019.png",
+        "description": "ShipManager - A comprehensive logistics and transport management system for Suchada 2019 Partnership. Highlights include AI-powered OCR for smart document processing, LINE Bot integration for seamless data entry, specialized transport cost calculations (standard & weight-based), and automated Excel reporting.",
+        "techStack": [
+          "React 19 + Vite",
+          "DaisyUI + Tailwind CSS",
+          "React Router v7",
+          "TanStack Query",
+          "Supabase (PostgreSQL)",
+          "Supabase Auth",
+          "Google Gemini 2.0 Flash",
+          "LINE Messaging API",
+          "Google Drive API",
+          "Firebase (Notifications)",
+          "Deno (Edge Functions)",
+          "ExcelJS",
+          "Google Analytics 4",
+          "Vercel"
+        ],
+        "features": [
+          {
+            "title": "Core Modules",
+            "items": [
+              "Transport Logging - Manage standard and 'cow distribution' shipments",
+              "Expense Tracking - Track driver expenses and withdrawals",
+              "Fuel Logging - Record refueling and calculate costs",
+              "Driver Management - Driver profiles and income",
+              "Vehicle Management - Vehicle registration and data",
+              "OCR System - AI-powered data extraction from slips/receipts (Shipping, Fuel, Expense)",
+              "Reports - Dashboard and summary reports"
+            ]
+          },
+          {
+            "title": "Key Features",
+            "items": [
+              "AI Powered OCR: Auto-extract data from transfer slips (Expense), fuel receipts (Fuel), shipping documents (Shipping)",
+              "LINE Bot Integration: Upload slips via LINE, auto-save to Drive and Database",
+              "Dual Transport Types: Standard and Weight-based distribution (Cow Distribution)",
+              "Excel Export: Formatted export with borders and styling",
+              "Google Analytics: Usage tracking",
+              "Responsive Design & Modern UI (DaisyUI + TailwindCSS)"
+            ]
+          }
+        ],
+         "link": "#"
+      }
+    ]
+}
