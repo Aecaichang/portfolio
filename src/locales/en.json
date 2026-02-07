@@ -12,6 +12,7 @@
     "titles.certifications": "Licenses & Certifications",
     "titles.featuredWorks": "Featured Works",
     "titles.viewProject": "View Project",
+    "titles.visitWebsite": "Visit Website",
     "personalInfo.name": "Chanchai Tasujai",
 
     "personalInfo.phone": "081-234-5678",
@@ -19,14 +20,22 @@
     "personalInfo.location": "Lamphun, Thailand",
     "personalInfo.birthDate": "1994-01-01",
     "personalInfo.socials.github": "https://github.com/Aecaichang",
-    "personalInfo.socials.linkedin": "https://linkedin.com",
-    "personalInfo.socials.facebook": "https://facebook.com",
+    "personalInfo.socials.linkedin": "https://www.linkedin.com/in/chanchai-tasujai-030781214/",
+    "personalInfo.socials.facebook": "https://www.facebook.com/aechanchaieiei",
+    "personalInfo.socials.line": "https://line.me/ti/p/~aecaichang",
     "education": [
       {
         "degree": "Bachelor's degree, Information Technology",
         "university": "Rajamangala University of Technology Lanna",
         "year": "Graduated",
         "honors": "Grade: 3.44",
+        "description": ""
+      },
+      {
+        "degree": "High School",
+        "university": "Chakkham Khanathon School, Lamphun",
+        "year": "",
+        "honors": "",
         "description": ""
       }
     ],

@@ -1,0 +1,258 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6] [cursor=pointer]: Portfolio.
+      - navigation [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "หน้าหลัก" [ref=e10] [cursor=pointer]:
+              - /url: "#home"
+              - text: หน้าหลัก
+          - listitem [ref=e11]:
+            - link "ประสบการณ์ทำงาน" [ref=e12] [cursor=pointer]:
+              - /url: "#experience"
+              - text: ประสบการณ์ทำงาน
+          - listitem [ref=e13]:
+            - link "การศึกษา" [ref=e14] [cursor=pointer]:
+              - /url: "#education"
+              - text: การศึกษา
+          - listitem [ref=e15]:
+            - link "ทักษะ" [ref=e16] [cursor=pointer]:
+              - /url: "#skills"
+              - text: ทักษะ
+          - listitem [ref=e17]:
+            - link "ผลงาน" [ref=e18] [cursor=pointer]:
+              - /url: "#portfolio"
+              - text: ผลงาน
+      - generic [ref=e19]:
+        - button [ref=e21] [cursor=pointer]:
+          - img
+        - button "🇹🇭 TH" [ref=e23] [cursor=pointer]
+  - generic [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - heading "สวัสดี, ผมชื่อ" [level=3] [ref=e28]
+        - heading "ชาญชัย ทะสุใจ" [level=1] [ref=e29]
+      - generic [ref=e30]:
+        - link "aecaicahng@gmail.com" [ref=e31] [cursor=pointer]:
+          - /url: mailto:aecaicahng@gmail.com
+          - img [ref=e32]
+          - generic [ref=e35]: aecaicahng@gmail.com
+        - link "098-650-9392" [ref=e36] [cursor=pointer]:
+          - /url: tel:098-650-9392
+          - img [ref=e37]
+          - generic [ref=e39]: 098-650-9392
+        - generic [ref=e40]:
+          - img [ref=e41]
+          - generic [ref=e44]: ลำพูน, ไทย
+        - generic [ref=e45]:
+          - img [ref=e46]
+          - generic [ref=e49]: 32 ปี 6 เดือน 25 วัน
+      - generic [ref=e50]:
+        - link "Facebook" [ref=e51] [cursor=pointer]:
+          - /url: https://www.facebook.com/aechanchaieiei
+          - img [ref=e52]
+        - link "Linkedin" [ref=e54] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/chanchai-tasujai-030781214/
+          - img [ref=e55]
+        - link "Github" [ref=e59] [cursor=pointer]:
+          - /url: https://github.com/Aecaichang
+          - img [ref=e60]
+        - link "Line" [ref=e63] [cursor=pointer]:
+          - /url: https://line.me/ti/p/~aecaichang
+          - img [ref=e64]
+    - img "Profile" [ref=e70]
+  - main [ref=e73]:
+    - generic [ref=e75]:
+      - heading "ประสบการณ์ทำงาน" [level=2] [ref=e78]
+      - generic [ref=e79]:
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]:
+              - generic [ref=e85]: บริษัท ซีบิกซ์ จำกัด (Zeabix)
+              - generic [ref=e86]: งานประจำ · 9 เดือน
+            - paragraph [ref=e87]:
+              - img [ref=e88]
+              - text: กรุงเทพมหานคร, ไทย
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - generic [ref=e95]:
+                - heading "ผู้จัดการโครงการ (Project Manager)" [level=4] [ref=e96]
+                - generic [ref=e97]: ต.ค. 2025 - ปัจจุบัน · 4 เดือน
+              - list [ref=e99]:
+                - listitem [ref=e100]: บริหารทีมพัฒนาและจัดการกรอบเวลาของโครงการ
+            - generic [ref=e101]:
+              - generic [ref=e103]:
+                - heading "นักทดสอบซอฟต์แวร์อาวุโส (Senior Software Tester)" [level=4] [ref=e104]
+                - generic [ref=e105]: พ.ค. 2025 - ต.ค. 2025 · 6 เดือน
+              - list [ref=e107]:
+                - listitem [ref=e108]: ดูแลคุณภาพซอฟต์แวร์ผ่านการทดสอบอย่างเข้มข้นและการทดสอบอัตโนมัติ
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - generic [ref=e114]: Green2Get
+              - generic [ref=e115]: งานประจำ
+            - paragraph [ref=e116]:
+              - img [ref=e117]
+              - text: เชียงใหม่, ไทย · ไฮบริด
+          - generic [ref=e122]:
+            - generic [ref=e124]:
+              - heading "นักทดสอบซอฟต์แวร์ (Software Tester)" [level=4] [ref=e125]
+              - generic [ref=e126]: เม.ย. 2021 - มี.ค. 2025 · 4 ปี
+            - list [ref=e128]:
+              - listitem [ref=e129]: "System Analysis & Design: วิเคราะห์ความต้องการและออกแบบโครงสร้างระบบ"
+              - listitem [ref=e130]: "Project Management: บริหารโครงการและประสานงานทีม"
+              - listitem [ref=e131]: "QA & Testing: ออกแบบ Test Cases และทดสอบระบบ (Manual/Functional)"
+              - listitem [ref=e132]: "Infrastructure: ดูแล Server และ Database"
+              - listitem [ref=e133]: "Issue Tracking: จัดการบั๊กและวิเคราะห์สาเหตุปัญหา"
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - generic [ref=e138]:
+              - generic [ref=e139]: วิทยาลัยอาชีวศึกษาเอกปัญญาหริภุญชัย
+              - generic [ref=e140]: งานประจำ
+            - paragraph [ref=e141]:
+              - img [ref=e142]
+              - text: ลำพูน, ไทย
+          - generic [ref=e147]:
+            - generic [ref=e149]:
+              - heading "ครูคอมพิวเตอร์" [level=4] [ref=e150]
+              - generic [ref=e151]: เม.ย. 2020 - มี.ค. 2021 · 1 ปี
+            - list [ref=e153]:
+              - listitem [ref=e154]: "การจัดการเรียนการสอน: รับผิดชอบการสอนในรายวิชา วิทยาการคอมพิวเตอร์และเทคโนโลยี โดยถ่ายทอดความรู้ทางด้านทฤษฎีและปฏิบัติให้กับนักเรียนในระดับอาชีวศึกษา"
+              - listitem [ref=e155]: "การเตรียมหลักสูตร: วางแผนการสอนที่สอดคล้องกับเทคโนโลยีในปัจจุบัน เพื่อพัฒนาทักษะดิจิทัลให้กับผู้เรียน"
+              - listitem [ref=e156]: "การวัดและประเมินผล: ติดตามความก้าวหน้าของผู้เรียนผ่านการทำกิจกรรมและโปรเจกต์ต่าง ๆ ทางคอมพิวเตอร์"
+        - generic [ref=e159]:
+          - generic [ref=e160]:
+            - generic [ref=e161]:
+              - generic [ref=e162]: Nextzy Technologies
+              - generic [ref=e163]: งานประจำ
+            - paragraph [ref=e164]:
+              - img [ref=e165]
+              - text: กรุงเทพมหานคร, ไทย
+          - generic [ref=e170]:
+            - generic [ref=e172]:
+              - heading "QA Engineer" [level=4] [ref=e173]
+              - generic [ref=e174]: ต.ค. 2018 - ม.ค. 2020 · 1 ปี 4 เดือน
+            - list [ref=e176]:
+              - listitem [ref=e177]: ประกันคุณภาพและทดสอบโซลูชันซอฟต์แวร์ระดับองค์กร
+    - generic [ref=e179]:
+      - heading "การศึกษา" [level=2] [ref=e182]
+      - generic [ref=e183]:
+        - generic [ref=e186]:
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - generic [ref=e189]: ปริญญาตรี เทคโนโลยีสารสนเทศ
+              - generic [ref=e190]: มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา
+            - generic [ref=e191]: จบการศึกษา
+          - generic [ref=e193]:
+            - paragraph [ref=e194]: "เกรดเฉลี่ย: 3.44"
+            - paragraph
+        - generic [ref=e197]:
+          - generic [ref=e199]:
+            - generic [ref=e200]: มัธยมศึกษา
+            - generic [ref=e201]: โรงเรียนจักรคำคณาทร จังหวัดลำพูน
+          - generic [ref=e203]:
+            - generic:
+              - paragraph
+              - paragraph
+    - generic [ref=e204]:
+      - heading "ใบอนุญาตและใบรับรอง" [level=2] [ref=e207]
+      - generic [ref=e208]:
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - generic [ref=e213]: I
+            - generic [ref=e214]:
+              - generic "Green Digital Skills" [ref=e215]
+              - paragraph [ref=e216]: INCO
+          - generic [ref=e218]:
+            - paragraph [ref=e219]: ได้รับเมื่อ มิ.ย. 2023
+            - paragraph [ref=e220]: "ID: 1193903779CT"
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - generic [ref=e225]: i
+            - generic [ref=e226]:
+              - generic "Automated Software Tester รุ่นที่ 2" [ref=e227]
+              - paragraph [ref=e228]: indythaitester
+          - generic [ref=e231]: 💎 Software Testing
+    - generic [ref=e232]:
+      - heading "ทักษะและความเชี่ยวชาญ" [level=2] [ref=e235]
+      - generic [ref=e236]:
+        - generic [ref=e239]:
+          - generic [ref=e241]: ภาษา
+          - generic [ref=e243]:
+            - generic [ref=e244]: ไทย (เจ้าของภาษา)
+            - generic [ref=e245]: อังกฤษ (ระดับเบื้องต้น)
+        - generic [ref=e248]:
+          - generic [ref=e250]: Technical
+          - generic [ref=e252]:
+            - generic [ref=e253]: JavaScript/TypeScript
+            - generic [ref=e254]: React
+            - generic [ref=e255]: Node.js
+            - generic [ref=e256]: Python
+            - generic [ref=e257]: SQL
+            - generic [ref=e258]: .NET/C#
+        - generic [ref=e261]:
+          - generic [ref=e263]: AI & Automation
+          - generic [ref=e265]:
+            - generic [ref=e266]: Generative AI
+            - generic [ref=e267]: Prompt Engineering
+            - generic [ref=e268]: Cursor / Copilot
+            - generic [ref=e269]: Stable Diffusion
+        - generic [ref=e272]:
+          - generic [ref=e274]: Testing & Tools
+          - generic [ref=e276]:
+            - generic [ref=e277]: Selenium
+            - generic [ref=e278]: Robot Framework
+            - generic [ref=e279]: Postman
+            - generic [ref=e280]: Jira
+            - generic [ref=e281]: Git
+            - generic [ref=e282]: Figma
+        - generic [ref=e285]:
+          - generic [ref=e287]: Development Tools
+          - generic [ref=e289]:
+            - generic [ref=e290]: Android Studio
+            - generic [ref=e291]: Xcode
+            - generic [ref=e292]: VSCode
+            - generic [ref=e293]: DBeaver
+            - generic [ref=e294]: Supabase
+            - generic [ref=e295]: Antigravity
+        - generic [ref=e298]:
+          - generic [ref=e300]: Soft Skills
+          - generic [ref=e302]:
+            - generic [ref=e303]: ภาวะผู้นำ
+            - generic [ref=e304]: การสื่อสาร
+            - generic [ref=e305]: การแก้ปัญหา
+            - generic [ref=e306]: Agile/Scrum
+    - generic [ref=e307]:
+      - heading "ผลงานเด่น" [level=2] [ref=e310]
+      - generic [ref=e314] [cursor=pointer]:
+        - generic [ref=e315]:
+          - img "ระบบจัดการขนส่ง" [ref=e316]
+          - button "ดูโปรเจกต์" [ref=e318]
+        - generic [ref=e319]:
+          - generic [ref=e321]: เว็บแอปพลิเคชัน
+          - generic [ref=e322]: ระบบจัดการขนส่ง
+        - paragraph [ref=e324]: ShipManager - ระบบบริหารจัดการงานขนส่งและโลจิสติกส์ครบวงจร สำหรับ หจก. สุชาดา 2019 โดดเด่นด้วยระบบ AI OCR อ่านข้อมูลอัตโนมัติจากสลิปและใบเสร็จ, เชื่อมต่อ LINE Bot เพื่ออัปโหลดข้อมูลได้ทันที, รองรับการคำนวณค่าขนส่งทั้งแบบทั่วไปและแจกวัว พร้อมระบบ Export Excel และ Dashboard สรุปผลครบครัน
+  - contentinfo [ref=e325]:
+    - generic [ref=e326]:
+      - generic [ref=e327]:
+        - generic [ref=e328]:
+          - heading "Portfolio." [level=2] [ref=e329]
+          - paragraph [ref=e330]: ชาญชัย ทะสุใจ - Software Tester & Quality Assurance
+        - generic [ref=e331]:
+          - link "Facebook" [ref=e332] [cursor=pointer]:
+            - /url: https://www.facebook.com/aechanchaieiei
+            - img [ref=e333]
+          - link "Linkedin" [ref=e335] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/chanchai-tasujai-030781214/
+            - img [ref=e336]
+          - link "Github" [ref=e340] [cursor=pointer]:
+            - /url: https://github.com/Aecaichang
+            - img [ref=e341]
+          - link "Line" [ref=e344] [cursor=pointer]:
+            - /url: https://line.me/ti/p/~aecaichang
+            - img [ref=e345]
+          - link "Email" [ref=e347] [cursor=pointer]:
+            - /url: mailto:aecaicahng@gmail.com
+            - img [ref=e348]
+      - paragraph [ref=e352]: © 2026 ชาญชัย ทะสุใจ. สงวนลิขสิทธิ์

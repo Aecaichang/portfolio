@@ -1,4 +1,5 @@
 import { useLanguage } from '../context/LanguageContext';
+import { Reveal, RevealTitle } from "./ui/Reveal";
 import {
   Dialog,
   DialogContent,
@@ -46,6 +47,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 const getTechIcon = (techName) => {
   const name = techName.toLowerCase();
@@ -83,56 +85,61 @@ const Portfolio = () => {
   const { portfolio } = content;
 
   return (
-    <section id="portfolio" className="py-20 container mx-auto px-4">
-      <h2 className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent">
-        {content["titles.featuredWorks"]}
-      </h2>
+    <section id="portfolio" className="py-20 container mx-auto px-4 transition-colors duration-500">
+      <RevealTitle>
+        <h2 id="portfolio-title" className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 to-pink-500 dark:from-blue-400 dark:to-pink-400 bg-clip-text text-transparent">
+          {content["titles.featuredWorks"]}
+        </h2>
+      </RevealTitle>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {portfolio.map((item) => (
-          <Dialog key={item.id}>
-            <DialogTrigger asChild>
-              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group border-slate-200">
-                <div className="relative aspect-video overflow-hidden bg-slate-100">
-                  <img 
-                    src={item.images && item.images.length > 0 ? item.images[0] : item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-slate-900/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Button variant="secondary" className="rounded-full">
-                      {content["titles.viewProject"]}
-                    </Button>
+      <div id="portfolio-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {portfolio.map((item, index) => (
+          <Reveal key={item.id} width="100%" delay={index * 0.1}>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Card id={`portfolio-card-${item.id}`} className="overflow-hidden h-full hover:shadow-xl transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-2 cursor-pointer group border-slate-200 dark:border-slate-800 dark:bg-slate-900/80">
+                  <div id={`portfolio-img-wrapper-${item.id}`} className="relative aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800">
+                    <img 
+                      id={`portfolio-img-${item.id}`}
+                      src={item.images && item.images.length > 0 ? item.images[0] : item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div id={`portfolio-overlay-${item.id}`} className="absolute inset-0 bg-slate-900/60 dark:bg-slate-950/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Button id={`btn-portfolio-view-${item.id}`} variant="secondary" className="rounded-full">
+                        {content["titles.viewProject"]}
+                      </Button>
+                    </div>
                   </div>
-                </div>
-                <CardHeader>
-                  <div className="mb-2">
-                    <Badge variant="outline" className="text-blue-600 border-blue-200 bg-blue-50">
-                      {item.category}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-xl">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-600 line-clamp-3">{item.description}</p>
-                </CardContent>
-              </Card>
-            </DialogTrigger>
-            
-            <DialogContent className="max-w-4xl p-0 overflow-hidden bg-white max-h-[90vh] flex flex-col border-none">
-              <div className="flex flex-col flex-1 overflow-y-auto">
+                  <CardHeader id={`portfolio-header-${item.id}`}>
+                    <div className="mb-2">
+                       <Badge id={`portfolio-badge-${item.id}`} variant="outline" className="text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30">
+                        {item.category}
+                      </Badge>
+                    </div>
+                    <CardTitle id={`portfolio-title-text-${item.id}`} className="text-xl dark:text-slate-100">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent id={`portfolio-content-${item.id}`}>
+                    <p id={`portfolio-desc-${item.id}`} className="text-slate-600 dark:text-slate-400 line-clamp-3">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </DialogTrigger>
+              
+              <DialogContent id={`portfolio-dialog-${item.id}`} className="max-w-4xl p-0 overflow-hidden bg-white dark:bg-slate-900 max-h-[90vh] flex flex-col border-none dark:shadow-2xl">
+                <div className="flex flex-col flex-1 overflow-y-auto">
                 {/* Image Section - Top */}
-                <div className="w-full bg-slate-900 flex items-center justify-center p-8 min-h-[300px] relative shrink-0">
+                <div id={`portfolio-dialog-img-sec-${item.id}`} className="w-full bg-slate-950 flex items-center justify-center p-8 min-h-[300px] relative shrink-0">
                   {item.images && item.images.length > 0 ? (
-                    <Carousel className="w-full max-w-2xl">
+                    <Carousel id={`portfolio-carousel-${item.id}`} className="w-full max-w-2xl">
                       <CarouselContent>
                         {item.images.map((img, idx) => (
                           <CarouselItem key={idx} className="flex items-center justify-center">
                              <img 
-                              src={img} 
-                              alt={`${item.title} - ${idx + 1}`} 
-                              className="max-w-full max-h-[400px] object-contain shadow-2xl rounded-lg"
-                            />
+                               id={`portfolio-dialog-img-${item.id}-${idx}`}
+                               src={img} 
+                               alt={`${item.title} - ${idx + 1}`} 
+                               className="max-w-full max-h-[400px] object-contain shadow-2xl rounded-lg"
+                             />
                           </CarouselItem>
                         ))}
                       </CarouselContent>
@@ -141,78 +148,83 @@ const Portfolio = () => {
                     </Carousel>
                   ) : (
                     <img 
+                      id={`portfolio-dialog-img-single-${item.id}`}
                       src={item.image} 
                       alt={item.title} 
                       className="max-w-full max-h-[400px] object-contain shadow-2xl rounded-lg"
                     />
                   )}
                 </div>
-                
-                {/* Content Section - Bottom */}
-                <div className="w-full p-8 bg-white">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                    <div>
-                      <Badge variant="secondary" className="text-sm font-semibold tracking-wider uppercase text-blue-600 bg-blue-50 mb-3">
-                        {item.category}
-                      </Badge>
-                      <DialogTitle className="text-3xl font-bold text-slate-900">{item.title}</DialogTitle>
-                    </div>
-                    {item.link && item.link !== "#" && (
-                      <Button asChild className="rounded-full bg-blue-600 hover:bg-blue-700 shrink-0">
-                        <a href={item.link} target="_blank" rel="noopener noreferrer">
-                          Visit Website
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                  
-                  <DialogDescription className="text-base leading-relaxed text-slate-600 mb-8">
-                    {item.description}
-                  </DialogDescription>
-
-                  {item.techStack && (
-                    <div className="mb-8">
-                      <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-3 flex items-center gap-2">
-                        <span className="w-1 h-4 bg-blue-500 rounded-full"></span>
-                        Tech Stack
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {item.techStack.map((tech, i) => (
-                          <Badge key={i} variant="outline" className="flex items-center gap-1.5 px-3 py-1 text-slate-700 border-slate-200 bg-slate-50">
-                            {getTechIcon(tech)}
-                            {tech}
+                                {/* Content Section - Bottom */}
+                <div id={`portfolio-dialog-content-sec-${item.id}`} className="w-full bg-white dark:bg-slate-900 flex-1 min-h-0">
+                  <ScrollArea className="h-full">
+                    <div className="p-8">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                        <div>
+                          <Badge variant="secondary" className="text-sm font-semibold tracking-wider uppercase text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 mb-3">
+                            {item.category}
                           </Badge>
-                        ))}
+                          <DialogTitle id={`portfolio-dialog-title-${item.id}`} className="text-3xl font-bold text-slate-900 dark:text-slate-100 text-balance">{item.title}</DialogTitle>
+                        </div>
+                        {item.link && item.link !== "#" && (
+                          <Button id={`btn-portfolio-visit-${item.id}`} asChild className="rounded-full bg-blue-600 hover:bg-blue-700 shrink-0">
+                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                              {content["titles.visitWebsite"]}
+                            </a>
+                          </Button>
+                        )}
                       </div>
-                    </div>
-                  )}
+                      
+                      <DialogDescription id={`portfolio-dialog-desc-${item.id}`} className="text-base leading-relaxed text-slate-600 dark:text-slate-400 mb-8 whitespace-pre-line">
+                        {item.description}
+                      </DialogDescription>
 
-                  {item.features && (
-                    <div className="grid md:grid-cols-2 gap-8">
-                      {item.features.map((section, idx) => (
-                        <Card key={idx} className="border-slate-100 shadow-sm">
-                          <CardContent className="pt-6">
-                            <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-4 flex items-center gap-2">
-                              <span className="w-1 h-4 bg-pink-500 rounded-full"></span>
-                              {section.title}
-                            </h4>
-                            <ul className="space-y-2">
-                              {section.items.map((feature, fIdx) => (
-                                <li key={fIdx} className="text-slate-600 text-sm flex items-start gap-2">
-                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </CardContent>
-                        </Card>
-                      ))}
+                      {item.techStack && (
+                        <div id={`portfolio-tech-stack-${item.id}`} className="mb-8">
+                          <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 uppercase tracking-wide mb-3 flex items-center gap-2">
+                            <span className="w-1 h-4 bg-blue-500 rounded-full"></span>
+                            Tech Stack
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {item.techStack.map((tech, i) => (
+                              <Badge key={i} id={`portfolio-tech-${item.id}-${i}`} variant="outline" className="flex items-center gap-1.5 px-3 py-1 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50">
+                                {getTechIcon(tech)}
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {item.features && (
+                        <div id={`portfolio-features-${item.id}`} className="grid md:grid-cols-2 gap-8">
+                          {item.features.map((section, idx) => (
+                            <Card key={idx} id={`portfolio-feature-card-${item.id}-${idx}`} className="border-slate-100 dark:border-slate-800 shadow-sm dark:bg-slate-900/50">
+                              <CardContent className="pt-6">
+                                <h4 id={`portfolio-feature-title-${item.id}-${idx}`} className="text-sm font-semibold text-slate-900 dark:text-slate-100 uppercase tracking-wide mb-4 flex items-center gap-2">
+                                  <span className="w-1 h-4 bg-pink-500 rounded-full"></span>
+                                  {section.title}
+                                </h4>
+                                <ul id={`portfolio-feature-list-${item.id}-${idx}`} className="space-y-2">
+                                  {section.items.map((feature, fIdx) => (
+                                    <li key={fIdx} id={`portfolio-feature-item-${item.id}-${idx}-${fIdx}`} className="text-slate-600 dark:text-slate-400 text-sm flex items-start gap-2">
+                                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 shrink-0" />
+                                      <span>{feature}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  )}
+                  </ScrollArea>
                 </div>
               </div>
             </DialogContent>
           </Dialog>
+          </Reveal>
         ))}
       </div>
     </section>
