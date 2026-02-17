@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { Button } from "@/components/ui/button"
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, FileText } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -61,31 +62,44 @@ const Header = () => {
         <NavigationMenu id="main-nav" className="hidden md:flex">
           <NavigationMenuList className="space-x-6">
             {['home', 'aboutMe', 'experience', 'education', 'skills', 'portfolio'].map((item, index) => (
-              <motion.li
-                key={item}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="list-none"
-              >
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <a
-                      id={`nav-link-${item}`}
-                      href={`#${item}`}
-                      onClick={(e) => scrollToSection(e, item)}
-                      className="inline-flex items-center rounded-md px-2 py-1.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400"
-                    >
-                      {content[`nav.${item}`]}
-                    </a>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </motion.li>
+              <NavigationMenuItem key={item}>
+                <NavigationMenuLink asChild>
+                  <motion.a
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    id={`nav-link-${item}`}
+                    href={`#${item}`}
+                    onClick={(e) => scrollToSection(e, item)}
+                    className="inline-flex items-center rounded-md px-2 py-1.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+                  >
+                    {content[`nav.${item}`]}
+                  </motion.a>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             ))}
           </NavigationMenuList>
         </NavigationMenu>
  
         <div className="flex items-center gap-2">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="hidden sm:block"
+          >
+            <Button 
+              asChild
+              variant="outline" 
+              size="sm"
+              className="gap-2 mr-2 border-primary/20 hover:bg-primary/10 hover:text-primary dark:border-primary/40 dark:text-slate-200"
+            >
+              <Link to="/cv" target="_blank">
+                <FileText className="w-4 h-4" />
+                {content['nav.downloadCv'] || "CV"}
+              </Link>
+            </Button>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}

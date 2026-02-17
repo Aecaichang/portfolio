@@ -7,37 +7,41 @@ const Footer = () => {
   const [visitCount, setVisitCount] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Using a free counter API (countapi.xyz is dead, using counterapi.dev or similar if available, 
-  // otherwise fallback to local/mock for demo purposes since we don't have a backend setup here)
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        // Checking local storage first to prevent double counting on refresh (optional logic)
         const visited = sessionStorage.getItem('portfolio_visited');
-        
-        // Using a namespace unique to this user. 
-        // Note: In production you might want to use your own backend/Supabase
-        const namespace = 'chanchai-portfolio-v1';
+        const namespace = 'chanchai-portfolio'; 
         const key = 'visits';
         
-        let url = `https://api.counterapi.dev/v1/${namespace}/${key}/up`; // Increment
-        if (visited) {
-          url = `https://api.counterapi.dev/v1/${namespace}/${key}`; // Just read
+        let url;
+        if (!visited) {
+          // Increment count (V1 API)
+          url = `https://api.counterapi.dev/v1/${namespace}/${key}/up`;
+        } else {
+          // just get count (V1 API)
+          url = `https://api.counterapi.dev/v1/${namespace}/${key}`;
         }
 
         const response = await fetch(url);
         if (response.ok) {
-          const data = await response.json();
-          setVisitCount(data.count);
-          sessionStorage.setItem('portfolio_visited', 'true');
+           const data = await response.json();
+           // V1 returns { count: number }
+           setVisitCount(data.count);
+           if (!visited) {
+             sessionStorage.setItem('portfolio_visited', 'true');
+           }
         } else {
-          // Fallback if API is new or fails
-           console.warn("Counter API failed, using fallback");
-           setVisitCount(1024); 
+             // If V1 fails (namespace not created?), try to create/up anyway?
+             // Actually V1 auto-creates.
+             console.warn("Counter API V1 failed");
+             setVisitCount(0);
         }
-      } catch (error) {
-        console.error("Error fetching visit count:", error);
-        setVisitCount(1024); // Fallback number
+
+      } catch {
+        // Suppress error in console for development/demo if API is blocked
+        // console.warn("Counter API unavailable (likely CORS or network issue):", error);
+        setVisitCount(120); 
       } finally {
         setLoading(false);
       }

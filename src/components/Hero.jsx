@@ -201,20 +201,9 @@ const Hero = () => {
               }}
               transition={{ duration: 4, repeat: Infinity }}
             ></motion.div>
-            <Card id="hero-profile-container" className="relative w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden bg-white flex items-center justify-center" style={{ transform: "translateZ(50px)" }}>
-              <CardContent className="p-0 w-full h-full">
-                <img 
-                  id="hero-profile-img"
-                  src="/images/profile.jpg" 
-                  alt="Profile" 
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover" 
-                  loading="eager"
-                  onError={(e) => {e.target.onerror = null; e.target.src = "https://placehold.co/400x400?text=Profile"}} 
-                />
-              </CardContent>
-            </Card>
+            
+            <ProfileImage />
+
             <motion.div 
               id="hero-deco-pink"
               className="absolute -z-10 top-10 -right-10 w-20 h-20 bg-pink-400 rounded-full blur-xl opacity-30"
@@ -236,5 +225,31 @@ const Hero = () => {
     </section>
   );
 };
+
+const ProfileImage = () => (
+  <Card id="hero-profile-container" className="relative w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden bg-white flex items-center justify-center group" style={{ transform: "translateZ(50px)" }}>
+    <CardContent className="p-0 w-full h-full relative">
+      <img 
+        id="hero-profile-img-main"
+        src="/images/profile-new-1.jpg" 
+        alt="Profile" 
+        width={400}
+        height={400}
+        className="w-full h-full object-cover" 
+        loading="eager"
+        onError={(e) => {e.target.onerror = null; e.target.src = "https://placehold.co/400x400?text=Profile"}} 
+      />
+      <img 
+        id="hero-profile-img-hover"
+        src="/images/profile-new-2.jpg" 
+        alt="Profile Alternate" 
+        width={400}
+        height={400}
+        className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100" 
+        loading="eager"
+      />
+    </CardContent>
+  </Card>
+);
 
 export default Hero;

@@ -1,14 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from "@vercel/analytics/react"
-import Header from './components/Header';
-import Hero from './components/Hero';
-import AboutMe from './components/AboutMe';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Certifications from './components/Certifications';
-import Skills from './components/Skills';
-import Portfolio from './components/Portfolio';
-import Footer from './components/Footer';
+import Home from './components/Home';
+import CV from './components/CV';
 
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -19,19 +13,12 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <TooltipProvider>
-          <div className="App min-h-screen bg-background text-foreground transition-colors duration-300">
-            <Header />
-            <Hero />
-            <main>
-              <AboutMe />
-              <Experience />
-              <Education />
-              <Certifications />
-              <Skills />
-              <Portfolio />
-            </main>
-            <Footer />
-          </div>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cv" element={<CV />} />
+            </Routes>
+          </Router>
           <Analytics />
         </TooltipProvider>
       </LanguageProvider>
