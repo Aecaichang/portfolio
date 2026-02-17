@@ -23,8 +23,18 @@ const Skills = () => {
       <div id="skills-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skills.map((category, index) => (
           <Reveal key={index} width="100%" delay={index * 0.05}>
-            <Card id={`skills-card-${index}`} className="h-full hover:shadow-lg transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-1 dark:bg-slate-900/80 dark:border-slate-800">
+            <Card
+              id={`skills-card-${index}`}
+              className={`h-full hover:shadow-lg transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-1 dark:bg-slate-900/80 dark:border-slate-800 ${
+                category.targetRole ? "ring-1 ring-blue-200 dark:ring-blue-900/50" : ""
+              }`}
+            >
               <CardHeader id={`skills-header-${index}`} className="pb-3">
+                {category.targetRole && (
+                  <Badge variant="outline" className="w-fit mx-auto mb-2 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30">
+                    {category.targetRole}
+                  </Badge>
+                )}
                 <CardTitle id={`skills-category-${index}`} className="text-xl text-center text-slate-800 dark:text-slate-100 border-b pb-2 border-slate-100 dark:border-slate-800">
                   {category.category}
                 </CardTitle>

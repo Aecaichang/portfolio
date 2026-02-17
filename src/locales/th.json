@@ -1,191 +1,308 @@
 {
-    "nav.home": "หน้าหลัก",
-    "nav.experience": "ประสบการณ์ทำงาน",
-    "nav.education": "การศึกษา",
-    "nav.skills": "ทักษะ",
-    "nav.portfolio": "ผลงาน",
-    "nav.contact": "ติดต่อฉัน",
-    "nav.downloadCv": "ดาวน์โหลด CV",
-    "titles.experience": "ประสบการณ์ทำงาน",
-    "titles.education": "การศึกษา",
-    "titles.skills": "ทักษะและความเชี่ยวชาญ",
-    "titles.certifications": "ใบอนุญาตและใบรับรอง",
-    "titles.featuredWorks": "ผลงานเด่น",
-    "titles.viewProject": "ดูโปรเจกต์",
-    "titles.visitWebsite": "เยี่ยมชมเว็บไซต์",
-    "personalInfo.name": "ชาญชัย ทะสุใจ",
-
-    "personalInfo.phone": "098-650-9392",
-    "personalInfo.email": "aecaicahng@gmail.com",
-    "personalInfo.location": "ลำพูน, ไทย",
-    "personalInfo.birthDate": "1993-07-13",
-    "personalInfo.socials.github": "https://github.com/Aecaichang",
-    "personalInfo.socials.linkedin": "https://www.linkedin.com/in/chanchai-tasujai-030781214/",
-    "personalInfo.socials.facebook": "https://www.facebook.com/aechanchaieiei",
-    "personalInfo.socials.line": "https://line.me/ti/p/~aecaichang",
-    "education": [
-      {
-        "degree": "ปริญญาตรี เทคโนโลยีสารสนเทศ",
-        "university": "มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา",
-        "year": "จบการศึกษา",
-        "honors": "เกรดเฉลี่ย: 3.44",
-        "description": "" 
-      },
-      {
-        "degree": "มัธยมศึกษา",
-        "university": "โรงเรียนจักรคำคณาทร จังหวัดลำพูน",
-        "year": "",
-        "honors": "",
-        "description": ""
-      }
-    ],
-    "certifications": [
-      {
-        "name": "Green Digital Skills",
-        "issuer": "INCO",
-        "date": "ได้รับเมื่อ มิ.ย. 2023",
-        "credentialId": "1193903779CT",
-        "link": "#"
-      },
-      {
-        "name": "Automated Software Tester รุ่นที่ 2",
-        "issuer": "indythaitester",
-        "skill": "Software Testing",
-        "date": "",
-        "link": "#"
-      }
-    ],
-    "skills": [
-      { "category": "ภาษา", "items": ["ไทย (เจ้าของภาษา)", "อังกฤษ (ระดับเบื้องต้น)"] },
-      { "category": "Technical", "items": ["JavaScript/TypeScript", "React", "Node.js", "Python", "SQL", ".NET/C#"] },
-      { "category": "AI & Automation", "items": ["Generative AI", "Prompt Engineering", "Cursor / Copilot", "Stable Diffusion"] },
-      { "category": "Testing & Tools", "items": ["Selenium", "Robot Framework", "Postman", "Jira", "Git", "Figma"] },
-      { "category": "Development Tools", "items": ["Android Studio", "Xcode", "VSCode", "DBeaver", "Supabase", "Antigravity"] },
-      { "category": "Soft Skills", "items": ["ภาวะผู้นำ", "การสื่อสาร", "การแก้ปัญหา", "Agile/Scrum"] }
-    ],
-    "experience": [
-      {
-        "company": "บริษัท ซีบิกซ์ จำกัด (Zeabix)",
-        "type": "งานประจำ · 9 เดือน",
-        "location": "กรุงเทพมหานคร, ไทย",
-        "roles": [
-          {
-            "title": "ผู้จัดการโครงการ (Project Manager)",
-            "period": "ต.ค. 2025 - ปัจจุบัน · 4 เดือน",
-            "description": [
-              "บริหารทีมพัฒนาและจัดการกรอบเวลาของโครงการ"
-            ]
-          },
-          {
-            "title": "นักทดสอบซอฟต์แวร์อาวุโส (Senior Software Tester)",
-            "period": "พ.ค. 2025 - ต.ค. 2025 · 6 เดือน",
-            "description": [
-              "ดูแลคุณภาพซอฟต์แวร์ผ่านการทดสอบอย่างเข้มข้นและการทดสอบอัตโนมัติ"
-            ]
-          }
-        ]
-      },
-      {
-        "company": "Green2Get",
-        "type": "งานประจำ",
-        "location": "เชียงใหม่, ไทย · ไฮบริด",
-        "roles": [
-          {
-            "title": "นักทดสอบซอฟต์แวร์ (Software Tester)",
-            "period": "เม.ย. 2021 - มี.ค. 2025 · 4 ปี",
-            "description": [
-              "System Analysis & Design: วิเคราะห์ความต้องการและออกแบบโครงสร้างระบบ",
-              "Project Management: บริหารโครงการและประสานงานทีม",
-              "QA & Testing: ออกแบบ Test Cases และทดสอบระบบ (Manual/Functional)",
-              "Infrastructure: ดูแล Server และ Database",
-              "Issue Tracking: จัดการบั๊กและวิเคราะห์สาเหตุปัญหา"
-            ]
-          }
-        ]
-      },
-      {
-        "company": "วิทยาลัยอาชีวศึกษาเอกปัญญาหริภุญชัย",
-        "type": "งานประจำ",
-        "location": "ลำพูน, ไทย",
-        "roles": [
-          {
-            "title": "ครูคอมพิวเตอร์",
-            "period": "เม.ย. 2020 - มี.ค. 2021 · 1 ปี",
-            "description": [
-              "การจัดการเรียนการสอน: รับผิดชอบการสอนในรายวิชา วิทยาการคอมพิวเตอร์และเทคโนโลยี โดยถ่ายทอดความรู้ทางด้านทฤษฎีและปฏิบัติให้กับนักเรียนในระดับอาชีวศึกษา",
-              "การเตรียมหลักสูตร: วางแผนการสอนที่สอดคล้องกับเทคโนโลยีในปัจจุบัน เพื่อพัฒนาทักษะดิจิทัลให้กับผู้เรียน",
-              "การวัดและประเมินผล: ติดตามความก้าวหน้าของผู้เรียนผ่านการทำกิจกรรมและโปรเจกต์ต่าง ๆ ทางคอมพิวเตอร์"
-            ]
-          }
-        ]
-      },
-      {
-        "company": "Nextzy Technologies",
-        "type": "งานประจำ",
-        "location": "กรุงเทพมหานคร, ไทย",
-        "roles": [
-          {
-            "title": "QA Engineer",
-            "period": "ต.ค. 2018 - ม.ค. 2020 · 1 ปี 4 เดือน",
-            "description": [
-              "ประกันคุณภาพและทดสอบโซลูชันซอฟต์แวร์ระดับองค์กร"
-            ]
-          }
-        ]
-      }
-    ],
-    "portfolio": [
-      {
-        "id": 4,
-        "title": "ระบบจัดการขนส่ง",
-        "category": "เว็บแอปพลิเคชัน",
-        "images": [
-          "/images/suchada2019.png"
+  "nav.home": "หน้าหลัก",
+  "nav.experience": "ประสบการณ์ทำงาน",
+  "nav.education": "การศึกษา",
+  "nav.skills": "ทักษะ",
+  "nav.portfolio": "ผลงาน",
+  "nav.contact": "ติดต่อฉัน",
+  "nav.downloadCv": "ดาวน์โหลด CV",
+  "titles.experience": "ประสบการณ์ทำงาน",
+  "titles.education": "การศึกษา",
+  "titles.skills": "ทักษะและความเชี่ยวชาญ",
+  "titles.certifications": "ใบอนุญาตและใบรับรอง",
+  "titles.featuredWorks": "ผลงานเด่น",
+  "titles.viewProject": "ดูโปรเจกต์",
+  "titles.visitWebsite": "เยี่ยมชมเว็บไซต์",
+  "personalInfo.name": "ชาญชัย ทะสุใจ",
+  "personalInfo.phone": "098-650-9392",
+  "personalInfo.email": "aecaicahng@gmail.com",
+  "personalInfo.location": "ลำพูน, ไทย",
+  "personalInfo.birthDate": "1993-07-13",
+  "personalInfo.socials.github": "https://github.com/Aecaichang",
+  "personalInfo.socials.linkedin": "https://www.linkedin.com/in/chanchai-tasujai-030781214/",
+  "personalInfo.socials.facebook": "https://www.facebook.com/aechanchaieiei",
+  "personalInfo.socials.line": "https://line.me/ti/p/~aecaichang",
+  "education": [
+    {
+      "degree": "ปริญญาตรี เทคโนโลยีสารสนเทศ",
+      "university": "มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา",
+      "year": "จบการศึกษา",
+      "honors": "เกรดเฉลี่ย: 3.44",
+      "description": ""
+    },
+    {
+      "degree": "มัธยมศึกษา",
+      "university": "โรงเรียนจักรคำคณาทร จังหวัดลำพูน",
+      "year": "",
+      "honors": "",
+      "description": ""
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Green Digital Skills",
+      "issuer": "INCO",
+      "date": "ได้รับเมื่อ มิ.ย. 2023",
+      "credentialId": "1193903779CT",
+      "link": "#"
+    },
+    {
+      "name": "Automated Software Tester รุ่นที่ 2",
+      "issuer": "indythaitester",
+      "skill": "Software Testing",
+      "date": "2024",
+      "link": "#"
+    },
+    {
+      "name": "Generative AI for Productivity (Self Learning Track)",
+      "issuer": "Online Learning",
+      "skill": "Generative AI",
+      "date": "2025",
+      "link": "#"
+    }
+  ],
+  "skills": [
+    {
+      "category": "PM Highlight",
+      "targetRole": "Project Manager",
+      "items": [
+        "Agile/Scrum",
+        "Sprint Planning",
+        "Stakeholder Management",
+        "Project Roadmap",
+        "Jira"
+      ]
+    },
+    {
+      "category": "QA Highlight",
+      "targetRole": "Senior QA/Tester",
+      "items": [
+        "Test Strategy",
+        "Regression Testing",
+        "Selenium",
+        "Robot Framework",
+        "Postman",
+        "Root Cause Analysis"
+      ]
+    },
+    {
+      "category": "Technical",
+      "items": [
+        "JavaScript/TypeScript",
+        "React",
+        "Node.js",
+        "Python",
+        "SQL",
+        ".NET/C#"
+      ]
+    },
+    {
+      "category": "AI & Automation",
+      "items": [
+        "Generative AI",
+        "Prompt Engineering",
+        "Gemini API",
+        "Cursor / Copilot",
+        "Stable Diffusion"
+      ]
+    },
+    {
+      "category": "Development Tools",
+      "items": [
+        "Git",
+        "Figma",
+        "Supabase",
+        "DBeaver",
+        "VSCode",
+        "Android Studio",
+        "Xcode"
+      ]
+    },
+    {
+      "category": "ภาษา",
+      "items": [
+        "ไทย (เจ้าของภาษา)",
+        "อังกฤษ (ระดับใช้งาน)"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "บริษัท ซีบิกซ์ จำกัด (Zeabix)",
+      "type": "งานประจำ · 9 เดือน",
+      "location": "กรุงเทพมหานคร, ไทย",
+      "roles": [
+        {
+          "title": "ผู้จัดการโครงการ (Project Manager)",
+          "period": "ต.ค. 2025 - ปัจจุบัน · 4 เดือน",
+          "description": [
+            "วางแผนและควบคุมงานพัฒนาโครงการ ATP30 ตั้งแต่ Scope, Timeline จนถึง UAT",
+            "ประสานงานระหว่างทีมธุรกิจ ลูกค้า และทีมพัฒนาเพื่อลดความคลาดเคลื่อนของ requirement"
+          ],
+          "achievements": [
+            "ส่งมอบ milestone ฝั่ง UAT ได้ตามกำหนด ภายใต้ทรัพยากรทีมที่จำกัด",
+            "ลดรอบการแก้ requirement ซ้ำด้วยการทำ backlog grooming และ acceptance criteria ที่ชัดเจน"
+          ],
+          "leadership": [
+            "บริหาร stakeholder หลายฝ่ายให้เห็นภาพความเสี่ยงและลำดับความสำคัญเดียวกัน",
+            "ขับเคลื่อน Agile ceremonies (Sprint Planning, Daily Stand-up, Retrospective) ให้ทีมทำงานต่อเนื่อง"
+          ]
+        },
+        {
+          "title": "นักทดสอบซอฟต์แวร์อาวุโส (Senior Software Tester)",
+          "period": "พ.ค. 2025 - ต.ค. 2025 · 6 เดือน",
+          "description": [
+            "ออกแบบ test strategy และบริหาร regression test ของระบบสำคัญ",
+            "ดูแลคุณภาพซอฟต์แวร์ทั้ง Manual และ Automated Testing"
+          ],
+          "achievements": [
+            "ลดเวลาทำ Regression Test ลง 40% ด้วยการนำ Robot Framework มาช่วยอัตโนมัติ",
+            "ลด defect หลุดถึง production ด้วยการเพิ่ม risk-based test และ traceability ของ test case"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Green2Get",
+      "type": "งานประจำ",
+      "location": "เชียงใหม่, ไทย · ไฮบริด",
+      "roles": [
+        {
+          "title": "นักทดสอบซอฟต์แวร์ (Software Tester)",
+          "period": "เม.ย. 2021 - มี.ค. 2025 · 4 ปี",
+          "description": [
+            "System Analysis & Design: วิเคราะห์ความต้องการและออกแบบโครงสร้างระบบ",
+            "Project Management: บริหารโครงการและประสานงานทีม",
+            "QA & Testing: ออกแบบ Test Cases และทดสอบระบบ (Manual/Functional)",
+            "Infrastructure: ดูแล Server และ Database",
+            "Issue Tracking: จัดการบั๊กและวิเคราะห์สาเหตุปัญหา"
+          ],
+          "achievements": [
+            "เพิ่มความครอบคลุมของ test case ในโมดูลสำคัญจนลดปัญหาซ้ำหลัง release",
+            "ปรับ workflow การรายงานบั๊กให้ทีม dev แก้ไขเร็วขึ้นและลดเวลา re-test"
+          ],
+          "leadership": [
+            "ทำงานร่วมกับลูกค้าองค์กรขนาดใหญ่ เช่น LION และ SPRC ในการจัดลำดับ requirement",
+            "เป็นตัวกลางสื่อสารระหว่างทีมเทคนิคและทีมใช้งานจริง เพื่อลดความไม่ตรงกันของความต้องการ"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "วิทยาลัยอาชีวศึกษาเอกปัญญาหริภุญชัย",
+      "type": "งานประจำ",
+      "location": "ลำพูน, ไทย",
+      "roles": [
+        {
+          "title": "ครูคอมพิวเตอร์",
+          "period": "เม.ย. 2020 - มี.ค. 2021 · 1 ปี",
+          "description": [
+            "การจัดการเรียนการสอน: รับผิดชอบการสอนในรายวิชา วิทยาการคอมพิวเตอร์และเทคโนโลยี โดยถ่ายทอดความรู้ทางด้านทฤษฎีและปฏิบัติให้กับนักเรียนในระดับอาชีวศึกษา",
+            "การเตรียมหลักสูตร: วางแผนการสอนที่สอดคล้องกับเทคโนโลยีในปัจจุบัน เพื่อพัฒนาทักษะดิจิทัลให้กับผู้เรียน",
+            "การวัดและประเมินผล: ติดตามความก้าวหน้าของผู้เรียนผ่านการทำกิจกรรมและโปรเจกต์ต่าง ๆ ทางคอมพิวเตอร์"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Nextzy Technologies",
+      "type": "งานประจำ",
+      "location": "กรุงเทพมหานคร, ไทย",
+      "roles": [
+        {
+          "title": "QA Engineer",
+          "period": "ต.ค. 2018 - ม.ค. 2020 · 1 ปี 4 เดือน",
+          "description": [
+            "ประกันคุณภาพและทดสอบโซลูชันซอฟต์แวร์ระดับองค์กร"
+          ]
+        }
+      ]
+    }
+  ],
+  "portfolio": [
+    {
+      "id": 4,
+      "title": "ระบบจัดการขนส่ง (ShipManager)",
+      "category": "เว็บแอปพลิเคชัน",
+      "images": [
+        "/images/suchada2019.png"
+      ],
+      "image": "/images/suchada2019.png",
+      "description": "ระบบบริหารงานขนส่งสำหรับ หจก. สุชาดา 2019 ที่เชื่อม AI OCR + LINE Bot + Dashboard เข้าด้วยกัน เพื่อลดงานเอกสารและเพิ่มความแม่นยำของข้อมูล",
+      "caseStudy": {
+        "problem": [
+          "คีย์ข้อมูลจากสลิปและใบเสร็จด้วยมือ ทำให้เกิด human error บ่อย",
+          "ค้นหาเอกสารย้อนหลังยากและใช้เวลามาก",
+          "การสรุปต้นทุนต่อเที่ยวล่าช้า ทำให้ตัดสินใจหน้างานไม่ทัน"
         ],
-        "image": "/images/suchada2019.png",
-        "description": "ShipManager - ระบบบริหารจัดการงานขนส่งและโลจิสติกส์ครบวงจร สำหรับ หจก. สุชาดา 2019 โดดเด่นด้วยระบบ AI OCR อ่านข้อมูลอัตโนมัติจากสลิปและใบเสร็จ, เชื่อมต่อ LINE Bot เพื่ออัปโหลดข้อมูลได้ทันที, รองรับการคำนวณค่าขนส่งทั้งแบบทั่วไปและแจกวัว พร้อมระบบ Export Excel และ Dashboard สรุปผลครบครัน",
-        "techStack": [
-          "React 19 + Vite",
-          "DaisyUI + Tailwind CSS",
-          "React Router v7",
-          "TanStack Query",
-          "Supabase (PostgreSQL)",
-          "Supabase Auth",
-          "Google Gemini 2.0 Flash",
-          "LINE Messaging API",
-          "Google Drive API",
-          "Firebase (Notifications)",
-          "Deno (Edge Functions)",
-          "ExcelJS",
-          "Google Analytics 4",
-          "Vercel"
+        "solution": [
+          "ใช้ Gemini OCR อ่านข้อมูลจากสลิป/ใบเสร็จอัตโนมัติและบันทึกเข้า Supabase",
+          "พนักงานอัปโหลดเอกสารผ่าน LINE Bot ได้ทันทีจากหน้างาน",
+          "ทำ dashboard และ export รายงาน Excel เพื่อให้ทีมบัญชีและผู้บริหารใช้งานเร็วขึ้น"
         ],
-        "features": [
-          {
-            "title": "Core Modules",
-            "items": [
-              "บันทึกรายการขนส่ง - จัดการรายการขนส่งทั้งแบบทั่วไปและแจกวัว",
-              "บันทึกค่าใช้จ่าย - ติดตามค่าใช้จ่ายและเงินเบิกคนขับ",
-              "บันทึกเชื้อเพลิง - บันทึกการเติมน้ำมันและคำนวณต้นทุน",
-              "จัดการคนขับรถ - ข้อมูลพนักงานขับรถและรายได้",
-              "จัดการข้อมูลรถ - ทะเบียนรถและข้อมูลรถ",
-              "ระบบ OCR - อ่านข้อมูลจากสลิปและใบเสร็จด้วย AI (Shipping, Fuel, Expense)",
-              "รายงาน - Dashboard และรายงานสรุปต่างๆ"
-            ]
-          },
-          {
-            "title": "Key Features",
-            "items": [
-              "AI Powered OCR: อ่านข้อมูลอัตโนมัติจากสลิปโอนเงิน (Expense), ใบเสร็จน้ำมัน (Fuel), ใบจ้างขนส่ง (Shipping)",
-              "LINE Bot Integration: อัปโหลดรูปสลิปผ่าน LINE บันทึกเข้า Drive และ Database อัตโนมัติ",
-              "ประเภทการขนส่ง 2 แบบ: ทั่วไป และ แจกวัว (คำนวณจากน้ำหนัก)",
-              "Excel Export: ส่งออกข้อมูลเป็น Excel พร้อมขอบและสีสวยงาม",
-              "Google Analytics: ติดตามการใช้งาน",
-              "Responsive Design & Modern UI (DaisyUI + TailwindCSS)"
-            ]
-          }
+        "impact": [
+          "ลดเวลางานเอกสารซ้ำซ้อนต่อวันของทีมปฏิบัติการได้อย่างมีนัยสำคัญ",
+          "ลดความผิดพลาดจากการคีย์ข้อมูลมือในรายการค่าใช้จ่ายและเชื้อเพลิง",
+          "ผู้บริหารเห็นต้นทุนและผลประกอบการต่อรอบขนส่งได้เร็วขึ้น"
         ],
-        "link": "#"
-      }
-    ]
+        "architecture": [
+          "React Web App -> Supabase (PostgreSQL/Auth/Storage)",
+          "LINE Bot -> Webhook/Edge Functions (Deno) -> Database",
+          "Gemini API -> OCR/Extract -> Validate -> Save",
+          "Dashboard/Excel Export -> รายงานสำหรับปฏิบัติการและผู้บริหาร"
+        ]
+      },
+      "techStack": [
+        "React 19 + Vite",
+        "DaisyUI + Tailwind CSS",
+        "React Router v7",
+        "TanStack Query",
+        "Supabase (PostgreSQL)",
+        "Supabase Auth",
+        "Google Gemini 2.0 Flash",
+        "LINE Messaging API",
+        "Google Drive API",
+        "Firebase (Notifications)",
+        "Deno (Edge Functions)",
+        "ExcelJS",
+        "Google Analytics 4",
+        "Vercel"
+      ],
+      "features": [
+        {
+          "title": "Core Modules",
+          "items": [
+            "บันทึกรายการขนส่ง - จัดการรายการขนส่งทั้งแบบทั่วไปและแจกวัว",
+            "บันทึกค่าใช้จ่าย - ติดตามค่าใช้จ่ายและเงินเบิกคนขับ",
+            "บันทึกเชื้อเพลิง - บันทึกการเติมน้ำมันและคำนวณต้นทุน",
+            "จัดการคนขับรถ - ข้อมูลพนักงานขับรถและรายได้",
+            "จัดการข้อมูลรถ - ทะเบียนรถและข้อมูลรถ",
+            "ระบบ OCR - อ่านข้อมูลจากสลิปและใบเสร็จด้วย AI (Shipping, Fuel, Expense)",
+            "รายงาน - Dashboard และรายงานสรุปต่างๆ"
+          ]
+        },
+        {
+          "title": "Key Features",
+          "items": [
+            "AI Powered OCR: อ่านข้อมูลอัตโนมัติจากสลิปโอนเงิน, ใบเสร็จน้ำมัน, ใบจ้างขนส่ง",
+            "LINE Bot Integration: อัปโหลดรูปสลิปผ่าน LINE และบันทึกเข้า Drive/Database อัตโนมัติ",
+            "รองรับการขนส่ง 2 รูปแบบ: ทั่วไป และแบบคำนวณตามน้ำหนัก",
+            "Excel Export: ส่งออกข้อมูลพร้อมรูปแบบรายงานใช้งานจริง",
+            "Responsive Design: รองรับการใช้งานบนมือถือและเดสก์ท็อป"
+          ]
+        }
+      ],
+      "link": "https://github.com/Aecaichang",
+      "sourceCode": "https://github.com/Aecaichang",
+      "article": "#"
+    }
+  ],
+  "titles.keyAchievements": "ผลงานที่วัดผลได้",
+  "titles.softLeadership": "Soft Skills & Leadership",
+  "titles.businessImpact": "Business Impact",
+  "titles.problem": "ปัญหาก่อนพัฒนา",
+  "titles.solution": "แนวทางแก้ไข",
+  "titles.architecture": "System Architecture",
+  "titles.sourceCode": "ดูซอร์สโค้ด",
+  "titles.readArticle": "อ่านบทความ"
 }

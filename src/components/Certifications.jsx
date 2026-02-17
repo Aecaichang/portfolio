@@ -27,20 +27,20 @@ const Certifications = () => {
           <Reveal key={index} width="100%" delay={index * 0.1}>
             <Card id={`cert-card-${index}`} className="flex flex-col h-full hover:shadow-lg transition-[box-shadow,background-color,border-color] duration-300 dark:bg-slate-900/80 dark:border-slate-800">
               <CardHeader id={`cert-header-${index}`} className="flex flex-row gap-4 space-y-0 pb-4">
-                <div id={`cert-issuer-icon-${index}`} className="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl font-bold text-slate-600 dark:text-slate-400 shrink-0">
+                <div id={`cert-issuer-icon-${index}`} className="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl font-bold text-slate-600 dark:text-slate-300 shrink-0">
                    {cert.issuer.charAt(0)}
                 </div>
                 <div className="flex-1 min-w-0">
                   <CardTitle id={`cert-name-${index}`} className="text-lg font-semibold leading-tight mb-1 truncate text-balance dark:text-slate-100" title={cert.name}>
                     {cert.name}
                   </CardTitle>
-                  <p id={`cert-issuer-name-${index}`} className="text-sm font-medium text-slate-500 dark:text-slate-400 text-balance">{cert.issuer}</p>
+                  <p id={`cert-issuer-name-${index}`} className="text-sm font-medium text-slate-600 dark:text-slate-300 text-balance">{cert.issuer}</p>
                 </div>
               </CardHeader>
               <CardContent id={`cert-content-${index}`} className="flex-1 flex flex-col pt-0">
                 <div className="space-y-2 mb-4 flex-1">
-                   {cert.date && <p id={`cert-date-${index}`} className="text-sm text-slate-500 dark:text-slate-400 tabular-nums">{cert.date}</p>}
-                   {cert.credentialId && <p id={`cert-cred-id-${index}`} className="text-xs text-slate-400 dark:text-slate-500 font-mono tabular-nums">ID: {cert.credentialId}</p>}
+                   {cert.date && <p id={`cert-date-${index}`} className="text-sm text-slate-600 dark:text-slate-300 tabular-nums">{cert.date}</p>}
+                   {cert.credentialId && <p id={`cert-cred-id-${index}`} className="text-xs text-slate-600 dark:text-slate-300 font-mono tabular-nums">ID: {cert.credentialId}</p>}
                    {cert.skill && (
                       <Badge id={`cert-skill-${index}`} variant="outline" className="mt-2 text-xs font-normal border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30">
                         💎 {cert.skill}

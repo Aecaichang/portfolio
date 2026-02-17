@@ -1,191 +1,308 @@
 {
-    "nav.home": "Home",
-    "nav.experience": "Experience",
-    "nav.education": "Education",
-    "nav.skills": "Skills",
-    "nav.portfolio": "Portfolio",
-    "nav.contact": "Contact Me",
-    "nav.downloadCv": "Download CV",
-    "titles.experience": "Work Experience",
-    "titles.education": "Education",
-    "titles.skills": "Skills & Expertise",
-    "titles.certifications": "Licenses & Certifications",
-    "titles.featuredWorks": "Featured Works",
-    "titles.viewProject": "View Project",
-    "titles.visitWebsite": "Visit Website",
-    "personalInfo.name": "Chanchai Tasujai",
-
-    "personalInfo.phone": "081-234-5678",
-    "personalInfo.email": "aecaicahng@gmail.com",
-    "personalInfo.location": "Lamphun, Thailand",
-    "personalInfo.birthDate": "1994-01-01",
-    "personalInfo.socials.github": "https://github.com/Aecaichang",
-    "personalInfo.socials.linkedin": "https://www.linkedin.com/in/chanchai-tasujai-030781214/",
-    "personalInfo.socials.facebook": "https://www.facebook.com/aechanchaieiei",
-    "personalInfo.socials.line": "https://line.me/ti/p/~aecaichang",
-    "education": [
-      {
-        "degree": "Bachelor's degree, Information Technology",
-        "university": "Rajamangala University of Technology Lanna",
-        "year": "Graduated",
-        "honors": "Grade: 3.44",
-        "description": ""
-      },
-      {
-        "degree": "High School",
-        "university": "Chakkham Khanathon School, Lamphun",
-        "year": "",
-        "honors": "",
-        "description": ""
-      }
-    ],
-    "certifications": [
-      {
-        "name": "Green Digital Skills",
-        "issuer": "INCO",
-        "date": "Issued Jun 2023",
-        "credentialId": "1193903779CT",
-        "link": "#"
-      },
-      {
-        "name": "Automated Software Tester Class 2",
-        "issuer": "indythaitester",
-        "skill": "Software Testing",
-        "date": "",
-        "link": "#"
-      }
-    ],
-    "skills": [
-      { "category": "Languages", "items": ["Thai (Native)", "English (Basic)"] },
-      { "category": "Technical", "items": ["JavaScript/TypeScript", "React", "Node.js", "Python", "SQL", ".NET/C#"] },
-      { "category": "AI & Automation", "items": ["Generative AI", "Prompt Engineering", "Cursor / Copilot", "Stable Diffusion"] },
-      { "category": "Testing & Tools", "items": ["Selenium", "Robot Framework", "Postman", "Jira", "Git", "Figma"] },
-      { "category": "Development Tools", "items": ["Android Studio", "Xcode", "VSCode", "DBeaver", "Supabase", "Antigravity"] },
-      { "category": "Soft Skills", "items": ["Leadership", "Communication", "Problem Solving", "Agile/Scrum"] }
-    ],
-    "experience": [
-      {
-        "company": "Zeabix Company Limited",
-        "type": "Full-time · 9 mos",
-        "location": "Bangkok, Thailand",
-        "roles": [
-          {
-            "title": "Project Manager",
-            "period": "Oct 2025 - Present · 4 mos",
-            "description": [
-              "Leading development teams and managing project timelines."
-            ]
-          },
-          {
-            "title": "Senior Software Tester",
-            "period": "May 2025 - Oct 2025 · 6 mos",
-            "description": [
-              "Ensured software quality through rigorous testing and test automation."
-            ]
-          }
-        ]
-      },
-      {
-        "company": "Green2Get",
-        "type": "Full-time",
-        "location": "Chiang Mai, Thailand · Hybrid",
-        "roles": [
-          {
-            "title": "Software Tester",
-            "period": "Apr 2021 - Mar 2025 · 4 yrs",
-            "description": [
-              "System Analysis & Design: Analyzed requirements and designed system architecture.",
-              "Project Management: Managed timelines and coordinated with teams.",
-              "QA & Testing: Designed Test Cases and performed Manual/Functional testing.",
-              "Infrastructure: Managed Server and Database stability.",
-              "Issue Tracking: Handled bug tracking and Root Cause Analysis."
-            ]
-          }
-        ]
-      },
-      {
-        "company": "Ekapanya Hariphunchai Vocational College",
-        "type": "Full-time",
-        "location": "Lamphun, Thailand",
-        "roles": [
-          {
-            "title": "Computer Teacher",
-            "period": "Apr 2020 - Mar 2021 · 1 yr",
-            "description": [
-              "Teaching Management: Responsible for teaching Computer Science and Technology subjects, imparting theoretical and practical knowledge to vocational students.",
-              "Curriculum Preparation: Planning lessons aligned with current technology to develop digital skills for learners.",
-              "Measurement and Evaluation: Monitoring student progress through various computer activities and projects."
-            ]
-          }
-        ]
-      },
-      {
-        "company": "Nextzy Technologies",
-        "type": "Full-time",
-        "location": "Bangkok City, Thailand",
-        "roles": [
-          {
-            "title": "Software Quality Assurance Engineer",
-            "period": "Oct 2018 - Jan 2020 · 1 yr 4 mos",
-            "description": [
-              "Quality assurance and testing for enterprise software solutions."
-            ]
-          }
-        ]
-      }
-    ],
-    "portfolio": [
-      {
-        "id": 4,
-        "title": "Suchada 2019 TMS",
-        "category": "Web Application",
-        "images": [
-          "/images/suchada2019.png"
+  "nav.home": "Home",
+  "nav.experience": "Experience",
+  "nav.education": "Education",
+  "nav.skills": "Skills",
+  "nav.portfolio": "Portfolio",
+  "nav.contact": "Contact Me",
+  "nav.downloadCv": "Download CV",
+  "titles.experience": "Work Experience",
+  "titles.education": "Education",
+  "titles.skills": "Skills & Expertise",
+  "titles.certifications": "Licenses & Certifications",
+  "titles.featuredWorks": "Featured Works",
+  "titles.viewProject": "View Project",
+  "titles.visitWebsite": "Visit Website",
+  "personalInfo.name": "Chanchai Tasujai",
+  "personalInfo.phone": "081-234-5678",
+  "personalInfo.email": "aecaicahng@gmail.com",
+  "personalInfo.location": "Lamphun, Thailand",
+  "personalInfo.birthDate": "1994-01-01",
+  "personalInfo.socials.github": "https://github.com/Aecaichang",
+  "personalInfo.socials.linkedin": "https://www.linkedin.com/in/chanchai-tasujai-030781214/",
+  "personalInfo.socials.facebook": "https://www.facebook.com/aechanchaieiei",
+  "personalInfo.socials.line": "https://line.me/ti/p/~aecaichang",
+  "education": [
+    {
+      "degree": "Bachelor's degree, Information Technology",
+      "university": "Rajamangala University of Technology Lanna",
+      "year": "Graduated",
+      "honors": "Grade: 3.44",
+      "description": ""
+    },
+    {
+      "degree": "High School",
+      "university": "Chakkham Khanathon School, Lamphun",
+      "year": "",
+      "honors": "",
+      "description": ""
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Green Digital Skills",
+      "issuer": "INCO",
+      "date": "Issued Jun 2023",
+      "credentialId": "1193903779CT",
+      "link": "#"
+    },
+    {
+      "name": "Automated Software Tester Class 2",
+      "issuer": "indythaitester",
+      "skill": "Software Testing",
+      "date": "2024",
+      "link": "#"
+    },
+    {
+      "name": "Generative AI for Productivity (Self Learning Track)",
+      "issuer": "Online Learning",
+      "skill": "Generative AI",
+      "date": "2025",
+      "link": "#"
+    }
+  ],
+  "skills": [
+    {
+      "category": "PM Highlight",
+      "targetRole": "Project Manager",
+      "items": [
+        "Agile/Scrum",
+        "Sprint Planning",
+        "Stakeholder Management",
+        "Project Roadmap",
+        "Jira"
+      ]
+    },
+    {
+      "category": "QA Highlight",
+      "targetRole": "Senior QA/Tester",
+      "items": [
+        "Test Strategy",
+        "Regression Testing",
+        "Selenium",
+        "Robot Framework",
+        "Postman",
+        "Root Cause Analysis"
+      ]
+    },
+    {
+      "category": "Technical",
+      "items": [
+        "JavaScript/TypeScript",
+        "React",
+        "Node.js",
+        "Python",
+        "SQL",
+        ".NET/C#"
+      ]
+    },
+    {
+      "category": "AI & Automation",
+      "items": [
+        "Generative AI",
+        "Prompt Engineering",
+        "Gemini API",
+        "Cursor / Copilot",
+        "Stable Diffusion"
+      ]
+    },
+    {
+      "category": "Development Tools",
+      "items": [
+        "Git",
+        "Figma",
+        "Supabase",
+        "DBeaver",
+        "VSCode",
+        "Android Studio",
+        "Xcode"
+      ]
+    },
+    {
+      "category": "Languages",
+      "items": [
+        "Thai (Native)",
+        "English (Working proficiency)"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Zeabix Company Limited",
+      "type": "Full-time · 9 mos",
+      "location": "Bangkok, Thailand",
+      "roles": [
+        {
+          "title": "Project Manager",
+          "period": "Oct 2025 - Present · 4 mos",
+          "description": [
+            "Led ATP30 project delivery from scope planning through UAT milestones.",
+            "Aligned business, client, and engineering teams to reduce requirement gaps."
+          ],
+          "achievements": [
+            "Delivered UAT milestone on schedule under constrained team capacity.",
+            "Reduced repeated requirement rework by improving backlog grooming and acceptance criteria."
+          ],
+          "leadership": [
+            "Managed cross-functional stakeholders with clear risk and priority communication.",
+            "Drove Agile ceremonies (Sprint Planning, Daily Stand-up, Retrospective) for execution consistency."
+          ]
+        },
+        {
+          "title": "Senior Software Tester",
+          "period": "May 2025 - Oct 2025 · 6 mos",
+          "description": [
+            "Owned test strategy and regression quality gates for critical modules.",
+            "Handled quality assurance across manual and automated testing flows."
+          ],
+          "achievements": [
+            "Reduced regression testing time by 40% using Robot Framework automation.",
+            "Lowered production defect leakage with risk-based testing and stronger test traceability."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Green2Get",
+      "type": "Full-time",
+      "location": "Chiang Mai, Thailand · Hybrid",
+      "roles": [
+        {
+          "title": "Software Tester",
+          "period": "Apr 2021 - Mar 2025 · 4 yrs",
+          "description": [
+            "System Analysis & Design: Analyzed requirements and designed system architecture.",
+            "Project Management: Managed timelines and cross-team coordination.",
+            "QA & Testing: Designed test cases and executed manual/functional testing.",
+            "Infrastructure: Supported server and database reliability.",
+            "Issue Tracking: Managed bugs and root cause analysis."
+          ],
+          "achievements": [
+            "Expanded test coverage in critical modules and reduced repeated post-release defects.",
+            "Improved bug reporting workflow, reducing turnaround and re-test cycles."
+          ],
+          "leadership": [
+            "Collaborated with enterprise stakeholders such as LION and SPRC on requirement prioritization.",
+            "Bridged communication between technical teams and operations users to reduce misunderstandings."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Ekapanya Hariphunchai Vocational College",
+      "type": "Full-time",
+      "location": "Lamphun, Thailand",
+      "roles": [
+        {
+          "title": "Computer Teacher",
+          "period": "Apr 2020 - Mar 2021 · 1 yr",
+          "description": [
+            "Teaching Management: Delivered computer science and technology lessons for vocational students.",
+            "Curriculum Preparation: Planned lessons aligned with current technology trends.",
+            "Measurement and Evaluation: Monitored student progress through practical projects."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Nextzy Technologies",
+      "type": "Full-time",
+      "location": "Bangkok City, Thailand",
+      "roles": [
+        {
+          "title": "Software Quality Assurance Engineer",
+          "period": "Oct 2018 - Jan 2020 · 1 yr 4 mos",
+          "description": [
+            "Quality assurance and testing for enterprise software solutions."
+          ]
+        }
+      ]
+    }
+  ],
+  "portfolio": [
+    {
+      "id": 4,
+      "title": "Transport Management System (ShipManager)",
+      "category": "Web Application",
+      "images": [
+        "/images/suchada2019.png"
+      ],
+      "image": "/images/suchada2019.png",
+      "description": "A logistics operation platform for Suchada 2019 that combines AI OCR, LINE Bot workflows, and actionable dashboards to reduce manual work and improve data quality.",
+      "caseStudy": {
+        "problem": [
+          "Manual data entry from receipts and slips caused frequent human errors.",
+          "Historical document retrieval was slow and inconsistent.",
+          "Cost summary per trip was delayed, slowing operational decisions."
         ],
-        "image": "/images/suchada2019.png",
-        "description": "ShipManager - A comprehensive logistics and transport management system for Suchada 2019 Partnership. Highlights include AI-powered OCR for smart document processing, LINE Bot integration for seamless data entry, specialized transport cost calculations (standard & weight-based), and automated Excel reporting.",
-        "techStack": [
-          "React 19 + Vite",
-          "DaisyUI + Tailwind CSS",
-          "React Router v7",
-          "TanStack Query",
-          "Supabase (PostgreSQL)",
-          "Supabase Auth",
-          "Google Gemini 2.0 Flash",
-          "LINE Messaging API",
-          "Google Drive API",
-          "Firebase (Notifications)",
-          "Deno (Edge Functions)",
-          "ExcelJS",
-          "Google Analytics 4",
-          "Vercel"
+        "solution": [
+          "Implemented Gemini-powered OCR to extract and validate data before saving to Supabase.",
+          "Enabled field teams to upload receipts directly through LINE Bot.",
+          "Built dashboard and Excel reporting flow for finance and management visibility."
         ],
-        "features": [
-          {
-            "title": "Core Modules",
-            "items": [
-              "Transport Logging - Manage standard and 'cow distribution' shipments",
-              "Expense Tracking - Track driver expenses and withdrawals",
-              "Fuel Logging - Record refueling and calculate costs",
-              "Driver Management - Driver profiles and income",
-              "Vehicle Management - Vehicle registration and data",
-              "OCR System - AI-powered data extraction from slips/receipts (Shipping, Fuel, Expense)",
-              "Reports - Dashboard and summary reports"
-            ]
-          },
-          {
-            "title": "Key Features",
-            "items": [
-              "AI Powered OCR: Auto-extract data from transfer slips (Expense), fuel receipts (Fuel), shipping documents (Shipping)",
-              "LINE Bot Integration: Upload slips via LINE, auto-save to Drive and Database",
-              "Dual Transport Types: Standard and Weight-based distribution (Cow Distribution)",
-              "Excel Export: Formatted export with borders and styling",
-              "Google Analytics: Usage tracking",
-              "Responsive Design & Modern UI (DaisyUI + TailwindCSS)"
-            ]
-          }
+        "impact": [
+          "Significantly reduced repetitive daily paperwork across operations.",
+          "Reduced manual entry mistakes in expense and fuel records.",
+          "Improved speed of management reporting for transport profitability review."
         ],
-         "link": "#"
-      }
-    ]
+        "architecture": [
+          "React Web App -> Supabase (PostgreSQL/Auth/Storage)",
+          "LINE Bot -> Webhook/Edge Functions (Deno) -> Database",
+          "Gemini API -> OCR/Extract -> Validate -> Save",
+          "Dashboard/Excel Export -> Operational and management reporting"
+        ]
+      },
+      "techStack": [
+        "React 19 + Vite",
+        "DaisyUI + Tailwind CSS",
+        "React Router v7",
+        "TanStack Query",
+        "Supabase (PostgreSQL)",
+        "Supabase Auth",
+        "Google Gemini 2.0 Flash",
+        "LINE Messaging API",
+        "Google Drive API",
+        "Firebase (Notifications)",
+        "Deno (Edge Functions)",
+        "ExcelJS",
+        "Google Analytics 4",
+        "Vercel"
+      ],
+      "features": [
+        {
+          "title": "Core Modules",
+          "items": [
+            "Transport Logging - Manage standard and weight-based transport jobs",
+            "Expense Tracking - Track driver expenses and withdrawals",
+            "Fuel Logging - Record refueling and calculate costs",
+            "Driver Management - Driver profiles and income",
+            "Vehicle Management - Vehicle registration and metadata",
+            "OCR System - AI extraction from shipping/fuel/expense documents",
+            "Reports - Dashboard and summary reporting"
+          ]
+        },
+        {
+          "title": "Key Features",
+          "items": [
+            "AI OCR for transfer slips, fuel receipts, and shipping forms",
+            "LINE Bot integration for real-time field uploads",
+            "Support for standard and weight-based transport calculation",
+            "Excel export for operations and accounting workflows",
+            "Responsive UI for desktop and mobile users"
+          ]
+        }
+      ],
+      "link": "https://github.com/Aecaichang",
+      "sourceCode": "https://github.com/Aecaichang",
+      "article": "#"
+    }
+  ],
+  "titles.keyAchievements": "Key Achievements",
+  "titles.softLeadership": "Soft Skills & Leadership",
+  "titles.businessImpact": "Business Impact",
+  "titles.problem": "Problem",
+  "titles.solution": "Solution",
+  "titles.architecture": "System Architecture",
+  "titles.sourceCode": "Source Code",
+  "titles.readArticle": "Read Article"
 }

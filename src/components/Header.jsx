@@ -2,8 +2,15 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { Button } from "@/components/ui/button"
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -36,38 +43,47 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <motion.div 
+        <motion.div
           id="header-logo"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-2xl font-bold text-blue-600 cursor-pointer hover:opacity-80 transition-opacity duration-200"
-          onClick={(e) => scrollToSection(e, 'home')}
         >
-          Portfolio.
+          <Button
+            type="button"
+            variant="link"
+            onClick={(e) => scrollToSection(e, 'home')}
+            className="p-0 text-2xl font-bold text-slate-900 dark:text-slate-100 no-underline hover:opacity-80"
+          >
+            Portfolio.
+          </Button>
         </motion.div>
         
-        <nav id="main-nav" className="hidden md:block">
-          <ul className="flex space-x-8 font-medium text-slate-600 dark:text-slate-300">
+        <NavigationMenu id="main-nav" className="hidden md:flex">
+          <NavigationMenuList className="space-x-6">
             {['home', 'experience', 'education', 'skills', 'portfolio'].map((item, index) => (
-              <motion.li 
+              <motion.li
                 key={item}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                className="list-none"
               >
-                <a 
-                  id={`nav-link-${item}`}
-                  href={`#${item}`} 
-                  onClick={(e) => scrollToSection(e, item)}
-                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1 relative group"
-                >
-                  {content[`nav.${item}`]}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <a
+                      id={`nav-link-${item}`}
+                      href={`#${item}`}
+                      onClick={(e) => scrollToSection(e, item)}
+                      className="inline-flex items-center rounded-md px-2 py-1.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+                    >
+                      {content[`nav.${item}`]}
+                    </a>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               </motion.li>
             ))}
-          </ul>
-        </nav>
+          </NavigationMenuList>
+        </NavigationMenu>
  
         <div className="flex items-center gap-2">
           <motion.div
@@ -79,7 +95,8 @@ const Header = () => {
               variant="ghost" 
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+              aria-label={theme === 'light' ? "Switch to dark mode" : "Switch to light mode"}
+              className="rounded-full text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
             </Button>
@@ -93,7 +110,8 @@ const Header = () => {
               id="btn-language-toggle"
               variant="ghost" 
               onClick={toggleLanguage}
-              className="rounded-full font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+              aria-label={language === 'en' ? "Switch language to Thai" : "Switch language to English"}
+              className="rounded-full font-bold text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               {language === 'en' ? '🇺🇸 EN' : '🇹🇭 TH'}
             </Button>

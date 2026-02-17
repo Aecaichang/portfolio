@@ -35,7 +35,7 @@ const Experience = () => {
                     </Badge>
                   </div>
                   {job.location && (
-                    <p id={`experience-location-${index}`} className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <p id={`experience-location-${index}`} className="text-sm text-slate-600 dark:text-slate-300 flex items-center gap-1">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                       {job.location}
                     </p>
@@ -50,11 +50,11 @@ const Experience = () => {
                         
                         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
                           <h4 id={`experience-role-title-${index}-${rIndex}`} className="text-lg font-semibold text-slate-800 dark:text-slate-200 text-balance">{role.title}</h4>
-                          <span id={`experience-role-period-${index}-${rIndex}`} className="text-sm text-slate-500 dark:text-slate-400 font-medium tabular-nums">{role.period}</span>
+                          <span id={`experience-role-period-${index}-${rIndex}`} className="text-sm text-slate-600 dark:text-slate-300 font-medium tabular-nums">{role.period}</span>
                         </div>
                         
                         {role.description && (
-                          <div id={`experience-role-desc-${index}-${rIndex}`} className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                          <div id={`experience-role-desc-${index}-${rIndex}`} className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                             {Array.isArray(role.description) ? (
                               <ul className="list-disc pl-5 space-y-1">
                                 {role.description.map((item, i) => (
@@ -72,6 +72,32 @@ const Experience = () => {
                                 <p>{role.description}</p>
                               )
                             )}
+                          </div>
+                        )}
+
+                        {Array.isArray(role.achievements) && role.achievements.length > 0 && (
+                          <div className="mt-4">
+                            <p className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-2">
+                              {content["titles.keyAchievements"] || "Key Achievements"}
+                            </p>
+                            <ul className="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300 text-sm">
+                              {role.achievements.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {Array.isArray(role.leadership) && role.leadership.length > 0 && (
+                          <div className="mt-4">
+                            <p className="text-sm font-semibold text-pink-700 dark:text-pink-300 mb-2">
+                              {content["titles.softLeadership"] || "Soft Skills & Leadership"}
+                            </p>
+                            <ul className="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300 text-sm">
+                              {role.leadership.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ul>
                           </div>
                         )}
                       </div>

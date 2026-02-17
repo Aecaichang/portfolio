@@ -30,7 +30,7 @@ const Education = () => {
                 <CardHeader id={`education-header-${index}`} className="flex flex-row items-baseline justify-between gap-4 pb-2">
                   <div className="space-y-1">
                     <CardTitle id={`education-degree-${index}`} className="text-xl text-balance dark:text-slate-100">{item.degree}</CardTitle>
-                    <CardDescription id={`education-uni-${index}`} className="text-base font-medium text-slate-700 dark:text-slate-400 text-balance">
+                    <CardDescription id={`education-uni-${index}`} className="text-base font-medium text-slate-700 dark:text-slate-300 text-balance">
                       {item.university}
                     </CardDescription>
                   </div>
@@ -39,7 +39,7 @@ const Education = () => {
                   </Badge>
                 </CardHeader>
                 <CardContent id={`education-content-${index}`}>
-                  <div className="text-slate-600 dark:text-slate-400">
+                  <div className="text-slate-600 dark:text-slate-300">
                     <p id={`education-honors-${index}`} className="font-medium text-blue-600 dark:text-blue-400 mb-1 text-balance">{item.honors}</p>
                     <p id={`education-desc-${index}`} className="text-sm">{item.description}</p>
                   </div>

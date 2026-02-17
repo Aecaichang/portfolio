@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <h2 className="text-2xl font-bold text-blue-600 mb-2">Portfolio.</h2>
-            <p className="text-slate-500 dark:text-slate-400 max-w-xs">
+            <p className="text-slate-600 dark:text-slate-300 max-w-xs">
               {content["personalInfo.name"]} - Software Tester & Quality Assurance
             </p>
           </div>
@@ -30,7 +30,7 @@ const Footer = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-2 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 transition-all hover:shadow-md hover:-translate-y-1 ${social.color} text-slate-600 dark:text-slate-400`}
+                className={`p-2 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 transition-all hover:shadow-md hover:-translate-y-1 ${social.color} text-slate-600 dark:text-slate-300`}
                 title={social.id.charAt(0).toUpperCase() + social.id.slice(1)}
               >
                 <social.icon className="w-5 h-5" />
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
-          <p className="text-slate-400 text-sm">
+          <p className="text-slate-600 dark:text-slate-300 text-sm">
             © {currentYear} {content["personalInfo.name"]}. {useLanguage().language === 'th' ? "สงวนลิขสิทธิ์" : "All rights reserved."}
           </p>
         </div>

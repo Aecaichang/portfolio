@@ -3,7 +3,6 @@ import { Reveal, RevealTitle } from "./ui/Reveal";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogDescription,
   DialogTrigger,
@@ -11,8 +10,6 @@ import {
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -97,32 +94,39 @@ const Portfolio = () => {
           <Reveal key={item.id} width="100%" delay={index * 0.1}>
             <Dialog>
               <DialogTrigger asChild>
-                <Card id={`portfolio-card-${item.id}`} className="overflow-hidden h-full hover:shadow-xl transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-2 cursor-pointer group border-slate-200 dark:border-slate-800 dark:bg-slate-900/80">
-                  <div id={`portfolio-img-wrapper-${item.id}`} className="relative aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800">
-                    <img 
-                      id={`portfolio-img-${item.id}`}
-                      src={item.images && item.images.length > 0 ? item.images[0] : item.image} 
-                      alt={item.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div id={`portfolio-overlay-${item.id}`} className="absolute inset-0 bg-slate-900/60 dark:bg-slate-950/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Button id={`btn-portfolio-view-${item.id}`} variant="secondary" className="rounded-full">
-                        {content["titles.viewProject"]}
-                      </Button>
+                <Button
+                  id={`btn-portfolio-open-${item.id}`}
+                  type="button"
+                  variant="ghost"
+                  className="h-auto w-full p-0 text-left"
+                >
+                  <Card id={`portfolio-card-${item.id}`} className="overflow-hidden h-full w-full hover:shadow-2xl hover:shadow-blue-500/10 transition-[transform,box-shadow,background-color,border-color] duration-500 hover:-translate-y-2 cursor-pointer group border-slate-200 dark:border-slate-800 dark:bg-slate-900/80 backdrop-blur-sm">
+                    <div id={`portfolio-img-wrapper-${item.id}`} className="relative aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800">
+                      <img 
+                        id={`portfolio-img-${item.id}`}
+                        src={item.images && item.images.length > 0 ? item.images[0] : item.image} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div id={`portfolio-overlay-${item.id}`} className="absolute inset-0 bg-slate-900/60 dark:bg-slate-950/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Badge id={`btn-portfolio-view-${item.id}`} variant="secondary" className="rounded-full text-sm px-3 py-1.5">
+                          {content["titles.viewProject"]}
+                        </Badge>
+                      </div>
                     </div>
-                  </div>
-                  <CardHeader id={`portfolio-header-${item.id}`}>
-                    <div className="mb-2">
-                       <Badge id={`portfolio-badge-${item.id}`} variant="outline" className="text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30">
-                        {item.category}
-                      </Badge>
-                    </div>
-                    <CardTitle id={`portfolio-title-text-${item.id}`} className="text-xl dark:text-slate-100">{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent id={`portfolio-content-${item.id}`}>
-                    <p id={`portfolio-desc-${item.id}`} className="text-slate-600 dark:text-slate-400 line-clamp-3">{item.description}</p>
-                  </CardContent>
-                </Card>
+                    <CardHeader id={`portfolio-header-${item.id}`}>
+                      <div className="mb-2">
+                        <Badge id={`portfolio-badge-${item.id}`} variant="outline" className="text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30">
+                          {item.category}
+                        </Badge>
+                      </div>
+                      <CardTitle id={`portfolio-title-text-${item.id}`} className="text-xl dark:text-slate-100">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent id={`portfolio-content-${item.id}`}>
+                      <p id={`portfolio-desc-${item.id}`} className="text-slate-600 dark:text-slate-300 line-clamp-3">{item.description}</p>
+                    </CardContent>
+                  </Card>
+                </Button>
               </DialogTrigger>
               
               <DialogContent id={`portfolio-dialog-${item.id}`} className="max-w-4xl p-0 overflow-hidden bg-white dark:bg-slate-900 max-h-[90vh] flex flex-col border-none dark:shadow-2xl">
@@ -166,18 +170,110 @@ const Portfolio = () => {
                           </Badge>
                           <DialogTitle id={`portfolio-dialog-title-${item.id}`} className="text-3xl font-bold text-slate-900 dark:text-slate-100 text-balance">{item.title}</DialogTitle>
                         </div>
-                        {item.link && item.link !== "#" && (
-                          <Button id={`btn-portfolio-visit-${item.id}`} asChild className="rounded-full bg-blue-600 hover:bg-blue-700 shrink-0">
-                            <a href={item.link} target="_blank" rel="noopener noreferrer">
-                              {content["titles.visitWebsite"]}
-                            </a>
-                          </Button>
-                        )}
+                        <div className="flex flex-wrap gap-2">
+                          {item.link && item.link !== "#" && (
+                            <Button id={`btn-portfolio-visit-${item.id}`} asChild className="rounded-full bg-blue-600 hover:bg-blue-700 shrink-0">
+                              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                {content["titles.visitWebsite"]}
+                              </a>
+                            </Button>
+                          )}
+                          {item.sourceCode && item.sourceCode !== "#" && (
+                            <Button id={`btn-portfolio-source-${item.id}`} asChild variant="outline" className="rounded-full shrink-0">
+                              <a href={item.sourceCode} target="_blank" rel="noopener noreferrer">
+                                {content["titles.sourceCode"] || "Source Code"}
+                              </a>
+                            </Button>
+                          )}
+                          {item.article && item.article !== "#" && (
+                            <Button id={`btn-portfolio-article-${item.id}`} asChild variant="outline" className="rounded-full shrink-0">
+                              <a href={item.article} target="_blank" rel="noopener noreferrer">
+                                {content["titles.readArticle"] || "Read Article"}
+                              </a>
+                            </Button>
+                          )}
+                        </div>
                       </div>
                       
-                      <DialogDescription id={`portfolio-dialog-desc-${item.id}`} className="text-base leading-relaxed text-slate-600 dark:text-slate-400 mb-8 whitespace-pre-line">
+                      <DialogDescription id={`portfolio-dialog-desc-${item.id}`} className="text-base leading-relaxed text-slate-600 dark:text-slate-300 mb-8 whitespace-pre-line">
                         {item.description}
                       </DialogDescription>
+
+                      {item.caseStudy && (
+                        <div className="grid md:grid-cols-2 gap-4 mb-8">
+                          {Array.isArray(item.caseStudy.problem) && item.caseStudy.problem.length > 0 && (
+                            <Card className="border-red-100 dark:border-red-900/40">
+                              <CardContent className="pt-6">
+                                <h4 className="text-sm font-semibold text-red-700 dark:text-red-300 uppercase tracking-wide mb-3">
+                                  {content["titles.problem"] || "Problem"}
+                                </h4>
+                                <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                                  {item.caseStudy.problem.map((problem, idx) => (
+                                    <li key={idx} className="flex items-start gap-2">
+                                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400 shrink-0" />
+                                      <span>{problem}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          )}
+
+                          {Array.isArray(item.caseStudy.solution) && item.caseStudy.solution.length > 0 && (
+                            <Card className="border-blue-100 dark:border-blue-900/40">
+                              <CardContent className="pt-6">
+                                <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-300 uppercase tracking-wide mb-3">
+                                  {content["titles.solution"] || "Solution"}
+                                </h4>
+                                <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                                  {item.caseStudy.solution.map((solution, idx) => (
+                                    <li key={idx} className="flex items-start gap-2">
+                                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+                                      <span>{solution}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          )}
+
+                          {Array.isArray(item.caseStudy.impact) && item.caseStudy.impact.length > 0 && (
+                            <Card className="border-emerald-100 dark:border-emerald-900/40">
+                              <CardContent className="pt-6">
+                                <h4 className="text-sm font-semibold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide mb-3">
+                                  {content["titles.businessImpact"] || "Business Impact"}
+                                </h4>
+                                <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                                  {item.caseStudy.impact.map((impact, idx) => (
+                                    <li key={idx} className="flex items-start gap-2">
+                                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                                      <span>{impact}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          )}
+
+                          {Array.isArray(item.caseStudy.architecture) && item.caseStudy.architecture.length > 0 && (
+                            <Card className="border-violet-100 dark:border-violet-900/40">
+                              <CardContent className="pt-6">
+                                <h4 className="text-sm font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide mb-3">
+                                  {content["titles.architecture"] || "System Architecture"}
+                                </h4>
+                                <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                                  {item.caseStudy.architecture.map((flow, idx) => (
+                                    <li key={idx} className="flex items-start gap-2">
+                                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                                      <span>{flow}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          )}
+                        </div>
+                      )}
 
                       {item.techStack && (
                         <div id={`portfolio-tech-stack-${item.id}`} className="mb-8">
@@ -207,7 +303,7 @@ const Portfolio = () => {
                                 </h4>
                                 <ul id={`portfolio-feature-list-${item.id}-${idx}`} className="space-y-2">
                                   {section.items.map((feature, fIdx) => (
-                                    <li key={fIdx} id={`portfolio-feature-item-${item.id}-${idx}-${fIdx}`} className="text-slate-600 dark:text-slate-400 text-sm flex items-start gap-2">
+                                    <li key={fIdx} id={`portfolio-feature-item-${item.id}-${idx}-${fIdx}`} className="text-slate-600 dark:text-slate-300 text-sm flex items-start gap-2">
                                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 shrink-0" />
                                       <span>{feature}</span>
                                     </li>

@@ -1,5 +1,10 @@
 import { useLanguage } from '../context/LanguageContext';
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+// eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Mail, MapPin, Cake, Phone, Facebook, Linkedin, Github } from "lucide-react";
 import { FaLine } from "react-icons/fa";
@@ -72,7 +77,7 @@ const Hero = () => {
           <div id="hero-title-group">
             <motion.h3 
               id="hero-greeting"
-              className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400 mb-2 text-balance"
+              className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300 mb-2 text-balance"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -92,36 +97,45 @@ const Hero = () => {
 
           <motion.div 
             id="hero-contact-info"
-            className="flex flex-wrap gap-x-6 gap-y-3 items-center justify-center md:justify-start text-slate-600 dark:text-slate-400 mt-6"
+            className="mt-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            <a id="hero-email" href={`mailto:${content["personalInfo.email"]}`} className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
-              <Mail className="w-4 h-4 text-blue-500 dark:text-blue-400 group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium">{content["personalInfo.email"]}</span>
-            </a>
-            <a id="hero-phone" href={`tel:${content["personalInfo.phone"]}`} className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
-              <Phone className="w-4 h-4 text-blue-500 dark:text-blue-400 group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium tabular-nums">{content["personalInfo.phone"]}</span>
-            </a>
-            <div id="hero-location" className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-blue-500 dark:text-blue-400" />
-              <span className="text-sm font-medium">{content["personalInfo.location"]}</span>
-            </div>
-            <div id="hero-age-group" className="flex items-center gap-2">
-              <Cake className="w-4 h-4 text-blue-500 dark:text-blue-400" />
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <span id="hero-age" className="cursor-help border-b border-dotted border-slate-400 dark:border-slate-500 tabular-nums text-sm font-medium">
-                    {calculateAge(content["personalInfo.birthDate"])}
-                  </span>
-                </TooltipTrigger>
-                <TooltipContent>
-                  {language === 'th' ? "อายุจริงในปัจจุบัน" : "Current exact age"}
-                </TooltipContent>
-              </Tooltip>
-            </div>
+            <Card className="inline-flex w-full md:w-auto border-slate-200/60 bg-white/60 dark:border-slate-800/60 dark:bg-slate-900/60 backdrop-blur-md shadow-sm hover:shadow-md transition-all duration-300">
+              <CardContent className="p-3">
+                <div className="flex flex-wrap gap-2 items-center justify-center md:justify-start text-slate-700 dark:text-slate-300">
+                  <Button id="hero-email" asChild variant="ghost" className="h-9 px-3">
+                    <a href={`mailto:${content["personalInfo.email"]}`}>
+                      <Mail className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+                      <span className="text-sm font-medium">{content["personalInfo.email"]}</span>
+                    </a>
+                  </Button>
+                  <Button id="hero-phone" asChild variant="ghost" className="h-9 px-3">
+                    <a href={`tel:${content["personalInfo.phone"]}`}>
+                      <Phone className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+                      <span className="text-sm font-medium tabular-nums">{content["personalInfo.phone"]}</span>
+                    </a>
+                  </Button>
+                  <Separator orientation="vertical" className="hidden md:block h-6" />
+                  <Badge id="hero-location" variant="secondary" className="h-9 px-3 text-sm font-medium">
+                    <MapPin className="w-4 h-4 mr-1.5 text-blue-500 dark:text-blue-400" />
+                    {content["personalInfo.location"]}
+                  </Badge>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button id="hero-age" type="button" variant="outline" className="h-9 px-3">
+                        <Cake className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+                        <span className="tabular-nums text-sm font-medium">{calculateAge(content["personalInfo.birthDate"])}</span>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      {language === 'th' ? "อายุจริงในปัจจุบัน" : "Current exact age"}
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
 
           <motion.div 
@@ -137,17 +151,24 @@ const Hero = () => {
               { id: 'github', icon: Github, url: content["personalInfo.socials.github"], color: 'hover:text-slate-900 dark:hover:text-white' },
               { id: 'line', icon: FaLine, url: content["personalInfo.socials.line"], color: 'hover:text-green-500 dark:hover:text-green-400' },
             ].map((social) => (
-              <a 
+              <Button
                 key={social.id}
                 id={`hero-social-${social.id}`}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-3 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 transition-[transform,box-shadow,color,background-color,border-color] duration-300 hover:shadow-md hover:-translate-y-1 ${social.color} text-slate-700 dark:text-slate-300`}
-                title={social.id.charAt(0).toUpperCase() + social.id.slice(1)}
+                asChild
+                variant="outline"
+                size="icon"
+                className={`rounded-full shadow-sm transition-[transform,box-shadow,color,background-color,border-color] duration-300 hover:shadow-md hover:-translate-y-1 ${social.color} text-slate-700 dark:text-slate-300`}
               >
-                <social.icon className="w-5 h-5" />
-              </a>
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.id}
+                  title={social.id.charAt(0).toUpperCase() + social.id.slice(1)}
+                >
+                  <social.icon className="w-5 h-5" />
+                </a>
+              </Button>
             ))}
           </motion.div>
         </motion.div>
@@ -180,18 +201,20 @@ const Hero = () => {
               }}
               transition={{ duration: 4, repeat: Infinity }}
             ></motion.div>
-            <div id="hero-profile-container" className="relative w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden bg-white flex items-center justify-center" style={{ transform: "translateZ(50px)" }}>
-               <img 
-                 id="hero-profile-img"
-                 src="/images/profile.jpg" 
-                 alt="Profile" 
-                 width={400}
-                 height={400}
-                 className="w-full h-full object-cover" 
-                 loading="eager"
-                 onError={(e) => {e.target.onerror = null; e.target.src = "https://placehold.co/400x400?text=Profile"}} 
-               />
-            </div>
+            <Card id="hero-profile-container" className="relative w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden bg-white flex items-center justify-center" style={{ transform: "translateZ(50px)" }}>
+              <CardContent className="p-0 w-full h-full">
+                <img 
+                  id="hero-profile-img"
+                  src="/images/profile.jpg" 
+                  alt="Profile" 
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover" 
+                  loading="eager"
+                  onError={(e) => {e.target.onerror = null; e.target.src = "https://placehold.co/400x400?text=Profile"}} 
+                />
+              </CardContent>
+            </Card>
             <motion.div 
               id="hero-deco-pink"
               className="absolute -z-10 top-10 -right-10 w-20 h-20 bg-pink-400 rounded-full blur-xl opacity-30"

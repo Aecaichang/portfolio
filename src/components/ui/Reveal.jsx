@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView, useAnimation } from 'framer-motion';
 
 export const Reveal = ({ children, width = "fit-content", delay = 0.25 }) => {
