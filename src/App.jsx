@@ -2,11 +2,13 @@ import React from 'react';
 import { Analytics } from "@vercel/analytics/react"
 import Header from './components/Header';
 import Hero from './components/Hero';
+import AboutMe from './components/AboutMe';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
+import Footer from './components/Footer';
 
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -21,12 +23,14 @@ function App() {
             <Header />
             <Hero />
             <main>
+              <AboutMe />
               <Experience />
               <Education />
               <Certifications />
               <Skills />
               <Portfolio />
             </main>
+            <Footer />
           </div>
           <Analytics />
         </TooltipProvider>

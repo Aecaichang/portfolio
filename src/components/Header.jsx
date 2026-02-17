@@ -60,7 +60,7 @@ const Header = () => {
         
         <NavigationMenu id="main-nav" className="hidden md:flex">
           <NavigationMenuList className="space-x-6">
-            {['home', 'experience', 'education', 'skills', 'portfolio'].map((item, index) => (
+            {['home', 'aboutMe', 'experience', 'education', 'skills', 'portfolio'].map((item, index) => (
               <motion.li
                 key={item}
                 initial={{ opacity: 0, y: -10 }}
