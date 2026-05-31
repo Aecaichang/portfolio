@@ -15,6 +15,8 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-20 container mx-auto px-4 transition-colors duration-500">
+      <Card className="glass-card rounded-[2.5rem] p-8 md:p-12">
+        <CardContent className="p-0">
       <RevealTitle>
         <h2 id="skills-title" className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 to-pink-500 dark:from-blue-400 dark:to-pink-400 bg-clip-text text-transparent">
           {content["titles.skills"]}
@@ -52,6 +54,8 @@ const Skills = () => {
           </Reveal>
         ))}
       </div>
+        </CardContent>
+      </Card>
     </section>
   );
 };

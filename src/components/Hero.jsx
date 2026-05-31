@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Button } from "@/components/ui/button";
@@ -8,8 +9,48 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Mail, MapPin, Cake, Phone, Facebook, Linkedin, Github } from "lucide-react";
 import { FaLine } from "react-icons/fa";
 
+const useTypewriter = (texts, { typingSpeed = 80, deletingSpeed = 40, pauseDuration = 2000 } = {}) => {
+  const [displayText, setDisplayText] = useState('');
+  const [textIndex, setTextIndex] = useState(0);
+  const [phase, setPhase] = useState('typing');
+
+  useEffect(() => {
+    setDisplayText('');
+    setTextIndex(0);
+    setPhase('typing');
+  }, [texts.join('|')]);
+
+  useEffect(() => {
+    const current = texts[textIndex] ?? '';
+
+    if (phase === 'typing') {
+      if (displayText.length < current.length) {
+        const t = setTimeout(() => setDisplayText(current.slice(0, displayText.length + 1)), typingSpeed);
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => setPhase('deleting'), pauseDuration);
+        return () => clearTimeout(t);
+      }
+    }
+
+    if (phase === 'deleting') {
+      if (displayText.length > 0) {
+        const t = setTimeout(() => setDisplayText(displayText.slice(0, -1)), deletingSpeed);
+        return () => clearTimeout(t);
+      } else {
+        setTextIndex((prev) => (prev + 1) % texts.length);
+        setPhase('typing');
+      }
+    }
+  }, [displayText, phase, textIndex, texts, typingSpeed, deletingSpeed, pauseDuration]);
+
+  return { displayText, phase };
+};
+
 const Hero = () => {
   const { content, language } = useLanguage();
+  const roles = content["personalInfo.title"].split(" · ");
+  const { displayText, phase } = useTypewriter(roles);
 
   // Mouse tracking for profile image tilt effect
   const mouseX = useMotionValue(0);
@@ -96,12 +137,13 @@ const Hero = () => {
             </motion.h1>
             <motion.p
               id="hero-title"
-              className="text-base md:text-lg font-medium text-slate-500 dark:text-slate-400 mt-2 tracking-wide"
+              className="text-base md:text-lg font-medium text-slate-500 dark:text-slate-400 mt-2 tracking-wide min-h-[1.75rem]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              {content["personalInfo.title"]}
+              {displayText}
+              <span className={`inline-block w-0.5 h-4 ml-0.5 align-middle bg-blue-500 ${phase === 'deleting' ? 'opacity-100' : 'animate-pulse'}`} />
             </motion.p>
           </div>
 

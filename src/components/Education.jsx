@@ -17,6 +17,8 @@ const Education = () => {
   return (
     <section id="education" className="py-20 bg-secondary/30 transition-colors duration-500">
       <div id="education-container" className="container mx-auto px-4 max-w-4xl">
+        <Card className="glass-card rounded-[2.5rem] p-8 md:p-12">
+          <CardContent className="p-0">
         <RevealTitle>
           <h2 id="education-title" className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-pink-500 dark:from-blue-400 dark:to-pink-400 bg-clip-text text-transparent">
             {content["titles.education"]}
@@ -48,6 +50,8 @@ const Education = () => {
             </Reveal>
           ))}
         </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

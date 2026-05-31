@@ -22,6 +22,7 @@ const NAV_ITEMS = ['home', 'aboutMe', 'experience', 'education', 'skills', 'port
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const { language, toggleLanguage, content } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
@@ -31,6 +32,23 @@ const Header = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -75% 0px', threshold: 0 }
+    );
+
+    const sections = NAV_ITEMS.map((id) => document.getElementById(id)).filter(Boolean);
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (e, id) => {
@@ -79,7 +97,11 @@ const Header = () => {
                     id={`nav-link-${item}`}
                     href={`#${item}`}
                     onClick={(e) => scrollToSection(e, item)}
-                    className="inline-flex items-center rounded-md px-2 py-1.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+                    className={`inline-flex items-center rounded-md px-2 py-1.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                      activeSection === item
+                        ? 'text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                        : 'text-slate-900 dark:text-slate-300 hover:bg-slate-100 hover:text-blue-700 dark:hover:bg-slate-800 dark:hover:text-blue-400'
+                    }`}
                   >
                     {content[`nav.${item}`]}
                   </motion.a>

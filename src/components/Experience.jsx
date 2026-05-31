@@ -15,6 +15,8 @@ const Experience = () => {
   return (
     <section id="experience" className="py-20 bg-secondary/50 transition-colors duration-500">
       <div id="experience-container" className="container mx-auto px-4 max-w-4xl">
+        <Card className="glass-card rounded-[2.5rem] p-8 md:p-12">
+          <CardContent className="p-0">
         <RevealTitle>
           <h2 id="experience-title" className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-pink-500 dark:from-blue-400 dark:to-pink-400 bg-clip-text text-transparent">
             {content["titles.experience"]}
@@ -108,6 +110,8 @@ const Experience = () => {
             </Reveal>
           ))}
         </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

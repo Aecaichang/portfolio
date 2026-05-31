@@ -1,7 +1,35 @@
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code, Briefcase, Award, BadgeCheck } from 'lucide-react';
+
+const CountUpValue = ({ value, isInView }) => {
+  const digits = value.replace(/\D/g, '');
+  const suffix = value.replace(/\d/g, '');
+  const target = parseInt(digits, 10);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    setCount(0);
+    let frame = 0;
+    const totalFrames = 50;
+    const timer = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (frame >= totalFrames) {
+        setCount(target);
+        clearInterval(timer);
+      }
+    }, 20);
+    return () => clearInterval(timer);
+  }, [isInView, target]);
+
+  return <>{count}{suffix}</>;
+};
 
 const Stats = () => {
   const { content } = useLanguage();
@@ -37,9 +65,8 @@ const Stats = () => {
 
   return (
     <section ref={ref} className="py-20 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-      
+
       <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,26 +92,23 @@ const Stats = () => {
               className="group"
             >
               <div className="glass-card glass-card-hover rounded-[2.5rem] p-8 text-center h-full flex flex-col items-center justify-center">
-                {/* Icon with gradient background */}
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${stat.color} p-0.5 mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <div className="w-full h-full rounded-2xl bg-background dark:bg-slate-900 flex items-center justify-center text-white">
+                  <div className="w-full h-full rounded-2xl bg-background dark:bg-slate-900 flex items-center justify-center">
                     <div className={`bg-gradient-to-br ${stat.color} bg-clip-text text-transparent`}>
                       {stat.icon}
                     </div>
                   </div>
                 </div>
 
-                {/* Value with counter animation */}
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.2, type: "spring" }}
-                  className={`text-5xl md:text-6xl font-black mb-3 bg-gradient-to-br ${stat.color} bg-clip-text text-transparent`}
+                  className={`text-5xl md:text-6xl font-black mb-3 bg-gradient-to-br ${stat.color} bg-clip-text text-transparent tabular-nums`}
                 >
-                  {stat.value}
+                  <CountUpValue value={stat.value} isInView={isInView} />
                 </motion.div>
 
-                {/* Label */}
                 <p className="text-sm md:text-base font-semibold text-muted-foreground uppercase tracking-widest">
                   {stat.label}
                 </p>
