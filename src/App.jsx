@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Analytics } from "@vercel/analytics/react"
 import Home from './components/Home';
 import CV from './components/CV';
 
@@ -19,7 +18,6 @@ function App() {
               <Route path="/cv" element={<CV />} />
             </Routes>
           </Router>
-          <Analytics />
         </TooltipProvider>
       </LanguageProvider>
     </ThemeProvider>

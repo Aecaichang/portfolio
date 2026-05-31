@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-// eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Mail, MapPin, Cake, Phone, Facebook, Linkedin, Github } from "lucide-react";
 import { FaLine } from "react-icons/fa";
@@ -65,7 +64,9 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-hero-from to-hero-to overflow-hidden transition-colors duration-500">
-      <div id="hero-container" className="container mx-auto px-4 lg:px-0 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+      <Card className="container mx-auto glass-card rounded-[2.5rem] p-8 md:p-12">
+        <CardContent className="p-0">
+          <div id="hero-container" className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
         
         <motion.div 
           id="hero-text-content"
@@ -75,16 +76,16 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div id="hero-title-group">
-            <motion.h3 
+            <motion.h3
               id="hero-greeting"
               className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300 mb-2 text-balance"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              {language === 'th' ? "สวัสดี, ผมชื่อ" : "Hello, I’m"}
+              {language === 'th' ? "สวัสดี, ผมชื่อ" : "Hello, I'm"}
             </motion.h3>
-            <motion.h1 
+            <motion.h1
               id="hero-name"
               className="text-5xl md:text-7xl font-extrabold pb-2 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent text-balance"
               initial={{ opacity: 0, y: 20 }}
@@ -93,6 +94,15 @@ const Hero = () => {
             >
               {content["personalInfo.name"]}
             </motion.h1>
+            <motion.p
+              id="hero-title"
+              className="text-base md:text-lg font-medium text-slate-500 dark:text-slate-400 mt-2 tracking-wide"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              {content["personalInfo.title"]}
+            </motion.p>
           </div>
 
           <motion.div 
@@ -222,6 +232,8 @@ const Hero = () => {
         </motion.div>
 
       </div>
+        </CardContent>
+      </Card>
     </section>
   );
 };

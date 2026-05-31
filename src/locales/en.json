@@ -16,10 +16,11 @@
   "titles.viewProject": "View Project",
   "titles.visitWebsite": "Visit Website",
   "personalInfo.name": "Chanchai Tasujai",
-  "personalInfo.phone": "081-234-5678",
-  "personalInfo.email": "aecaicahng@gmail.com",
+  "personalInfo.title": "Project Manager · Senior QA · Full-Stack Developer",
+  "personalInfo.phone": "098-650-9392",
+  "personalInfo.email": "aecaichang@gmail.com",
   "personalInfo.location": "Lamphun, Thailand",
-  "personalInfo.birthDate": "1994-01-01",
+  "personalInfo.birthDate": "1993-07-13",
   "personalInfo.socials.github": "https://github.com/Aecaichang",
   "personalInfo.socials.linkedin": "https://www.linkedin.com/in/chanchai-tasujai-030781214/",
   "personalInfo.socials.facebook": "https://www.facebook.com/aechanchaieiei",
@@ -131,12 +132,12 @@
   "experience": [
     {
       "company": "Zeabix Company Limited",
-      "type": "Full-time · 9 mos",
+      "type": "Full-time · 1 yr 1 mo",
       "location": "Bangkok, Thailand",
       "roles": [
         {
           "title": "Project Manager",
-          "period": "Oct 2025 - Present · 4 mos",
+          "period": "Oct 2025 - Present · 8 mos",
           "description": [
             "Led ATP30 project delivery from scope planning through UAT milestones.",
             "Aligned business, client, and engineering teams to reduce requirement gaps."
@@ -225,6 +226,72 @@
   ],
   "portfolio": [
     {
+      "id": 1,
+      "title": "Portfolio Website",
+      "category": "Website",
+      "images": ["/images/suchada-tms.png"],
+      "image": "/images/suchada-tms.png",
+      "description": "A personal portfolio website designed and built from scratch, supporting dual languages (Thai/English) and themes (Light/Dark) with smooth animations and full responsiveness across all devices.",
+      "caseStudy": {
+        "problem": [
+          "Needed a professional platform to showcase work and experience beyond a static PDF CV.",
+          "PDF resumes cannot display interactive content or be updated in real-time.",
+          "Wanted to demonstrate Full-Stack development skills through a real-world project."
+        ],
+        "solution": [
+          "Built a SPA with React + Vite, implementing i18n (Thai/English) and Light/Dark mode.",
+          "Used Framer Motion for scroll animations and a 3D tilt effect on the profile image.",
+          "Deployed on Vercel with Analytics and a live visitor counter."
+        ],
+        "impact": [
+          "A living portfolio that can be updated anytime without sending a new CV.",
+          "Demonstrates Frontend development skills through a live product.",
+          "Reaches both Thai and international audiences via bilingual support."
+        ],
+        "architecture": [
+          "React SPA → Vite build → Vercel CDN",
+          "LanguageContext (i18n) + ThemeContext (dark/light)",
+          "shadcn/ui components + Tailwind CSS design system",
+          "Vercel Analytics + CounterAPI visitor tracking"
+        ]
+      },
+      "techStack": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Framer Motion",
+        "React Router",
+        "Vercel"
+      ],
+      "features": [
+        {
+          "title": "Core Features",
+          "items": [
+            "Bilingual support: Thai and English",
+            "Light / Dark mode with system preference detection",
+            "3D tilt effect on profile image via Framer Motion",
+            "Scroll-triggered animations across all sections",
+            "Responsive design across all device sizes"
+          ]
+        },
+        {
+          "title": "Sections",
+          "items": [
+            "Hero — name, contact info, social links",
+            "Stats — career highlights in numbers",
+            "About Me — story and strengths",
+            "Experience — work history timeline",
+            "Skills — tools and technologies",
+            "Portfolio — projects with case studies"
+          ]
+        }
+      ],
+      "link": "https://portfolio-omega-seven-85.vercel.app",
+      "sourceCode": "https://github.com/Aecaichang/portfolio",
+      "article": "#"
+    },
+    {
       "id": 4,
       "title": "Transport Management System (ShipManager)",
       "category": "Web Application",
@@ -310,6 +377,12 @@
   "titles.architecture": "System Architecture",
   "titles.sourceCode": "Source Code",
   "titles.readArticle": "Read Article",
+  "stats.title": "In Numbers",
+  "stats.subtitle": "Skills and results accumulated throughout my career",
+  "stats.experience": "Years of Experience",
+  "stats.projects": "Projects Delivered",
+  "stats.skills": "Technologies",
+  "stats.certifications": "Certifications",
   "aboutMe.storyTitle": "My Journey",
   "aboutMe.paragraph1": "I am a Lamphun native and currently live and work here. Starting as a Computer Teacher, I learned the art of knowledge transfer. Then, as a Software QA, I developed an eye for detail and quality. Advancing to Project Manager gave me a holistic view of business and management.",
   "aboutMe.paragraph2": "Today, I merge all these experiences to walk the path of a Full-Stack Developer with a dream of having my own product. Although I may not be a deep-level code wizard, my strength lies in my passion for technology and leveraging modern tools—especially applying AI to multiply productivity.",

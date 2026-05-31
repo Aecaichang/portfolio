@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { Button } from "@/components/ui/button"
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { Sun, Moon, FileText } from "lucide-react";
+import { Sun, Moon, FileText, Menu } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+
+const NAV_ITEMS = ['home', 'aboutMe', 'experience', 'education', 'skills', 'portfolio'];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -35,11 +42,11 @@ const Header = () => {
   };
 
   return (
-    <header 
+    <header
       id="main-header"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md py-3' 
+        scrolled
+          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -58,10 +65,11 @@ const Header = () => {
             Portfolio.
           </Button>
         </motion.div>
-        
+
+        {/* Desktop nav */}
         <NavigationMenu id="main-nav" className="hidden md:flex">
           <NavigationMenuList className="space-x-6">
-            {['home', 'aboutMe', 'experience', 'education', 'skills', 'portfolio'].map((item, index) => (
+            {NAV_ITEMS.map((item, index) => (
               <NavigationMenuItem key={item}>
                 <NavigationMenuLink asChild>
                   <motion.a
@@ -80,16 +88,17 @@ const Header = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
- 
+
         <div className="flex items-center gap-2">
+          {/* CV button — desktop only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             className="hidden sm:block"
           >
-            <Button 
+            <Button
               asChild
-              variant="outline" 
+              variant="outline"
               size="sm"
               className="gap-2 mr-2 border-primary/20 hover:bg-primary/10 hover:text-primary dark:border-primary/40 dark:text-slate-200"
             >
@@ -100,13 +109,11 @@ const Header = () => {
             </Button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-          >
-            <Button 
+          {/* Theme toggle */}
+          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}>
+            <Button
               id="btn-theme-toggle"
-              variant="ghost" 
+              variant="ghost"
               size="icon"
               onClick={toggleTheme}
               aria-label={theme === 'light' ? "Switch to dark mode" : "Switch to light mode"}
@@ -116,13 +123,11 @@ const Header = () => {
             </Button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-          >
-            <Button 
+          {/* Language toggle */}
+          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}>
+            <Button
               id="btn-language-toggle"
-              variant="ghost" 
+              variant="ghost"
               onClick={toggleLanguage}
               aria-label={language === 'en' ? "Switch language to Thai" : "Switch language to English"}
               className="rounded-full font-bold text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
@@ -130,6 +135,43 @@ const Header = () => {
               {language === 'en' ? '🇺🇸 EN' : '🇹🇭 TH'}
             </Button>
           </motion.div>
+
+          {/* Mobile hamburger */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden rounded-full text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                aria-label="Open menu"
+              >
+                <Menu className="w-5 h-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-64 pt-12">
+              <nav className="flex flex-col gap-1">
+                {NAV_ITEMS.map((item) => (
+                  <SheetClose asChild key={item}>
+                    <a
+                      href={`#${item}`}
+                      onClick={(e) => scrollToSection(e, item)}
+                      className="px-4 py-3 rounded-lg text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-blue-400 transition-colors"
+                    >
+                      {content[`nav.${item}`]}
+                    </a>
+                  </SheetClose>
+                ))}
+                <div className="mt-4 px-4">
+                  <Button asChild variant="outline" className="w-full gap-2">
+                    <Link to="/cv" target="_blank">
+                      <FileText className="w-4 h-4" />
+                      {content['nav.downloadCv'] || "CV"}
+                    </Link>
+                  </Button>
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

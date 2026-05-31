@@ -16,8 +16,9 @@
   "titles.viewProject": "ดูโปรเจกต์",
   "titles.visitWebsite": "เยี่ยมชมเว็บไซต์",
   "personalInfo.name": "ชาญชัย ทะสุใจ",
+  "personalInfo.title": "Project Manager · Senior QA · Full-Stack Developer",
   "personalInfo.phone": "098-650-9392",
-  "personalInfo.email": "aecaicahng@gmail.com",
+  "personalInfo.email": "aecaichang@gmail.com",
   "personalInfo.location": "ลำพูน, ไทย",
   "personalInfo.birthDate": "1993-07-13",
   "personalInfo.socials.github": "https://github.com/Aecaichang",
@@ -131,12 +132,12 @@
   "experience": [
     {
       "company": "บริษัท ซีบิกซ์ จำกัด (Zeabix)",
-      "type": "งานประจำ · 9 เดือน",
+      "type": "งานประจำ · 1 ปี 1 เดือน",
       "location": "กรุงเทพมหานคร, ไทย",
       "roles": [
         {
           "title": "ผู้จัดการโครงการ (Project Manager)",
-          "period": "ต.ค. 2025 - ปัจจุบัน · 4 เดือน",
+          "period": "ต.ค. 2025 - ปัจจุบัน · 8 เดือน",
           "description": [
             "วางแผนและควบคุมงานพัฒนาโครงการ ATP30 ตั้งแต่ Scope, Timeline จนถึง UAT",
             "ประสานงานระหว่างทีมธุรกิจ ลูกค้า และทีมพัฒนาเพื่อลดความคลาดเคลื่อนของ requirement"
@@ -225,6 +226,72 @@
   ],
   "portfolio": [
     {
+      "id": 1,
+      "title": "Portfolio Website",
+      "category": "เว็บไซต์",
+      "images": ["/images/suchada-tms.png"],
+      "image": "/images/suchada-tms.png",
+      "description": "เว็บไซต์ Portfolio ส่วนตัวที่ออกแบบและพัฒนาเอง รองรับ 2 ภาษา (ไทย/อังกฤษ) และ 2 ธีม (Light/Dark) พร้อม animation ที่ smooth และ responsive ทุก device",
+      "caseStudy": {
+        "problem": [
+          "ต้องการพื้นที่แสดงผลงานและประสบการณ์ที่ดูเป็นมืออาชีพ",
+          "CV แบบ PDF ไม่สามารถแสดง interactive content หรืออัปเดตได้ง่าย",
+          "ต้องการทดสอบทักษะ Full-Stack Development จากโปรเจกต์จริง"
+        ],
+        "solution": [
+          "สร้าง SPA ด้วย React + Vite พร้อม i18n (ไทย/อังกฤษ) และ Light/Dark mode",
+          "ใช้ Framer Motion สำหรับ animation และ 3D tilt effect บน profile image",
+          "Deploy บน Vercel พร้อม Analytics และ Visitor Counter"
+        ],
+        "impact": [
+          "Portfolio ที่อัปเดตได้ตลอดเวลาโดยไม่ต้องส่ง CV ใหม่",
+          "แสดงทักษะ Frontend development ได้จากของจริง",
+          "รองรับผู้ชมทั้งไทยและต่างชาติด้วย i18n"
+        ],
+        "architecture": [
+          "React SPA → Vite build → Vercel CDN",
+          "LanguageContext (i18n) + ThemeContext (dark/light)",
+          "shadcn/ui components + Tailwind CSS design system",
+          "Vercel Analytics + CounterAPI visitor tracking"
+        ]
+      },
+      "techStack": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Framer Motion",
+        "React Router",
+        "Vercel"
+      ],
+      "features": [
+        {
+          "title": "Core Features",
+          "items": [
+            "รองรับ 2 ภาษา: ไทย และ อังกฤษ",
+            "Light / Dark mode พร้อม system preference detection",
+            "3D tilt effect บน profile image ด้วย Framer Motion",
+            "Scroll-triggered animations ทุก section",
+            "Responsive design รองรับทุก device"
+          ]
+        },
+        {
+          "title": "Sections",
+          "items": [
+            "Hero — ชื่อ, ช่องทางติดต่อ, social links",
+            "Stats — ตัวเลขสรุปประสบการณ์",
+            "About Me — เรื่องราวและจุดแข็ง",
+            "Experience — ประสบการณ์ทำงาน timeline",
+            "Skills — ทักษะและเครื่องมือ",
+            "Portfolio — ผลงานพร้อม case study"
+          ]
+        }
+      ],
+      "link": "https://portfolio-omega-seven-85.vercel.app",
+      "sourceCode": "https://github.com/Aecaichang/portfolio",
+      "article": "#"
+    },
+    {
       "id": 4,
       "title": "ระบบจัดการขนส่ง (ShipManager)",
       "category": "เว็บแอปพลิเคชัน",
@@ -310,6 +377,12 @@
   "titles.architecture": "System Architecture",
   "titles.sourceCode": "ดูซอร์สโค้ด",
   "titles.readArticle": "อ่านบทความ",
+  "stats.title": "ความสำเร็จในตัวเลข",
+  "stats.subtitle": "ผลงานและความเชี่ยวชาญที่สะสมมาตลอดการทำงาน",
+  "stats.experience": "ปีประสบการณ์",
+  "stats.projects": "โปรเจกต์สำเร็จ",
+  "stats.skills": "ทักษะที่เชี่ยวชาญ",
+  "stats.certifications": "ใบรับรอง",
   "aboutMe.storyTitle": "เส้นทางการเดินทางของผม",
   "aboutMe.paragraph1": "ผมเป็นคนลำพูนและปัจจุบันก็ยังคงใช้ชีวิตและทำงานอยู่ที่นี่ จากจุดเริ่มต้นในฐานะครูคอมพิวเตอร์ ที่สอนให้ผมรู้จักการถ่ายทอดความรู้ สู่การเป็น Software QA ที่ทำให้ผมใส่ใจในทุกรายละเอียดและคุณภาพของงาน และก้าวสู่บทบาท Project Manager ที่ช่วยให้ผมมองเห็นภาพรวมธุรกิจและการบริหารจัดการ",
   "aboutMe.paragraph2": "วันนี้ผมนำประสบการณ์ทั้งหมดนั้นมาผสานกันเพื่อเดินบนเส้นทาง Full-Stack Developer ด้วยความฝันที่อยากมีโปรดักส์เป็นของตัวเอง แม้ผมอาจจะไม่ได้เขียนโค้ดเก่งกาจในระดับลึก แต่จุดแข็งของผมคือความชื่นชอบในเทคโนโลยี และการเลือกใช้ Tools สมัยใหม่ โดยเฉพาะการประยุกต์ใช้ AI เข้ามาช่วยทวีคูณประสิทธิภาพการทำงาน",

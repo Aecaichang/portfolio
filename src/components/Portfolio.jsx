@@ -83,13 +83,15 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="py-20 container mx-auto px-4 transition-colors duration-500">
+      <Card className="glass-card rounded-[2.5rem] p-8 md:p-12">
+        <CardContent className="p-0">
       <RevealTitle>
         <h2 id="portfolio-title" className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 to-pink-500 dark:from-blue-400 dark:to-pink-400 bg-clip-text text-transparent">
           {content["titles.featuredWorks"]}
         </h2>
       </RevealTitle>
       
-      <div id="portfolio-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div id="portfolio-grid" className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {portfolio.map((item, index) => (
           <Reveal key={item.id} width="100%" delay={index * 0.1}>
             <Dialog>
@@ -323,6 +325,8 @@ const Portfolio = () => {
           </Reveal>
         ))}
       </div>
+        </CardContent>
+      </Card>
     </section>
   );
 };

@@ -1,23 +1,24 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import QRCode from "react-qr-code";
 import { useLanguage } from '../context/LanguageContext';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Github, Linkedin, ArrowLeft, Printer, Globe } from "lucide-react";
-import { FaLine } from "react-icons/fa";
 
 const CV = () => {
   const { content, toggleLanguage, language } = useLanguage();
   const componentRef = useRef();
+
+  if (!content) {
+    return <div className="min-h-screen flex items-center justify-center">Loading Content...</div>;
+  }
 
   const handlePrint = () => {
     window.print();
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-4 md:p-8 flex flex-col items-center">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-900 px-6 py-4 md:px-12 md:py-8 flex flex-col items-center">
       <div className="w-full max-w-[210mm] mb-4 flex justify-between items-center print:hidden">
         <Button asChild variant="outline" size="sm" className="gap-2">
           <Link to="/">
@@ -48,7 +49,7 @@ const CV = () => {
               {content["personalInfo.name"]}
             </h1>
             <h2 className="text-xl text-blue-700 font-semibold tracking-wide uppercase">
-              Full-Stack Developer / Project Manager
+              {content["personalInfo.title"]}
             </h2>
             <p className="mt-3 text-sm text-slate-600 max-w-lg leading-relaxed">
               {content["aboutMe.paragraph1"]} {content["aboutMe.paragraph2"]}
@@ -97,21 +98,21 @@ const CV = () => {
               </h3>
               
               <div className="space-y-6">
-                {content["experience"].map((job, index) => (
+                {content["experience"]?.map((job, index) => (
                   <div key={index} className="relative pl-4 border-l-2 border-slate-200">
                     <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-100 border-2 border-blue-600"></div>
                     <div className="flex justify-between items-baseline mb-1">
                       <h4 className="font-bold text-slate-900 text-base">{job.company}</h4>
-                      <span className="text-xs text-slate-500 font-medium whitespace-nowrap">{job.roles[0].period.split('·')[0].trim()}</span>
+                      <span className="text-xs text-slate-500 font-medium whitespace-nowrap">{job.roles && job.roles[0]?.period ? job.roles[0].period.split('·')[0].trim() : ''}</span>
                     </div>
                     
-                    {job.roles.map((role, rIndex) => (
+                    {job.roles?.map((role, rIndex) => (
                       <div key={rIndex} className={rIndex > 0 ? "mt-4" : ""}>
                         <div className="flex justify-between items-center mb-1">
                           <h5 className="font-semibold text-blue-700">{role.title}</h5>
                         </div>
                         <ul className="list-disc list-outside ml-4 space-y-1 text-xs text-slate-700 leading-relaxed marker:text-slate-400">
-                          {role.description.map((desc, dIndex) => (
+                          {role.description?.map((desc, dIndex) => (
                             <li key={dIndex}>{desc}</li>
                           ))}
                           {role.achievements && role.achievements.map((ach, aIndex) => (
@@ -131,7 +132,7 @@ const CV = () => {
                 {content["titles.education"]}
               </h3>
               <div className="grid grid-cols-1 gap-4">
-                {content["education"].map((edu, index) => (
+                {content["education"]?.map((edu, index) => (
                   <div key={index}>
                     <div className="flex justify-between items-baseline">
                       <h4 className="font-bold text-slate-900">{edu.university}</h4>
@@ -178,7 +179,7 @@ const CV = () => {
               </h3>
               
               <div className="space-y-5">
-                {content["skills"].map((skillGroup, index) => (
+                {content["skills"]?.map((skillGroup, index) => (
                   <div key={index}>
                     <h5 className="font-semibold text-xs text-slate-400 uppercase tracking-wider mb-2">
                       {skillGroup.category}
@@ -204,7 +205,7 @@ const CV = () => {
                 Certifications
               </h3>
               <ul className="space-y-3">
-                {content["certifications"].map((cert, index) => (
+                {content["certifications"]?.map((cert, index) => (
                   <li key={index} className="text-xs">
                     <p className="font-semibold text-slate-900">{cert.name}</p>
                     <p className="text-slate-500">{cert.issuer} • {cert.date}</p>
@@ -233,37 +234,6 @@ const CV = () => {
               </div>
             </section>
 
-            {/* QR Codes for Print */}
-            <section className="print:block">
-              <h3 className="text-lg font-bold uppercase tracking-widest border-l-4 border-blue-600 pl-3 mb-4 text-slate-800">
-                Scan to Connect
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="bg-white p-1 border border-slate-200 rounded">
-                    <QRCode 
-                      value={content["personalInfo.socials.linkedin"]} 
-                      size={80}
-                      style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                      viewBox={`0 0 256 256`}
-                    />
-                  </div>
-                  <span className="text-[10px] font-semibold text-slate-600 uppercase tracking-wide">LinkedIn</span>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                   <div className="bg-white p-1 border border-slate-200 rounded">
-                    <QRCode 
-                      value={content["personalInfo.socials.github"]} 
-                      size={80}
-                      style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                      viewBox={`0 0 256 256`}
-                    />
-                  </div>
-                  <span className="text-[10px] font-semibold text-slate-600 uppercase tracking-wide">GitHub / Portfolio</span>
-                </div>
-              </div>
-            </section>
-
           </div>
         </div>
 
@@ -274,36 +244,7 @@ const CV = () => {
         </div>
       </div>
 
-      <style jsx global>{`
-        @media print {
-          body {
-            background: white;
-            color: black;
-          }
-          .print\\:hidden {
-            display: none !important;
-          }
-          .print\\:shadow-none {
-            box-shadow: none !important;
-          }
-          .print\\:w-full {
-            width: 100% !important;
-          }
-          .print\\:max-w-none {
-            max-width: none !important;
-          }
-          .print\\:m-0 {
-            margin: 0 !important;
-          }
-          .print\\:p-\\[10mm\\] {
-            padding: 10mm !important;
-          }
-          @page {
-            margin: 0;
-            size: auto;
-          }
-        }
-      `}</style>
+
     </div>
   );
 };
