@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 
 const CursorSpotlight = () => {
   const { theme } = useTheme();
+  const prefersReducedMotion = useReducedMotion();
   const [hasMouse, setHasMouse] = useState(false);
 
   const mouseX = useMotionValue(-1000);
@@ -22,7 +23,7 @@ const CursorSpotlight = () => {
     return () => window.removeEventListener('mousemove', onMove);
   }, [hasMouse, mouseX, mouseY]);
 
-  if (!hasMouse || theme !== 'dark') return null;
+  if (prefersReducedMotion || !hasMouse || theme !== 'dark') return null;
 
   return (
     <motion.div

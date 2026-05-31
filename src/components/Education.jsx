@@ -36,9 +36,11 @@ const Education = () => {
                       {item.university}
                     </CardDescription>
                   </div>
-                  <Badge id={`education-year-${index}`} variant="outline" className="text-base whitespace-nowrap bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800 tabular-nums">
-                    {item.year}
-                  </Badge>
+                  {item.year && (
+                    <Badge id={`education-year-${index}`} variant="outline" className="text-base whitespace-nowrap bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800 tabular-nums">
+                      {item.year}
+                    </Badge>
+                  )}
                 </CardHeader>
                 <CardContent id={`education-content-${index}`}>
                   <div className="text-slate-600 dark:text-slate-300">

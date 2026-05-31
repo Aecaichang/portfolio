@@ -33,7 +33,7 @@ const Certifications = () => {
                    {cert.issuer.charAt(0)}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <CardTitle id={`cert-name-${index}`} className="text-lg font-semibold leading-tight mb-1 truncate text-balance dark:text-slate-100" title={cert.name}>
+                  <CardTitle id={`cert-name-${index}`} className="text-lg font-semibold leading-tight mb-1 line-clamp-2 text-balance dark:text-slate-100" title={cert.name}>
                     {cert.name}
                   </CardTitle>
                   <p id={`cert-issuer-name-${index}`} className="text-sm font-medium text-slate-600 dark:text-slate-300 text-balance">{cert.issuer}</p>

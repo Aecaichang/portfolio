@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,14 @@ import { Mail, Phone, MapPin, Github, Linkedin, ArrowLeft, Printer, Globe } from
 const CV = () => {
   const { content, toggleLanguage, language } = useLanguage();
   const componentRef = useRef();
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = 'Chanchai_Tasujai_CV';
+    return () => {
+      document.title = previousTitle;
+    };
+  }, []);
 
   if (!content) {
     return <div className="min-h-screen flex items-center justify-center">Loading Content...</div>;

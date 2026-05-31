@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import CV from './components/CV';
 
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { TooltipProvider } from "@/components/ui/tooltip";
+
+const CV = lazy(() => import('./components/CV'));
 
 function App() {
   return (
@@ -15,7 +16,20 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/cv" element={<CV />} />
+              <Route
+                path="/cv"
+                element={
+                  <Suspense
+                    fallback={
+                      <div className="min-h-screen flex items-center justify-center">
+                        Loading CV…
+                      </div>
+                    }
+                  >
+                    <CV />
+                  </Suspense>
+                }
+              />
             </Routes>
           </Router>
         </TooltipProvider>

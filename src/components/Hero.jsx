@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useMotionValue, useTransform, useReducedMotion } from "framer-motion";
 import { Mail, MapPin, Cake, Phone, Facebook, Linkedin, Github } from "lucide-react";
 import { FaLine } from "react-icons/fa";
 
@@ -49,7 +49,9 @@ const useTypewriter = (texts, { typingSpeed = 80, deletingSpeed = 40, pauseDurat
 
 const Hero = () => {
   const { content, language } = useLanguage();
-  const roles = content["personalInfo.title"].split(" · ");
+  const prefersReducedMotion = useReducedMotion();
+  const fullTitle = content["personalInfo.title"];
+  const roles = fullTitle.split(" · ");
   const { displayText, phase } = useTypewriter(roles);
 
   // Mouse tracking for profile image tilt effect
@@ -142,8 +144,16 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              {displayText}
-              <span className={`inline-block w-0.5 h-4 ml-0.5 align-middle bg-blue-500 ${phase === 'deleting' ? 'opacity-100' : 'animate-pulse'}`} />
+              {/* Static full title for screen readers */}
+              <span className="sr-only">{fullTitle}</span>
+              {prefersReducedMotion ? (
+                <span>{fullTitle}</span>
+              ) : (
+                <span aria-hidden="true">
+                  {displayText}
+                  <span className={`inline-block w-0.5 h-4 ml-0.5 align-middle bg-blue-500 ${phase === 'deleting' ? 'opacity-100' : 'animate-pulse'}`} />
+                </span>
+              )}
             </motion.p>
           </div>
 
