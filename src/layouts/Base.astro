@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import { getContent, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+}
+
+const { locale, title, description } = Astro.props;
+const t = getContent(locale);
+
+const pageTitle = title ?? `${t['personalInfo.name']} | ${t['personalInfo.title']}`;
+const pageDescription =
+  description ??
+  `Portfolio of ${t['personalInfo.name']} - ${t['personalInfo.title']} based in ${t['personalInfo.location']}.`;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/images/profile-new-1.jpg', Astro.site);
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: t['personalInfo.name'],
+  jobTitle: t['personalInfo.title'],
+  email: `mailto:${t['personalInfo.email']}`,
+  address: { '@type': 'PostalAddress', addressLocality: 'Lamphun', addressCountry: 'TH' },
+  url: Astro.site?.toString(),
+  image: ogImage.toString(),
+  sameAs: [
+    t['personalInfo.socials.github'],
+    t['personalInfo.socials.linkedin'],
+    t['personalInfo.socials.facebook'],
+  ],
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content={t['personalInfo.name']} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="th" href={new URL(Astro.url.pathname.replace(/^\/en(?=\/|$)/, '') || '/', Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(`/en${Astro.url.pathname.replace(/^\/en(?=\/|$)/, '')}`.replace(/\/$/, '') || '/en', Astro.site)} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={`${t['personalInfo.name']} Portfolio`} />
+    <meta property="og:locale" content={locale === 'th' ? 'th_TH' : 'en_US'} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Prompt:wght@300;400;500;600;700;900&display=swap"
+    />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+    <!-- Theme: applied before paint to avoid flash -->
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('theme');
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/reveal';
+    </script>
+  </body>
+</html>

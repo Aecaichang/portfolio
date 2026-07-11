@@ -1,0 +1,119 @@
+---
+import { getContent, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getContent(locale);
+
+interface Highlight {
+  icon: string;
+  iconColor: string;
+  title: string;
+  desc: string;
+}
+
+// Lucide outline icon paths (user, code, zap, heart)
+const highlights: Highlight[] = [
+  {
+    icon: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+    iconColor: 'text-blue-500',
+    title: t['aboutMe.highlight1.title'],
+    desc: t['aboutMe.highlight1.desc'],
+  },
+  {
+    icon: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+    iconColor: 'text-purple-500',
+    title: t['aboutMe.highlight2.title'],
+    desc: t['aboutMe.highlight2.desc'],
+  },
+  {
+    icon: '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+    iconColor: 'text-yellow-500',
+    title: t['aboutMe.highlight3.title'],
+    desc: t['aboutMe.highlight3.desc'],
+  },
+  {
+    icon: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+    iconColor: 'text-pink-500',
+    title: t['aboutMe.highlight4.title'],
+    desc: t['aboutMe.highlight4.desc'],
+  },
+];
+
+const tags = [
+  { label: '#ActiveLearner', classes: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300' },
+  { label: '#TechEnthusiast', classes: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' },
+  { label: '#ProblemSolver', classes: 'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300' },
+];
+---
+
+<section id="aboutMe" class="py-20 bg-secondary/30 transition-colors duration-500">
+  <div class="container mx-auto px-4">
+    <div class="glass-card rounded-[2.5rem] p-8 md:p-12">
+      <div class="reveal">
+        <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-pink-500 dark:from-blue-400 dark:to-pink-400 bg-clip-text text-transparent">
+          {t['titles.aboutMe']}
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal" style="transition-delay: 200ms">
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+              <span class="text-3xl">🚀</span> {t['aboutMe.storyTitle']}
+            </h3>
+
+            <div class="text-slate-600 dark:text-slate-300 leading-relaxed space-y-6 text-lg">
+              <p class="indent-8">{t['aboutMe.paragraph1']}</p>
+              <p>{t['aboutMe.paragraph2']}</p>
+              <p class="font-medium text-slate-800 dark:text-slate-200">{t['aboutMe.paragraph3']}</p>
+            </div>
+
+            <div class="flex flex-wrap gap-3 pt-4">
+              {
+                tags.map((tag) => (
+                  <span class={`inline-flex items-center rounded-full font-semibold px-4 py-2 text-sm ${tag.classes}`}>
+                    {tag.label}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {
+            highlights.map((item, index) => (
+              <div class="reveal h-full" style={`transition-delay: ${300 + index * 100}ms`}>
+                <div class="h-full rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border-t border-white/20 hover:-translate-y-1">
+                  <div class="p-6 flex flex-col items-start gap-4 h-full">
+                    <div class="p-3 rounded-2xl bg-white dark:bg-slate-900 shadow-sm">
+                      <svg
+                        class={`w-5 h-5 ${item.iconColor}`}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                        set:html={item.icon}
+                      />
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-2">{item.title}</h4>
+                      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Stats from '../../components/Stats.astro';
+import AboutMe from '../../components/AboutMe.astro';
+import Experience from '../../components/Experience.astro';
+import Education from '../../components/Education.astro';
+import Certifications from '../../components/Certifications.astro';
+import Skills from '../../components/Skills.astro';
+import Portfolio from '../../components/Portfolio.astro';
+import Footer from '../../components/Footer.astro';
+import type { Locale } from '../../lib/i18n';
+
+const locale: Locale = 'en';
+---
+
+<Base locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <Hero locale={locale} />
+    <Stats locale={locale} />
+    <AboutMe locale={locale} />
+    <Experience locale={locale} />
+    <Education locale={locale} />
+    <Certifications locale={locale} />
+    <Skills locale={locale} />
+    <Portfolio locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</Base>
