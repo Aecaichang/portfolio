@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import CVContent from '../components/CVContent.astro';
+import { getContent, type Locale } from '../lib/i18n';
+
+const locale: Locale = 'th';
+const t = getContent(locale);
+---
+
+<Base locale={locale} title={`CV | ${t['personalInfo.name']}`}>
+  <CVContent locale={locale} />
+</Base>
