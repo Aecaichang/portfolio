@@ -7,6 +7,10 @@ const locale: Locale = 'th';
 const t = getContent(locale);
 ---
 
-<Base locale={locale} title={`CV | ${t['personalInfo.name']}`}>
+<Base
+  locale={locale}
+  title={`CV | ${t['personalInfo.name']}`}
+  description={`ประวัติย่อ (CV) ของ ${t['personalInfo.name']} — ${t['personalInfo.title']} ประสบการณ์ทำงาน การศึกษา ทักษะ และใบรับรอง พร้อมดาวน์โหลดเป็น PDF`}
+>
   <CVContent locale={locale} />
 </Base>
