@@ -1,0 +1,87 @@
+---
+import { getContent, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+interface EducationItem {
+  degree: string;
+  university: string;
+  year?: string;
+  honors?: string;
+  description?: string;
+}
+
+const { locale } = Astro.props;
+const t = getContent(locale);
+const education = t['education'] as unknown as EducationItem[];
+---
+
+<section id="education" class="py-20 bg-secondary/30 transition-colors duration-500">
+  <div id="education-container" class="container mx-auto px-4 max-w-4xl">
+    <div class="glass-card rounded-[2.5rem] p-8 md:p-12">
+      <div class="reveal">
+        <h2
+          id="education-title"
+          class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-pink-500 dark:from-blue-400 dark:to-pink-400 bg-clip-text text-transparent"
+        >
+          {t['titles.education']}
+        </h2>
+      </div>
+
+      <div id="education-list" class="space-y-6">
+        {
+          education.map((item, index) => (
+            <article
+              id={`education-card-${index}`}
+              class="reveal rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-[box-shadow,background-color,border-color] duration-300 dark:bg-slate-900/80 dark:border-slate-800"
+              style={`transition-delay: ${index * 100}ms`}
+            >
+              <header
+                id={`education-header-${index}`}
+                class="flex flex-row items-baseline justify-between gap-4 p-6 pb-2"
+              >
+                <div class="space-y-1">
+                  <h3
+                    id={`education-degree-${index}`}
+                    class="text-xl font-semibold leading-none tracking-tight text-balance dark:text-slate-100"
+                  >
+                    {item.degree}
+                  </h3>
+                  <p
+                    id={`education-uni-${index}`}
+                    class="text-base font-medium text-slate-700 dark:text-slate-300 text-balance"
+                  >
+                    {item.university}
+                  </p>
+                </div>
+                {item.year && (
+                  <span
+                    id={`education-year-${index}`}
+                    class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-base font-semibold whitespace-nowrap bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800 tabular-nums"
+                  >
+                    {item.year}
+                  </span>
+                )}
+              </header>
+              <div id={`education-content-${index}`} class="p-6 pt-0">
+                <div class="text-slate-600 dark:text-slate-300">
+                  <p
+                    id={`education-honors-${index}`}
+                    class="font-medium text-blue-600 dark:text-blue-400 mb-1 text-balance"
+                  >
+                    {item.honors}
+                  </p>
+                  <p id={`education-desc-${index}`} class="text-sm">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
