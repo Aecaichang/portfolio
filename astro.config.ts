@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://portfolio-fzz.pages.dev',
+  site: 'https://chanchai-portfolio.pages.dev',
   i18n: {
     defaultLocale: 'th',
     locales: ['th', 'en'],
