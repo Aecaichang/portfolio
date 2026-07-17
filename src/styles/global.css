@@ -149,6 +149,23 @@
     size: A4;
   }
 
+  /* Compact print: shrinking the root size scales every rem-based
+     font, padding, and gap on the page at once */
+  html {
+    font-size: 11px;
+  }
+  body {
+    line-height: 1.45;
+  }
+  h2 {
+    margin-top: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  .rounded-lg {
+    padding: 0.5rem 0.75rem !important;
+  }
+
   /* Content hidden behind scroll-reveal must all be visible on paper */
   .reveal {
     opacity: 1 !important;
