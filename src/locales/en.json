@@ -5,7 +5,6 @@
   "nav.skills": "Skills",
   "nav.portfolio": "Portfolio",
   "nav.contact": "Contact Me",
-  "nav.downloadCv": "Download CV",
   "nav.aboutMe": "About Me",
   "titles.aboutMe": "About Me",
   "titles.experience": "Work Experience",
@@ -16,7 +15,7 @@
   "titles.viewProject": "View Project",
   "titles.visitWebsite": "Visit Website",
   "personalInfo.name": "Chanchai Tasujai",
-  "personalInfo.title": "Project Manager · Senior QA · Full-Stack Developer",
+  "personalInfo.title": "Senior Quality Assurance Engineer",
   "personalInfo.phone": "098-650-9392",
   "personalInfo.email": "aecaichang@gmail.com",
   "personalInfo.location": "Lamphun, Thailand",
@@ -66,59 +65,68 @@
   ],
   "skills": [
     {
-      "category": "PM Highlight",
-      "targetRole": "Project Manager",
+      "category": "Project Management",
       "items": [
-        "Agile/Scrum",
-        "Sprint Planning",
+        "Scope & Timeline Planning",
+        "UAT Management",
         "Stakeholder Management",
-        "Project Roadmap",
+        "Agile/Scrum (Sprint Planning, Daily Stand-up, Retrospective)",
         "Jira"
       ]
     },
     {
-      "category": "QA Highlight",
-      "targetRole": "Senior QA/Tester",
+      "category": "Test Management",
       "items": [
         "Test Strategy",
+        "Test Planning",
         "Regression Testing",
-        "Selenium",
-        "Robot Framework",
-        "Postman",
-        "Root Cause Analysis"
+        "Risk-Based Testing",
+        "UAT",
+        "Test Traceability"
       ]
     },
     {
-      "category": "Technical",
+      "category": "Automation & API Testing",
       "items": [
-        "JavaScript/TypeScript",
-        "React",
-        "Node.js",
-        "Python",
-        "SQL",
-        ".NET/C#"
+        "Robot Framework",
+        "Selenium",
+        "Postman (API Testing, Contract Testing, Collections)"
       ]
     },
     {
-      "category": "AI & Automation",
+      "category": "Analysis",
+      "items": [
+        "Root Cause Analysis",
+        "Bug Tracking & Reporting",
+        "System Analysis & Design"
+      ]
+    },
+    {
+      "category": "AI-Assisted Development — building real products with AI pair programming; strong at system overview and choosing the right tools for the job",
+      "items": [
+        "Web: React, Next.js, Astro, Node.js, Tailwind CSS",
+        "Mobile: Flutter/Dart, Kotlin Multiplatform, Google Play Console",
+        "Backend & Cloud: Supabase, Cloudflare, SQL, Vercel"
+      ]
+    },
+    {
+      "category": "AI",
       "items": [
         "Generative AI",
         "Prompt Engineering",
-        "Gemini API",
-        "Cursor / Copilot",
-        "Stable Diffusion"
+        "Gemini API (OCR)",
+        "Claude Code",
+        "LINE Messaging API"
       ]
     },
     {
-      "category": "Development Tools",
+      "category": "Tools",
       "items": [
         "Git",
-        "Figma",
-        "Supabase",
+        "GitHub (Repository, Pull Request, Code Review)",
         "DBeaver",
-        "VSCode",
-        "Android Studio",
-        "Xcode"
+        "Figma",
+        "Jira"
       ]
     },
     {
@@ -132,35 +140,46 @@
   "experience": [
     {
       "company": "Zeabix Company Limited",
-      "type": "Full-time · 1 yr 1 mo",
+      "type": "Full-time · 100% Remote",
       "location": "Bangkok, Thailand",
       "roles": [
         {
-          "title": "Project Manager",
-          "period": "Oct 2025 - Present · 8 mos",
+          "title": "Senior QA",
+          "period": "Apr 2026 - Present",
           "description": [
-            "Led ATP30 project delivery from scope planning through UAT milestones.",
-            "Aligned business, client, and engineering teams to reduce requirement gaps."
-          ],
-          "achievements": [
-            "Delivered UAT milestone on schedule under constrained team capacity.",
-            "Reduced repeated requirement rework by improving backlog grooming and acceptance criteria."
-          ],
-          "leadership": [
-            "Managed cross-functional stakeholders with clear risk and priority communication.",
-            "Drove Agile ceremonies (Sprint Planning, Daily Stand-up, Retrospective) for execution consistency."
-          ]
-        },
-        {
-          "title": "Senior Software Tester",
-          "period": "May 2025 - Oct 2025 · 6 mos",
-          "description": [
+            "Own software quality across 3 concurrent projects: LION (Sales Portal), ATP30 (driver data and billing), and Tokio Marine (insurance policy issuance for the Shopee platform).",
             "Owned test strategy and regression quality gates for critical modules.",
-            "Handled quality assurance across manual and automated testing flows."
+            "Applied AI to analyze and resolve user issues on the ATP30 project.",
+            "Delivered customer training sessions on the LION project."
           ],
           "achievements": [
             "Reduced regression testing time by 40% using Robot Framework automation.",
             "Lowered production defect leakage with risk-based testing and stronger test traceability."
+          ]
+        },
+        {
+          "title": "Project Manager",
+          "period": "Nov 2025 - Mar 2026 · 5 mos",
+          "description": [
+            "Oversaw the company's entire project portfolio across clients: ATP30, Tokio Marine, LION, and Chicalence.",
+            "Led ATP30 project delivery from scope planning through UAT milestones.",
+            "Aligned business, client, and engineering teams to reduce requirement gaps."
+          ],
+          "achievements": [
+            "Delivered UAT milestone on schedule under constrained team capacity."
+          ],
+          "leadership": [
+            "Drove Agile ceremonies (Sprint Planning, Daily Stand-up, Retrospective) for execution consistency."
+          ]
+        },
+        {
+          "title": "Software Tester (QA)",
+          "period": "May 2025 - Oct 2025 · 6 mos",
+          "description": [
+            "Designed and wrote test cases, and tested the system before each customer delivery on the LION project.",
+            "Ran UAT with the client and demoed the system for sprint-based deliveries.",
+            "Handled quality assurance across manual and automated testing flows, including API contract testing with Postman.",
+            "Tested an enterprise Transport Management System (TMS) with clients such as LION."
           ]
         }
       ]
@@ -172,21 +191,18 @@
       "roles": [
         {
           "title": "Software Tester",
-          "period": "Apr 2021 - Mar 2025 · 4 yrs",
+          "period": "May 2021 - Mar 2025 · 3 yrs 11 mos",
           "description": [
-            "System Analysis & Design: Analyzed requirements and designed system architecture.",
-            "Project Management: Managed timelines and cross-team coordination.",
-            "QA & Testing: Designed test cases and executed manual/functional testing.",
-            "Infrastructure: Supported server and database reliability.",
-            "Issue Tracking: Managed bugs and root cause analysis."
+            "Designed test cases and executed manual/functional testing across web and mobile platforms.",
+            "Deployed the web app and mobile apps (iOS and Android) to production.",
+            "Analyzed requirements, designed system architecture, and supported server and database reliability.",
+            "Managed bug lifecycle and root cause analysis.",
+            "Coordinated with an outsourced development team.",
+            "Designed UI screens in Figma for both mobile and web, based on features and user requirements."
           ],
           "achievements": [
             "Expanded test coverage in critical modules and reduced repeated post-release defects.",
             "Improved bug reporting workflow, reducing turnaround and re-test cycles."
-          ],
-          "leadership": [
-            "Collaborated with enterprise stakeholders such as LION and SPRC on requirement prioritization.",
-            "Bridged communication between technical teams and operations users to reduce misunderstandings."
           ]
         }
       ]
@@ -198,11 +214,11 @@
       "roles": [
         {
           "title": "Computer Teacher",
-          "period": "Apr 2020 - Mar 2021 · 1 yr",
+          "period": "May 2020 - Mar 2021 · 1 academic year",
           "description": [
-            "Teaching Management: Delivered computer science and technology lessons for vocational students.",
-            "Curriculum Preparation: Planned lessons aligned with current technology trends.",
-            "Measurement and Evaluation: Monitored student progress through practical projects."
+            "Taught vocational students in the computer curriculum.",
+            "Prepared lesson plans and teaching materials aligned with current technology.",
+            "Managed the college's Facebook Page — created content and published announcements."
           ]
         }
       ]
@@ -216,9 +232,9 @@
           "title": "Software Quality Assurance Engineer",
           "period": "Oct 2018 - Jan 2020 · 1 yr 4 mos",
           "description": [
-            "Managed tester resources and coordinated QA efforts across multiple projects.",
-            "Conducted User Acceptance Testing (UAT) with stakeholders and designed test cases based on requirements.",
-            "Quality assurance and testing for enterprise software solutions."
+            "Mentored junior QA team members and managed QA resources across projects.",
+            "Wrote test cases and tested the AIS client's projects — both the web application and the myAIS mobile app.",
+            "Ran UAT with the client each sprint for milestone deliveries."
           ]
         }
       ]
@@ -231,7 +247,7 @@
       "category": "Website",
       "images": ["/images/suchada-tms.png"],
       "image": "/images/suchada-tms.png",
-      "description": "A personal portfolio website designed and built from scratch, supporting dual languages (Thai/English) and themes (Light/Dark) with smooth animations and full responsiveness across all devices.",
+      "description": "A personal portfolio website designed and built from scratch, supporting dual languages (Thai/English) with smooth animations and full responsiveness across all devices.",
       "caseStudy": {
         "problem": [
           "Needed a professional platform to showcase work and experience beyond a static PDF CV.",
@@ -239,7 +255,7 @@
           "Wanted to demonstrate Full-Stack development skills through a real-world project."
         ],
         "solution": [
-          "Built a SPA with React + Vite, implementing i18n (Thai/English) and Light/Dark mode.",
+          "Built a SPA with React + Vite, implementing i18n (Thai/English).",
           "Used Framer Motion for scroll animations and a 3D tilt effect on the profile image.",
           "Deployed on Vercel with Analytics and a live visitor counter."
         ],
@@ -250,7 +266,7 @@
         ],
         "architecture": [
           "React SPA → Vite build → Vercel CDN",
-          "LanguageContext (i18n) + ThemeContext (dark/light)",
+          "LanguageContext (i18n)",
           "shadcn/ui components + Tailwind CSS design system",
           "Vercel Analytics + CounterAPI visitor tracking"
         ]
@@ -269,7 +285,6 @@
           "title": "Core Features",
           "items": [
             "Bilingual support: Thai and English",
-            "Light / Dark mode with system preference detection",
             "3D tilt effect on profile image via Framer Motion",
             "Scroll-triggered animations across all sections",
             "Responsive design across all device sizes"
@@ -385,7 +400,7 @@
   "stats.certifications": "Certifications",
   "aboutMe.storyTitle": "My Journey",
   "aboutMe.paragraph1": "I am a Lamphun native and currently live and work here. Starting as a Computer Teacher, I learned the art of knowledge transfer. Then, as a Software QA, I developed an eye for detail and quality. Advancing to Project Manager gave me a holistic view of business and management.",
-  "aboutMe.paragraph2": "Today, I merge all these experiences to walk the path of a Full-Stack Developer with a dream of having my own product. Although I may not be a deep-level code wizard, my strength lies in my passion for technology and leveraging modern tools—especially applying AI to multiply productivity.",
+  "aboutMe.paragraph2": "Today, I merge all these experiences with a dream of having my own product. My strength lies in my passion for technology and leveraging modern tools—especially applying AI to multiply productivity.",
   "aboutMe.paragraph3": "I don't just aim to \"write code\" but to \"build solutions\" because I understand the importance of Business Requirements (PM view), Quality Gates (QA view), and User Experience. I never stop learning and am always ready to adapt to the fast-paced world of innovation.",
   "aboutMe.highlight1.title": "Diverse Background",
   "aboutMe.highlight1.desc": "Teacher -> QA -> PM -> Dev. A unique blend of skills.",

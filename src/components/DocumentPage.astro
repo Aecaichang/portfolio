@@ -1,0 +1,239 @@
+---
+import { Image } from 'astro:assets';
+import profileImage from '../assets/images/profile-new-1.jpg';
+import { getContent, alternatePath, type Locale } from '../lib/i18n';
+import { UserRound, Briefcase, Rocket, Wrench, GraduationCap, Award, MapPin, Mail } from 'lucide-astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getContent(locale);
+
+const switchHref = alternatePath(locale, Astro.url.pathname);
+
+const sectionTitle =
+  'flex items-center gap-2.5 text-xl font-bold mt-12 mb-4 pb-2 border-b-2 border-[#BDDDFC] text-[#384959]';
+const sectionIcon = 'w-5 h-5 shrink-0 text-[#6A89A7]';
+const companyName = 'text-base font-bold text-[#6A89A7]';
+const roleTitle = 'font-semibold text-[#384959]';
+const meta = 'text-sm text-[#6A89A7]';
+const bullets = 'list-disc pl-5 mt-1 space-y-1 text-[#384959] marker:text-[#88BDF2]';
+const chip =
+  'inline-block rounded-full border border-[#BDDDFC] bg-[#BDDDFC]/40 px-2.5 py-0.5 text-xs text-[#384959]';
+const card =
+  'border border-[#BDDDFC] border-l-4 border-l-[#88BDF2] rounded-lg p-5 md:p-6 bg-[#BDDDFC]/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg';
+
+const contactLinks = [
+  { label: 'GitHub', href: t['personalInfo.socials.github'] },
+  { label: 'LinkedIn', href: t['personalInfo.socials.linkedin'] },
+  { label: 'Facebook', href: t['personalInfo.socials.facebook'] },
+];
+
+type Role = (typeof t)['experience'][number]['roles'][number];
+const getList = (role: Role, key: 'achievements' | 'leadership'): readonly string[] => {
+  const value = (role as Record<string, unknown>)[key];
+  return Array.isArray(value) ? value : [];
+};
+---
+
+<div class="min-h-screen bg-[#BDDDFC] py-6 md:py-12 px-4">
+  <div
+    class="max-w-5xl mx-auto px-6 py-10 md:px-16 md:py-14 leading-relaxed bg-white border border-[#88BDF2] rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.1),0_8px_24px_rgba(0,0,0,0.08)]"
+  >
+  <!-- Top bar -->
+  <nav class="flex items-center justify-between mb-10 text-sm">
+    <span class="font-bold">{t['personalInfo.name']}</span>
+    <a href={switchHref} class="text-[#6A89A7] hover:underline">{locale === 'en' ? 'ไทย' : 'EN'}</a>
+  </nav>
+
+  <!-- Identity -->
+  <header class="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6">
+    <div>
+      <h1 class="text-3xl font-bold bg-gradient-to-r from-[#384959] to-[#6A89A7] bg-clip-text text-transparent">{t['personalInfo.name']}</h1>
+      <p class="mt-1 text-lg text-[#6A89A7]">{t['personalInfo.title']}</p>
+      <p class={`mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 ${meta}`}>
+        <span class="inline-flex items-center gap-1.5"><MapPin class="w-4 h-4" />{t['personalInfo.location']}</span>
+        <a href={`mailto:${t['personalInfo.email']}`} class="inline-flex items-center gap-1.5 text-[#6A89A7] hover:underline">
+          <Mail class="w-4 h-4" />{t['personalInfo.email']}
+        </a>
+      </p>
+      <p class="mt-1 text-sm">
+        {
+          contactLinks.map((item, i) => (
+            <>
+              {i > 0 && <span class="text-[#88BDF2]"> · </span>}
+              <a href={item.href} target="_blank" rel="noopener" class="text-[#6A89A7] hover:underline">
+                {item.label}
+              </a>
+            </>
+          ))
+        }
+      </p>
+    </div>
+    <div id="profile-tilt" class="shrink-0 will-change-transform transition-transform duration-200 ease-out">
+      <Image
+        src={profileImage}
+        alt={t['personalInfo.name']}
+        width={352}
+        height={352}
+        loading="eager"
+        fetchpriority="high"
+        class="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover border border-[#BDDDFC] shadow-[0_2px_6px_rgba(0,0,0,0.12),0_12px_28px_rgba(0,0,0,0.14)]"
+      />
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="reveal" aria-labelledby="doc-about">
+    <h2 id="doc-about" class={sectionTitle}><UserRound class={sectionIcon} />{t['titles.aboutMe']}</h2>
+    <div class="space-y-3 text-[#384959]">
+      <p>{t['aboutMe.paragraph1']}</p>
+      <p>{t['aboutMe.paragraph2']}</p>
+      <p>{t['aboutMe.paragraph3']}</p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="reveal" aria-labelledby="doc-experience">
+    <h2 id="doc-experience" class={sectionTitle}><Briefcase class={sectionIcon} />{t['titles.experience']}</h2>
+    <div class="space-y-6">
+      {
+        t['experience'].map((job) => (
+          <div class={card}>
+            <p class={companyName}>{job.company}</p>
+            <p class={meta}>
+              {job.type} · {job.location}
+            </p>
+            <div class="mt-3 space-y-5">
+              {job.roles.map((role) => (
+                <div>
+                  <p class={roleTitle}>{role.title}</p>
+                  <p class={meta}>{role.period}</p>
+                  <ul class={bullets}>
+                    {role.description.map((line) => (
+                      <li>{line}</li>
+                    ))}
+                    {getList(role, 'achievements').map((line) => (
+                      <li>{line}</li>
+                    ))}
+                    {getList(role, 'leadership').map((line) => (
+                      <li>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="reveal" aria-labelledby="doc-portfolio">
+    <h2 id="doc-portfolio" class={sectionTitle}><Rocket class={sectionIcon} />{t['titles.featuredWorks']}</h2>
+    <div class="space-y-6">
+      {
+        t['portfolio'].map((project) => (
+          <div class={card}>
+            <p class="font-semibold text-[#384959]">{project.title}</p>
+            <p class="mt-1 text-[#384959]">{project.description}</p>
+            <p class="mt-2 flex flex-wrap gap-1.5">
+              {project.techStack.map((tech) => (
+                <span class={chip}>{tech}</span>
+              ))}
+            </p>
+            <p class="mt-1 text-sm">
+              {project.link && project.link !== '#' && (
+                <a href={project.link} target="_blank" rel="noopener" class="text-[#6A89A7] hover:underline mr-4">
+                  {t['titles.visitWebsite']}
+                </a>
+              )}
+              {project.sourceCode && project.sourceCode !== '#' && (
+                <a href={project.sourceCode} target="_blank" rel="noopener" class="text-[#6A89A7] hover:underline">
+                  {t['titles.sourceCode']}
+                </a>
+              )}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="reveal" aria-labelledby="doc-skills">
+    <h2 id="doc-skills" class={sectionTitle}><Wrench class={sectionIcon} />{t['titles.skills']}</h2>
+    <dl class="grid gap-4 sm:grid-cols-2">
+      {
+        t['skills'].map((group) => (
+          <div class={card}>
+            <dt class="font-semibold text-[#6A89A7]">{group.category}</dt>
+            <dd class="mt-2 flex flex-wrap gap-1.5">
+              {group.items.map((item) => (
+                <span class={chip}>{item}</span>
+              ))}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <!-- Education -->
+  <section class="reveal" aria-labelledby="doc-education">
+    <h2 id="doc-education" class={sectionTitle}><GraduationCap class={sectionIcon} />{t['titles.education']}</h2>
+    <div class="space-y-4">
+      {
+        t['education'].map((item) => (
+          <div class={card}>
+            <p class="font-semibold text-[#384959]">{item.degree}</p>
+            <p class={meta}>
+              {item.university}
+              {item.honors && ` · ${item.honors}`}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="reveal" aria-labelledby="doc-certifications">
+    <h2 id="doc-certifications" class={sectionTitle}><Award class={sectionIcon} />{t['titles.certifications']}</h2>
+    <ul class="space-y-4">
+      {
+        t['certifications'].map((cert) => (
+          <li class={card}>
+            <span class="font-semibold text-[#384959]">{cert.name}</span>
+            <span class="text-[#6A89A7]"> — {cert.issuer}</span>
+            <span class={`ml-2 ${chip}`}>{cert.date}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+    <footer class="mt-14 pt-6 border-t border-[#BDDDFC] text-sm text-[#6A89A7]">
+      © {new Date().getFullYear()} {t['personalInfo.name']}
+    </footer>
+  </div>
+</div>
+
+<script>
+  const tilt = document.getElementById('profile-tilt');
+  if (tilt && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const MAX_TILT_DEG = 10;
+    tilt.addEventListener('pointermove', (event) => {
+      const rect = tilt.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      tilt.style.transform = `perspective(600px) rotateY(${x * MAX_TILT_DEG}deg) rotateX(${-y * MAX_TILT_DEG}deg) scale(1.04)`;
+    });
+    tilt.addEventListener('pointerleave', () => {
+      tilt.style.transform = '';
+    });
+  }
+</script>

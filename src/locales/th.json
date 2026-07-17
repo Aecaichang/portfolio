@@ -5,7 +5,6 @@
   "nav.skills": "ทักษะ",
   "nav.portfolio": "ผลงาน",
   "nav.contact": "ติดต่อฉัน",
-  "nav.downloadCv": "ดาวน์โหลด CV",
   "nav.aboutMe": "เกี่ยวกับฉัน",
   "titles.aboutMe": "เกี่ยวกับฉัน",
   "titles.experience": "ประสบการณ์ทำงาน",
@@ -16,7 +15,7 @@
   "titles.viewProject": "ดูโปรเจกต์",
   "titles.visitWebsite": "เยี่ยมชมเว็บไซต์",
   "personalInfo.name": "ชาญชัย ทะสุใจ",
-  "personalInfo.title": "Project Manager · Senior QA · Full-Stack Developer",
+  "personalInfo.title": "Senior Quality Assurance Engineer",
   "personalInfo.phone": "098-650-9392",
   "personalInfo.email": "aecaichang@gmail.com",
   "personalInfo.location": "ลำพูน, ไทย",
@@ -66,59 +65,68 @@
   ],
   "skills": [
     {
-      "category": "PM Highlight",
-      "targetRole": "Project Manager",
+      "category": "Project Management",
       "items": [
-        "Agile/Scrum",
-        "Sprint Planning",
+        "Scope & Timeline Planning",
+        "UAT Management",
         "Stakeholder Management",
-        "Project Roadmap",
+        "Agile/Scrum (Sprint Planning, Daily Stand-up, Retrospective)",
         "Jira"
       ]
     },
     {
-      "category": "QA Highlight",
-      "targetRole": "Senior QA/Tester",
+      "category": "Test Management",
       "items": [
         "Test Strategy",
+        "Test Planning",
         "Regression Testing",
-        "Selenium",
-        "Robot Framework",
-        "Postman",
-        "Root Cause Analysis"
+        "Risk-Based Testing",
+        "UAT",
+        "Test Traceability"
       ]
     },
     {
-      "category": "Technical",
+      "category": "Automation & API Testing",
       "items": [
-        "JavaScript/TypeScript",
-        "React",
-        "Node.js",
-        "Python",
-        "SQL",
-        ".NET/C#"
+        "Robot Framework",
+        "Selenium",
+        "Postman (API Testing, Contract Testing, Collections)"
       ]
     },
     {
-      "category": "AI & Automation",
+      "category": "Analysis",
+      "items": [
+        "Root Cause Analysis",
+        "Bug Tracking & Reporting",
+        "System Analysis & Design"
+      ]
+    },
+    {
+      "category": "AI-Assisted Development — พัฒนาโปรดักส์จริงโดยใช้ AI ช่วยเขียนโค้ดเป็นหลัก เข้าใจภาพรวมระบบและเลือกเครื่องมือให้เหมาะกับงาน",
+      "items": [
+        "Web: React, Next.js, Astro, Node.js, Tailwind CSS",
+        "Mobile: Flutter/Dart, Kotlin Multiplatform, Google Play Console",
+        "Backend & Cloud: Supabase, Cloudflare, SQL, Vercel"
+      ]
+    },
+    {
+      "category": "AI",
       "items": [
         "Generative AI",
         "Prompt Engineering",
-        "Gemini API",
-        "Cursor / Copilot",
-        "Stable Diffusion"
+        "Gemini API (OCR)",
+        "Claude Code",
+        "LINE Messaging API"
       ]
     },
     {
-      "category": "Development Tools",
+      "category": "Tools",
       "items": [
         "Git",
-        "Figma",
-        "Supabase",
+        "GitHub (Repository, Pull Request, Code Review)",
         "DBeaver",
-        "VSCode",
-        "Android Studio",
-        "Xcode"
+        "Figma",
+        "Jira"
       ]
     },
     {
@@ -132,35 +140,46 @@
   "experience": [
     {
       "company": "บริษัท ซีบิกซ์ จำกัด (Zeabix)",
-      "type": "งานประจำ · 1 ปี 1 เดือน",
+      "type": "งานประจำ · Work from Home 100%",
       "location": "กรุงเทพมหานคร, ไทย",
       "roles": [
         {
-          "title": "ผู้จัดการโครงการ (Project Manager)",
-          "period": "ต.ค. 2025 - ปัจจุบัน · 8 เดือน",
+          "title": "นักทดสอบซอฟต์แวร์อาวุโส (Senior QA)",
+          "period": "เม.ย. 2026 - ปัจจุบัน",
           "description": [
+            "ดูแลคุณภาพซอฟต์แวร์ 3 โปรเจกต์หลักพร้อมกัน: LION (Sales Portal), ATP30 (ข้อมูลนักขับและการวางบิล) และ Tokio Marine (ออกกรมธรรม์สำหรับแพลตฟอร์ม Shopee)",
+            "ออกแบบ Test Strategy และบริหาร Regression Test ของระบบสำคัญ",
+            "นำ AI มาช่วยวิเคราะห์และแก้ไขปัญหาให้ผู้ใช้งานในโปรเจกต์ ATP30",
+            "จัดเทรนนิ่งการใช้งานระบบให้ลูกค้าในโปรเจกต์ LION"
+          ],
+          "achievements": [
+            "ลดเวลาทำ Regression Test ลง 40% ด้วยการนำ Robot Framework มาช่วยอัตโนมัติ",
+            "ลด defect หลุดถึง production ด้วย Risk-Based Testing และ Test Traceability"
+          ]
+        },
+        {
+          "title": "ผู้จัดการโครงการ (Project Manager)",
+          "period": "พ.ย. 2025 - มี.ค. 2026 · 5 เดือน",
+          "description": [
+            "ดูภาพรวมโปรเจกต์ทั้งหมดของบริษัท ครอบคลุมลูกค้า ATP30, Tokio Marine, LION และ ชิคคาเลนซ์",
             "วางแผนและควบคุมงานพัฒนาโครงการ ATP30 ตั้งแต่ Scope, Timeline จนถึง UAT",
             "ประสานงานระหว่างทีมธุรกิจ ลูกค้า และทีมพัฒนาเพื่อลดความคลาดเคลื่อนของ requirement"
           ],
           "achievements": [
-            "ส่งมอบ milestone ฝั่ง UAT ได้ตามกำหนด ภายใต้ทรัพยากรทีมที่จำกัด",
-            "ลดรอบการแก้ requirement ซ้ำด้วยการทำ backlog grooming และ acceptance criteria ที่ชัดเจน"
+            "ส่งมอบ milestone ฝั่ง UAT ได้ตามกำหนด ภายใต้ทรัพยากรทีมที่จำกัด"
           ],
           "leadership": [
-            "บริหาร stakeholder หลายฝ่ายให้เห็นภาพความเสี่ยงและลำดับความสำคัญเดียวกัน",
             "ขับเคลื่อน Agile ceremonies (Sprint Planning, Daily Stand-up, Retrospective) ให้ทีมทำงานต่อเนื่อง"
           ]
         },
         {
-          "title": "นักทดสอบซอฟต์แวร์อาวุโส (Senior Software Tester)",
+          "title": "นักทดสอบซอฟต์แวร์ (QA)",
           "period": "พ.ค. 2025 - ต.ค. 2025 · 6 เดือน",
           "description": [
-            "ออกแบบ test strategy และบริหาร regression test ของระบบสำคัญ",
-            "ดูแลคุณภาพซอฟต์แวร์ทั้ง Manual และ Automated Testing"
-          ],
-          "achievements": [
-            "ลดเวลาทำ Regression Test ลง 40% ด้วยการนำ Robot Framework มาช่วยอัตโนมัติ",
-            "ลด defect หลุดถึง production ด้วยการเพิ่ม risk-based test และ traceability ของ test case"
+            "ออกแบบและเขียน Test Cases พร้อมทดสอบระบบก่อนส่งมอบให้ลูกค้าในโปรเจกต์ LION",
+            "ร่วมทำ UAT กับลูกค้า และเดโม่ระบบเพื่อส่งมอบงานตามรอบ Sprint",
+            "ดูแลคุณภาพซอฟต์แวร์ทั้ง Manual และ Automated Testing รวมถึง API Contract Testing ด้วย Postman",
+            "ทดสอบระบบ Transport Management System (TMS) ระดับองค์กรร่วมกับลูกค้าอย่าง LION"
           ]
         }
       ]
@@ -172,21 +191,18 @@
       "roles": [
         {
           "title": "นักทดสอบซอฟต์แวร์ (Software Tester)",
-          "period": "เม.ย. 2021 - มี.ค. 2025 · 4 ปี",
+          "period": "พ.ค. 2021 - มี.ค. 2025 · 3 ปี 11 เดือน",
           "description": [
-            "System Analysis & Design: วิเคราะห์ความต้องการและออกแบบโครงสร้างระบบ",
-            "Project Management: บริหารโครงการและประสานงานทีม",
-            "QA & Testing: ออกแบบ Test Cases และทดสอบระบบ (Manual/Functional)",
-            "Infrastructure: ดูแล Server และ Database",
-            "Issue Tracking: จัดการบั๊กและวิเคราะห์สาเหตุปัญหา"
+            "ออกแบบ Test Cases และทดสอบระบบ (Manual/Functional) ทั้งเว็บและมือถือ",
+            "Deploy เว็บและแอปมือถือทั้ง iOS และ Android ขึ้น production",
+            "วิเคราะห์ความต้องการ ออกแบบโครงสร้างระบบ และดูแล Server/Database",
+            "จัดการบั๊กและวิเคราะห์สาเหตุปัญหา (Root Cause Analysis)",
+            "ติดต่อและประสานงานกับทีมพัฒนา outsource",
+            "ออกแบบหน้าจอ (UI) ตามฟีเจอร์และ requirement ของผู้ใช้งาน ทั้งมือถือและเว็บไซต์ ผ่าน Figma"
           ],
           "achievements": [
             "เพิ่มความครอบคลุมของ test case ในโมดูลสำคัญจนลดปัญหาซ้ำหลัง release",
             "ปรับ workflow การรายงานบั๊กให้ทีม dev แก้ไขเร็วขึ้นและลดเวลา re-test"
-          ],
-          "leadership": [
-            "ทำงานร่วมกับลูกค้าองค์กรขนาดใหญ่ เช่น LION และ SPRC ในการจัดลำดับ requirement",
-            "เป็นตัวกลางสื่อสารระหว่างทีมเทคนิคและทีมใช้งานจริง เพื่อลดความไม่ตรงกันของความต้องการ"
           ]
         }
       ]
@@ -198,11 +214,11 @@
       "roles": [
         {
           "title": "ครูคอมพิวเตอร์",
-          "period": "เม.ย. 2020 - มี.ค. 2021 · 1 ปี",
+          "period": "พ.ค. 2020 - มี.ค. 2021 · 1 ปีการศึกษา",
           "description": [
-            "การจัดการเรียนการสอน: รับผิดชอบการสอนในรายวิชา วิทยาการคอมพิวเตอร์และเทคโนโลยี โดยถ่ายทอดความรู้ทางด้านทฤษฎีและปฏิบัติให้กับนักเรียนในระดับอาชีวศึกษา",
-            "การเตรียมหลักสูตร: วางแผนการสอนที่สอดคล้องกับเทคโนโลยีในปัจจุบัน เพื่อพัฒนาทักษะดิจิทัลให้กับผู้เรียน",
-            "การวัดและประเมินผล: ติดตามความก้าวหน้าของผู้เรียนผ่านการทำกิจกรรมและโปรเจกต์ต่าง ๆ ทางคอมพิวเตอร์"
+            "สอนนักศึกษาในหลักสูตรวิชาคอมพิวเตอร์ระดับอาชีวศึกษา",
+            "เตรียมแผนการสอนและสื่อการเรียนรู้ให้สอดคล้องกับเทคโนโลยีปัจจุบัน",
+            "ดูแลเพจ (Facebook Page) ของทางวิทยาลัย ทั้งจัดทำคอนเทนต์และประชาสัมพันธ์ข่าวสาร"
           ]
         }
       ]
@@ -213,12 +229,12 @@
       "location": "กรุงเทพมหานคร, ไทย",
       "roles": [
         {
-          "title": "QA Engineer",
+          "title": "Software Quality Assurance Engineer",
           "period": "ต.ค. 2018 - ม.ค. 2020 · 1 ปี 4 เดือน",
           "description": [
-            "ดูแล Tester ในแต่ละโปรเจค บริหารจัดการทรัพยากร",
-            "UAT ร่วมกับผู้ใช้งาน และออกแบบการทดสอบตาม Req. ที่ได้รับ",
-            "ประกันคุณภาพและทดสอบโซลูชันซอฟต์แวร์ระดับองค์กร"
+            "ดูแลน้องในทีม QA และบริหารจัดการทรัพยากร QA ในแต่ละโปรเจกต์",
+            "เขียน Test Cases และทดสอบโปรเจกต์ของลูกค้า AIS ทั้งเว็บแอปพลิเคชันและแอปมือถือ myAIS",
+            "ทำ UAT ร่วมกับลูกค้าตามรอบ Sprint เพื่อส่งมอบงาน"
           ]
         }
       ]
@@ -231,7 +247,7 @@
       "category": "เว็บไซต์",
       "images": ["/images/suchada-tms.png"],
       "image": "/images/suchada-tms.png",
-      "description": "เว็บไซต์ Portfolio ส่วนตัวที่ออกแบบและพัฒนาเอง รองรับ 2 ภาษา (ไทย/อังกฤษ) และ 2 ธีม (Light/Dark) พร้อม animation ที่ smooth และ responsive ทุก device",
+      "description": "เว็บไซต์ Portfolio ส่วนตัวที่ออกแบบและพัฒนาเอง รองรับ 2 ภาษา (ไทย/อังกฤษ) พร้อม animation ที่ smooth และ responsive ทุก device",
       "caseStudy": {
         "problem": [
           "ต้องการพื้นที่แสดงผลงานและประสบการณ์ที่ดูเป็นมืออาชีพ",
@@ -239,7 +255,7 @@
           "ต้องการทดสอบทักษะ Full-Stack Development จากโปรเจกต์จริง"
         ],
         "solution": [
-          "สร้าง SPA ด้วย React + Vite พร้อม i18n (ไทย/อังกฤษ) และ Light/Dark mode",
+          "สร้าง SPA ด้วย React + Vite พร้อม i18n (ไทย/อังกฤษ)",
           "ใช้ Framer Motion สำหรับ animation และ 3D tilt effect บน profile image",
           "Deploy บน Vercel พร้อม Analytics และ Visitor Counter"
         ],
@@ -250,7 +266,7 @@
         ],
         "architecture": [
           "React SPA → Vite build → Vercel CDN",
-          "LanguageContext (i18n) + ThemeContext (dark/light)",
+          "LanguageContext (i18n)",
           "shadcn/ui components + Tailwind CSS design system",
           "Vercel Analytics + CounterAPI visitor tracking"
         ]
@@ -269,7 +285,6 @@
           "title": "Core Features",
           "items": [
             "รองรับ 2 ภาษา: ไทย และ อังกฤษ",
-            "Light / Dark mode พร้อม system preference detection",
             "3D tilt effect บน profile image ด้วย Framer Motion",
             "Scroll-triggered animations ทุก section",
             "Responsive design รองรับทุก device"
@@ -385,7 +400,7 @@
   "stats.certifications": "ใบรับรอง",
   "aboutMe.storyTitle": "เส้นทางการเดินทางของผม",
   "aboutMe.paragraph1": "ผมเป็นคนลำพูนและปัจจุบันก็ยังคงใช้ชีวิตและทำงานอยู่ที่นี่ จากจุดเริ่มต้นในฐานะครูคอมพิวเตอร์ ที่สอนให้ผมรู้จักการถ่ายทอดความรู้ สู่การเป็น Software QA ที่ทำให้ผมใส่ใจในทุกรายละเอียดและคุณภาพของงาน และก้าวสู่บทบาท Project Manager ที่ช่วยให้ผมมองเห็นภาพรวมธุรกิจและการบริหารจัดการ",
-  "aboutMe.paragraph2": "วันนี้ผมนำประสบการณ์ทั้งหมดนั้นมาผสานกันเพื่อเดินบนเส้นทาง Full-Stack Developer ด้วยความฝันที่อยากมีโปรดักส์เป็นของตัวเอง แม้ผมอาจจะไม่ได้เขียนโค้ดเก่งกาจในระดับลึก แต่จุดแข็งของผมคือความชื่นชอบในเทคโนโลยี และการเลือกใช้ Tools สมัยใหม่ โดยเฉพาะการประยุกต์ใช้ AI เข้ามาช่วยทวีคูณประสิทธิภาพการทำงาน",
+  "aboutMe.paragraph2": "วันนี้ผมนำประสบการณ์ทั้งหมดนั้นมาผสานกัน ด้วยความฝันที่อยากมีโปรดักส์เป็นของตัวเอง จุดแข็งของผมคือความชื่นชอบในเทคโนโลยี และการเลือกใช้ Tools สมัยใหม่ โดยเฉพาะการประยุกต์ใช้ AI เข้ามาช่วยทวีคูณประสิทธิภาพการทำงาน",
   "aboutMe.paragraph3": "ผมไม่ได้มุ่งแค่การ \"เขียนโค้ด\" แต่เน้นการ \"สร้างโซลูชัน\" เพราะผมเข้าใจถึงความสำคัญของ Business Requirement (มุมมอง PM), Quality Gate (มุมมอง QA) และ User Experience ผมเป็นคนที่ไม่เคยหยุดเรียนรู้ และพร้อมปรับตัวเพื่อก้าวทันโลกนวัตกรรมอยู่เสมอ",
   "aboutMe.highlight1.title": "ประสบการณ์หลากหลาย",
   "aboutMe.highlight1.desc": "Teacher -> QA -> PM -> Dev ส่วนผสมที่ลงตัว",

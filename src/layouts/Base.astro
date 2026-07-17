@@ -37,7 +37,7 @@ const personSchema = {
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={locale} style="color-scheme: light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -81,16 +81,6 @@ const personSchema = {
     />
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-
-    <!-- Theme: applied before paint to avoid flash -->
-    <script is:inline>
-      (() => {
-        const saved = localStorage.getItem('theme');
-        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.toggle('dark', dark);
-        document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
-      })();
-    </script>
   </head>
   <body>
     <slot />
