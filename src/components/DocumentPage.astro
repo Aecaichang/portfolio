@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import profileImage from '../assets/images/profile-new-1.jpg';
 import { getContent, alternatePath, type Locale } from '../lib/i18n';
-import { UserRound, Briefcase, Rocket, Wrench, GraduationCap, Award, MapPin, Mail, Github, Linkedin, Facebook, Eye } from 'lucide-astro';
+import { UserRound, Briefcase, Rocket, Wrench, GraduationCap, Award, MapPin, Mail, Github, Linkedin, Facebook, Eye, Printer } from 'lucide-astro';
 
 interface Props {
   locale: Locale;
@@ -23,7 +23,7 @@ const bullets = 'list-disc pl-5 mt-1 space-y-1 text-[#384959] marker:text-[#88BD
 const chip =
   'inline-block rounded-full border border-[#BDDDFC] bg-[#BDDDFC]/40 px-2.5 py-0.5 text-xs text-[#384959] transition-all duration-200 hover:bg-[#88BDF2]/50 hover:border-[#88BDF2] hover:-translate-y-0.5';
 const card =
-  'border border-[#BDDDFC] border-l-4 border-l-[#88BDF2] rounded-lg p-5 md:p-6 bg-[#BDDDFC]/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg';
+  'border border-[#BDDDFC] border-l-4 border-l-[#88BDF2] rounded-lg p-5 md:p-6 bg-[#BDDDFC]/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg print:break-inside-avoid print:bg-transparent';
 
 const contactLinks = [
   { label: 'GitHub', href: t['personalInfo.socials.github'], Icon: Github },
@@ -42,14 +42,14 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
 
 <div
   id="scroll-progress"
-  class="fixed top-0 left-0 w-full h-1 bg-[#88BDF2] z-50 origin-left scale-x-0"
+  class="fixed top-0 left-0 w-full h-1 bg-[#88BDF2] z-50 origin-left scale-x-0 print:hidden"
   aria-hidden="true"
 >
 </div>
 
-<div class="min-h-screen bg-[#BDDDFC] py-6 md:py-12 px-4">
+<div class="min-h-screen bg-[#BDDDFC] py-6 md:py-12 px-4 print:bg-white print:p-0">
   <!-- Floating gradient blobs behind the paper -->
-  <div class="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+  <div class="fixed inset-0 overflow-hidden pointer-events-none print:hidden" aria-hidden="true">
     <div class="bg-blob w-[45vw] h-[45vw] -top-[10vw] -left-[12vw] bg-[#88BDF2] opacity-60" style="animation-duration: 26s;"></div>
     <div class="bg-blob w-[35vw] h-[35vw] top-[30vh] -right-[10vw] bg-[#6A89A7] opacity-30" style="animation-duration: 32s; animation-delay: -8s;"></div>
     <div class="bg-blob w-[30vw] h-[30vw] bottom-[5vh] left-[5vw] bg-white opacity-70" style="animation-duration: 22s; animation-delay: -15s;"></div>
@@ -57,10 +57,13 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   </div>
 
   <div
-    class="relative z-10 max-w-5xl mx-auto px-6 py-10 md:px-16 md:py-14 leading-relaxed bg-white border border-[#88BDF2] rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.1),0_8px_24px_rgba(0,0,0,0.08)]"
+    class="relative z-10 max-w-5xl mx-auto px-6 py-10 md:px-16 md:py-14 leading-relaxed bg-white border border-[#88BDF2] rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.1),0_8px_24px_rgba(0,0,0,0.08)] print:max-w-full print:border-0 print:shadow-none print:p-0"
   >
   <!-- Top bar -->
-  <nav class="flex items-center justify-end mb-10 text-sm">
+  <nav class="flex items-center justify-end gap-2 mb-10 text-sm print:hidden">
+    <button id="print-btn" type="button" class={`${pillLink} cursor-pointer`}>
+      <Printer class="w-4 h-4" />{locale === 'en' ? 'Print / PDF' : 'พิมพ์ / PDF'}
+    </button>
     <a href={switchHref} class={pillLink}>{locale === 'en' ? 'ไทย' : 'EN'}</a>
   </nav>
 
@@ -247,7 +250,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
       <span>© {new Date().getFullYear()} {t['personalInfo.name']}</span>
       <span
         id="visit-counter"
-        class="inline-flex items-center gap-1.5 text-xs opacity-0 transition-opacity duration-700 select-none"
+        class="inline-flex items-center gap-1.5 text-xs opacity-0 transition-opacity duration-700 select-none print:hidden"
       >
         <Eye class="w-3.5 h-3.5" />
         <span id="visit-count-value">0</span>
@@ -315,9 +318,16 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     update();
   }
 
+  // Print / save-as-PDF button
+  document.getElementById('print-btn')?.addEventListener('click', () => window.print());
+
   // 3. Typewriter on the job title
   const typewriter = document.getElementById('typewriter');
   if (typewriter && !prefersReducedMotion) {
+    // If printing starts mid-animation, show the full title on paper
+    window.addEventListener('beforeprint', () => {
+      typewriter.textContent = typewriter.getAttribute('aria-label') ?? '';
+    });
     const TYPE_INTERVAL_MS = 45;
     const fullText = (typewriter.textContent ?? '').trim();
     const caret = document.createElement('span');

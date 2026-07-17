@@ -145,8 +145,29 @@
     color: black;
   }
   @page {
-    margin: 0;
-    size: auto;
+    margin: 12mm;
+    size: A4;
+  }
+
+  /* Content hidden behind scroll-reveal must all be visible on paper */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Keep headings attached to their section content */
+  h2 {
+    break-after: avoid;
+  }
+
+  /* Links printed on paper can't be clicked — show the URL after the label */
+  a[href^='http']:not([href*='maps.google'])::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.7em;
+    font-weight: 400;
+    color: #555;
+    word-break: break-all;
   }
 }
 
