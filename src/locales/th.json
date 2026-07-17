@@ -161,7 +161,7 @@
           "title": "ผู้จัดการโครงการ (Project Manager)",
           "period": "พ.ย. 2025 - มี.ค. 2026 · 5 เดือน",
           "description": [
-            "ดูภาพรวมโปรเจกต์ทั้งหมดของบริษัท ครอบคลุมลูกค้า ATP30, Tokio Marine, LION และ ชิคคาเลนซ์",
+            "ดูภาพรวมโปรเจกต์ทั้งหมดของบริษัท ครอบคลุมลูกค้า ATP30, Tokio Marine, LION และ CHICCARRENT",
             "วางแผนและควบคุมงานพัฒนาโครงการ ATP30 ตั้งแต่ Scope, Timeline จนถึง UAT",
             "ประสานงานระหว่างทีมธุรกิจ ลูกค้า และทีมพัฒนาเพื่อลดความคลาดเคลื่อนของ requirement"
           ],
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "company": "Green2Get",
+      "company": "บริษัท กรีนทูเก็ต จำกัด (Green2Get)",
       "type": "งานประจำ",
       "location": "เชียงใหม่, ไทย · ไฮบริด",
       "roles": [
@@ -245,7 +245,9 @@
       "id": 1,
       "title": "Portfolio Website",
       "category": "เว็บไซต์",
-      "images": ["/images/suchada-tms.png"],
+      "images": [
+        "/images/suchada-tms.png"
+      ],
       "image": "/images/suchada-tms.png",
       "description": "เว็บไซต์ Portfolio ส่วนตัวที่ออกแบบและพัฒนาเอง รองรับ 2 ภาษา (ไทย/อังกฤษ) พร้อม animation ที่ smooth และ responsive ทุก device",
       "caseStudy": {
@@ -302,7 +304,7 @@
           ]
         }
       ],
-      "link": "https://portfolio-omega-seven-85.vercel.app",
+      "link": "https://me.aecaichang.com",
       "sourceCode": "https://github.com/Aecaichang/portfolio",
       "article": "#"
     },
@@ -381,6 +383,63 @@
       "link": "https://github.com/Aecaichang",
       "sourceCode": "https://github.com/Aecaichang",
       "article": "#"
+    },
+    {
+      "id": 5,
+      "title": "QA Test Toolkit — Tokio Marine (ใช้ภายในทีม)",
+      "category": "เครื่องมือภายในทีม",
+      "description": "ชุดเครื่องมือที่สร้างขึ้นเพื่อเร่งงานทดสอบของทีม: Payload Randomizer สุ่มชุดข้อมูลทดสอบ UAT, UAT Demo Runbook สำหรับเดโม่กับลูกค้า, ชุดสคริปต์ Performance Test ด้วย K6 พร้อมรายงานผล และเว็บไซต์เอกสารระบบ",
+      "techStack": [
+        "K6",
+        "JavaScript",
+        "HTML",
+        "Postman",
+        "Bruno",
+        "Docusaurus"
+      ],
+      "link": "#",
+      "sourceCode": "#",
+      "article": "#"
+    },
+    {
+      "id": 8,
+      "title": "Project Knowledge Base & User Manual (ใช้ภายในทีม)",
+      "category": "เครื่องมือภายในทีม",
+      "description": "เว็บไซต์ศูนย์รวมเอกสารของแต่ละโปรเจกต์ — Business Logic, Workflow, Architecture, API Spec และ User Manual ไว้ที่เดียว พร้อม Admin UI ฝังในตัวสำหรับยิง API จริงเพื่อจัดการ Master Data และทดสอบ Endpoint ได้จากหน้าเอกสารโดยตรง เป็นแหล่งอ้างอิงกลางที่ทีม Dev, QA, BA และ Support ใช้ทำงานบนข้อมูลชุดเดียวกัน",
+      "techStack": ["Astro Starlight", "TypeScript", "Cloudflare Workers", "Cloudflare Access"],
+      "link": "#",
+      "sourceCode": "#",
+      "article": "#"
+    },
+    {
+      "id": 6,
+      "title": "ATP30 Auto Verify Tool (ใช้ภายในทีม)",
+      "category": "เครื่องมือภายในทีม",
+      "description": "เว็บแอปช่วยตรวจสอบผลการคำนวณของระบบวางบิลอัตโนมัติ เทียบผลลัพธ์กับ logic ของระบบเดิม ลดเวลาตรวจสอบด้วยมือและช่วยให้ทีมจับความคลาดเคลื่อนได้เร็วขึ้น",
+      "techStack": [
+        "React",
+        "Vite",
+        "JavaScript"
+      ],
+      "link": "#",
+      "sourceCode": "#",
+      "article": "#"
+    },
+    {
+      "id": 7,
+      "title": "Zeabix Bot — Chatbot ภายในบริษัท",
+      "category": "เครื่องมือภายในทีม",
+      "description": "ระบบ Chatbot แบบ Full-stack เชื่อม Supabase กับ Gemini AI พร้อม Dashboard จัดการบอทและ Webhook เชื่อมต่อ Slack สำหรับใช้งานภายในบริษัท",
+      "techStack": [
+        "React + Vite",
+        "TypeScript",
+        "Supabase Edge Functions (Deno)",
+        "Gemini AI",
+        "Slack Webhook"
+      ],
+      "link": "#",
+      "sourceCode": "#",
+      "article": "#"
     }
   ],
   "titles.keyAchievements": "ผลงานที่วัดผลได้",
@@ -399,9 +458,9 @@
   "stats.skills": "ทักษะที่เชี่ยวชาญ",
   "stats.certifications": "ใบรับรอง",
   "aboutMe.storyTitle": "เส้นทางการเดินทางของผม",
-  "aboutMe.paragraph1": "ผมเป็นคนลำพูนและปัจจุบันก็ยังคงใช้ชีวิตและทำงานอยู่ที่นี่ จากจุดเริ่มต้นในฐานะครูคอมพิวเตอร์ ที่สอนให้ผมรู้จักการถ่ายทอดความรู้ สู่การเป็น Software QA ที่ทำให้ผมใส่ใจในทุกรายละเอียดและคุณภาพของงาน และก้าวสู่บทบาท Project Manager ที่ช่วยให้ผมมองเห็นภาพรวมธุรกิจและการบริหารจัดการ",
-  "aboutMe.paragraph2": "วันนี้ผมนำประสบการณ์ทั้งหมดนั้นมาผสานกัน ด้วยความฝันที่อยากมีโปรดักส์เป็นของตัวเอง จุดแข็งของผมคือความชื่นชอบในเทคโนโลยี และการเลือกใช้ Tools สมัยใหม่ โดยเฉพาะการประยุกต์ใช้ AI เข้ามาช่วยทวีคูณประสิทธิภาพการทำงาน",
-  "aboutMe.paragraph3": "ผมไม่ได้มุ่งแค่การ \"เขียนโค้ด\" แต่เน้นการ \"สร้างโซลูชัน\" เพราะผมเข้าใจถึงความสำคัญของ Business Requirement (มุมมอง PM), Quality Gate (มุมมอง QA) และ User Experience ผมเป็นคนที่ไม่เคยหยุดเรียนรู้ และพร้อมปรับตัวเพื่อก้าวทันโลกนวัตกรรมอยู่เสมอ",
+  "aboutMe.paragraph1": "สวัสดีครับ ชื่อ เอ้ ครับ เกิดและโตที่ลำพูน จนถึงตอนนี้ก็ยังใช้ชีวิตอยู่ที่นี่ จุดเริ่มต้นของผมง่ายมาก — ชอบเล่นเกมตั้งแต่เด็ก เล่นไปเล่นมาก็เริ่มสงสัยว่าข้างในคอมมันทำงานยังไง ความสงสัยนั้นพาผมเข้าสู่สายคอมพิวเตอร์มาจนถึงทุกวันนี้",
+  "aboutMe.paragraph2": "ระหว่างทางได้ลองมาหลายบทบาท ทั้งเป็นครูสอนคอมพิวเตอร์ ทำ Software QA และดูแลโปรเจกต์ แต่ละงานให้อะไรคนละอย่าง และทั้งหมดก็ยังวนอยู่กับสิ่งที่ชอบ — เทคโนโลยี",
+  "aboutMe.paragraph3": "ทุกวันนี้ก็ยังสนุกกับการเรียนรู้ของใหม่ๆ อยู่เสมอ โดยเฉพาะเรื่อง AI ที่กำลังเปลี่ยนวิธีทำงานของพวกเราไปทุกวัน",
   "aboutMe.highlight1.title": "ประสบการณ์หลากหลาย",
   "aboutMe.highlight1.desc": "Teacher -> QA -> PM -> Dev ส่วนผสมที่ลงตัว",
   "aboutMe.highlight2.title": "พัฒนาได้ทั้งระบบ",

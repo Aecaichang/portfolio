@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import profileImage from '../assets/images/profile-new-1.jpg';
 import { getContent, alternatePath, type Locale } from '../lib/i18n';
-import { UserRound, Briefcase, Rocket, Wrench, GraduationCap, Award, MapPin, Mail } from 'lucide-astro';
+import { UserRound, Briefcase, Rocket, Wrench, GraduationCap, Award, MapPin, Mail, Github, Linkedin, Facebook, Eye } from 'lucide-astro';
 
 interface Props {
   locale: Locale;
@@ -21,15 +21,17 @@ const roleTitle = 'font-semibold text-[#384959]';
 const meta = 'text-sm text-[#6A89A7]';
 const bullets = 'list-disc pl-5 mt-1 space-y-1 text-[#384959] marker:text-[#88BDF2]';
 const chip =
-  'inline-block rounded-full border border-[#BDDDFC] bg-[#BDDDFC]/40 px-2.5 py-0.5 text-xs text-[#384959]';
+  'inline-block rounded-full border border-[#BDDDFC] bg-[#BDDDFC]/40 px-2.5 py-0.5 text-xs text-[#384959] transition-all duration-200 hover:bg-[#88BDF2]/50 hover:border-[#88BDF2] hover:-translate-y-0.5';
 const card =
   'border border-[#BDDDFC] border-l-4 border-l-[#88BDF2] rounded-lg p-5 md:p-6 bg-[#BDDDFC]/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg';
 
 const contactLinks = [
-  { label: 'GitHub', href: t['personalInfo.socials.github'] },
-  { label: 'LinkedIn', href: t['personalInfo.socials.linkedin'] },
-  { label: 'Facebook', href: t['personalInfo.socials.facebook'] },
+  { label: 'GitHub', href: t['personalInfo.socials.github'], Icon: Github },
+  { label: 'LinkedIn', href: t['personalInfo.socials.linkedin'], Icon: Linkedin },
+  { label: 'Facebook', href: t['personalInfo.socials.facebook'], Icon: Facebook },
 ];
+const pillLink =
+  'inline-flex items-center gap-1.5 rounded-full border border-[#88BDF2] bg-[#88BDF2]/15 px-3 py-1 text-sm font-medium text-[#384959] transition-all duration-200 hover:bg-[#6A89A7] hover:border-[#6A89A7] hover:text-white hover:-translate-y-0.5 hover:shadow-md';
 
 type Role = (typeof t)['experience'][number]['roles'][number];
 const getList = (role: Role, key: 'achievements' | 'leadership'): readonly string[] => {
@@ -38,36 +40,55 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
 };
 ---
 
+<div
+  id="scroll-progress"
+  class="fixed top-0 left-0 w-full h-1 bg-[#88BDF2] z-50 origin-left scale-x-0"
+  aria-hidden="true"
+>
+</div>
+
 <div class="min-h-screen bg-[#BDDDFC] py-6 md:py-12 px-4">
+  <!-- Floating gradient blobs behind the paper -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="bg-blob w-[45vw] h-[45vw] -top-[10vw] -left-[12vw] bg-[#88BDF2] opacity-60" style="animation-duration: 26s;"></div>
+    <div class="bg-blob w-[35vw] h-[35vw] top-[30vh] -right-[10vw] bg-[#6A89A7] opacity-30" style="animation-duration: 32s; animation-delay: -8s;"></div>
+    <div class="bg-blob w-[30vw] h-[30vw] bottom-[5vh] left-[5vw] bg-white opacity-70" style="animation-duration: 22s; animation-delay: -15s;"></div>
+    <div class="bg-blob w-[22vw] h-[22vw] -bottom-[8vw] right-[15vw] bg-[#88BDF2] opacity-50" style="animation-duration: 28s; animation-delay: -4s;"></div>
+  </div>
+
   <div
-    class="max-w-5xl mx-auto px-6 py-10 md:px-16 md:py-14 leading-relaxed bg-white border border-[#88BDF2] rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.1),0_8px_24px_rgba(0,0,0,0.08)]"
+    class="relative z-10 max-w-5xl mx-auto px-6 py-10 md:px-16 md:py-14 leading-relaxed bg-white border border-[#88BDF2] rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.1),0_8px_24px_rgba(0,0,0,0.08)]"
   >
   <!-- Top bar -->
-  <nav class="flex items-center justify-between mb-10 text-sm">
-    <span class="font-bold">{t['personalInfo.name']}</span>
-    <a href={switchHref} class="text-[#6A89A7] hover:underline">{locale === 'en' ? 'ไทย' : 'EN'}</a>
+  <nav class="flex items-center justify-end mb-10 text-sm">
+    <a href={switchHref} class={pillLink}>{locale === 'en' ? 'ไทย' : 'EN'}</a>
   </nav>
 
   <!-- Identity -->
   <header class="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6">
     <div>
       <h1 class="text-3xl font-bold bg-gradient-to-r from-[#384959] to-[#6A89A7] bg-clip-text text-transparent">{t['personalInfo.name']}</h1>
-      <p class="mt-1 text-lg text-[#6A89A7]">{t['personalInfo.title']}</p>
-      <p class={`mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 ${meta}`}>
-        <span class="inline-flex items-center gap-1.5"><MapPin class="w-4 h-4" />{t['personalInfo.location']}</span>
-        <a href={`mailto:${t['personalInfo.email']}`} class="inline-flex items-center gap-1.5 text-[#6A89A7] hover:underline">
+      <p id="typewriter" class="mt-1 text-lg text-[#6A89A7]" aria-label={t['personalInfo.title']}>
+        {t['personalInfo.title']}
+      </p>
+      <p class="mt-4 flex flex-wrap items-center gap-2">
+        <a
+          href="https://maps.google.com/?q=Lamphun,+Thailand"
+          target="_blank"
+          rel="noopener"
+          class={pillLink}
+        >
+          <MapPin class="w-4 h-4" />{t['personalInfo.location']}
+        </a>
+        <a href={`mailto:${t['personalInfo.email']}`} class={pillLink}>
           <Mail class="w-4 h-4" />{t['personalInfo.email']}
         </a>
-      </p>
-      <p class="mt-1 text-sm">
         {
-          contactLinks.map((item, i) => (
-            <>
-              {i > 0 && <span class="text-[#88BDF2]"> · </span>}
-              <a href={item.href} target="_blank" rel="noopener" class="text-[#6A89A7] hover:underline">
-                {item.label}
-              </a>
-            </>
+          contactLinks.map(({ label, href, Icon }) => (
+            <a href={href} target="_blank" rel="noopener" class={pillLink}>
+              <Icon class="w-4 h-4" />
+              {label}
+            </a>
           ))
         }
       </p>
@@ -98,10 +119,15 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   <!-- Experience -->
   <section class="reveal" aria-labelledby="doc-experience">
     <h2 id="doc-experience" class={sectionTitle}><Briefcase class={sectionIcon} />{t['titles.experience']}</h2>
-    <div class="space-y-6">
+    <div class="relative space-y-6 pl-6 before:content-[''] before:absolute before:left-[5px] before:top-3 before:bottom-3 before:w-0.5 before:bg-[#BDDDFC]">
       {
         t['experience'].map((job) => (
-          <div class={card}>
+          <div class="relative">
+            <span
+              class="absolute -left-6 top-7 w-3 h-3 rounded-full bg-[#88BDF2] border-2 border-white shadow-[0_0_0_3px_rgba(189,221,252,0.6)]"
+              aria-hidden="true"
+            />
+            <div class={card}>
             <p class={companyName}>{job.company}</p>
             <p class={meta}>
               {job.type} · {job.location}
@@ -124,6 +150,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
                   </ul>
                 </div>
               ))}
+            </div>
             </div>
           </div>
         ))
@@ -216,15 +243,140 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     </ul>
   </section>
 
-    <footer class="mt-14 pt-6 border-t border-[#BDDDFC] text-sm text-[#6A89A7]">
-      © {new Date().getFullYear()} {t['personalInfo.name']}
+    <footer class="mt-14 pt-6 border-t border-[#BDDDFC] text-sm text-[#6A89A7] flex items-center justify-between gap-4 flex-wrap">
+      <span>© {new Date().getFullYear()} {t['personalInfo.name']}</span>
+      <span
+        id="visit-counter"
+        class="inline-flex items-center gap-1.5 text-xs opacity-0 transition-opacity duration-700 select-none"
+      >
+        <Eye class="w-3.5 h-3.5" />
+        <span id="visit-count-value">0</span>
+        {t['footer.visits']}
+      </span>
     </footer>
   </div>
 </div>
 
+<style>
+  .bg-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(70px);
+    will-change: transform;
+    animation: blobDrift 26s ease-in-out infinite;
+  }
+  @keyframes blobDrift {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(4vw, -6vh) scale(1.1);
+    }
+    66% {
+      transform: translate(-3vw, 5vh) scale(0.92);
+    }
+  }
+
+  h2 svg {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  h2.section-active {
+    border-color: #88bdf2;
+  }
+  h2.section-active svg {
+    color: #384959;
+    transform: scale(1.2) rotate(-6deg);
+  }
+</style>
+
 <script>
+  const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 1. Scroll progress bar (transform only — compositor friendly)
+  const progress = document.getElementById('scroll-progress');
+  if (progress) {
+    let ticking = false;
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+      ticking = false;
+    };
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true }
+    );
+    update();
+  }
+
+  // 3. Typewriter on the job title
+  const typewriter = document.getElementById('typewriter');
+  if (typewriter && !prefersReducedMotion) {
+    const TYPE_INTERVAL_MS = 45;
+    const fullText = (typewriter.textContent ?? '').trim();
+    const caret = document.createElement('span');
+    caret.className = 'animate-caret text-[#88BDF2]';
+    caret.textContent = '|';
+    caret.setAttribute('aria-hidden', 'true');
+    typewriter.textContent = '';
+    typewriter.append(caret);
+    let index = 0;
+    const type = () => {
+      if (index < fullText.length) {
+        caret.before(fullText[index]);
+        index += 1;
+        setTimeout(type, TYPE_INTERVAL_MS);
+      } else {
+        setTimeout(() => caret.remove(), 2000);
+      }
+    };
+    setTimeout(type, 400);
+  }
+
+  // 4. Highlight the section currently in view
+  const headings = [...document.querySelectorAll('section[aria-labelledby] h2')];
+  if (headings.length) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const heading = entry.target.querySelector('h2');
+          heading?.classList.toggle('section-active', entry.isIntersecting);
+        }
+      },
+      { rootMargin: '-25% 0px -55% 0px' }
+    );
+    for (const heading of headings) {
+      const section = heading.closest('section');
+      if (section) sectionObserver.observe(section);
+    }
+  }
+
+  // Visit counter (Cloudflare Worker + KV) — count once per browser session
+  const counterChip = document.getElementById('visit-counter');
+  const counterValue = document.getElementById('visit-count-value');
+  if (counterChip && counterValue) {
+    const COUNTER_URL = 'https://visit-counter.aecaichang.workers.dev/';
+    const alreadyCounted = sessionStorage.getItem('visit-counted');
+    fetch(COUNTER_URL, { method: alreadyCounted ? 'GET' : 'POST' })
+      .then((res) => res.json())
+      .then(({ count }) => {
+        sessionStorage.setItem('visit-counted', '1');
+        counterValue.textContent = Number(count).toLocaleString();
+        counterChip.classList.remove('opacity-0');
+      })
+      .catch(() => {
+        /* counter is decorative — hide silently if the worker is unreachable */
+      });
+  }
+
   const tilt = document.getElementById('profile-tilt');
-  if (tilt && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (tilt && !prefersReducedMotion) {
     const MAX_TILT_DEG = 10;
     tilt.addEventListener('pointermove', (event) => {
       const rect = tilt.getBoundingClientRect();

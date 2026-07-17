@@ -161,7 +161,7 @@
           "title": "Project Manager",
           "period": "Nov 2025 - Mar 2026 · 5 mos",
           "description": [
-            "Oversaw the company's entire project portfolio across clients: ATP30, Tokio Marine, LION, and Chicalence.",
+            "Oversaw the company's entire project portfolio across clients: ATP30, Tokio Marine, LION, and CHICCARRENT.",
             "Led ATP30 project delivery from scope planning through UAT milestones.",
             "Aligned business, client, and engineering teams to reduce requirement gaps."
           ],
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "company": "Green2Get",
+      "company": "Green2Get Company Limited",
       "type": "Full-time",
       "location": "Chiang Mai, Thailand · Hybrid",
       "roles": [
@@ -245,7 +245,9 @@
       "id": 1,
       "title": "Portfolio Website",
       "category": "Website",
-      "images": ["/images/suchada-tms.png"],
+      "images": [
+        "/images/suchada-tms.png"
+      ],
       "image": "/images/suchada-tms.png",
       "description": "A personal portfolio website designed and built from scratch, supporting dual languages (Thai/English) with smooth animations and full responsiveness across all devices.",
       "caseStudy": {
@@ -302,7 +304,7 @@
           ]
         }
       ],
-      "link": "https://portfolio-omega-seven-85.vercel.app",
+      "link": "https://me.aecaichang.com",
       "sourceCode": "https://github.com/Aecaichang/portfolio",
       "article": "#"
     },
@@ -381,6 +383,63 @@
       "link": "https://github.com/Aecaichang",
       "sourceCode": "https://github.com/Aecaichang",
       "article": "#"
+    },
+    {
+      "id": 5,
+      "title": "QA Test Toolkit — Tokio Marine (Internal)",
+      "category": "Internal Tool",
+      "description": "A set of tools built to speed up the team's testing work: a Payload Randomizer for generating UAT test data, a UAT Demo Runbook for client demos, K6 performance test scripts with result reporting, and a system documentation website.",
+      "techStack": [
+        "K6",
+        "JavaScript",
+        "HTML",
+        "Postman",
+        "Bruno",
+        "Docusaurus"
+      ],
+      "link": "#",
+      "sourceCode": "#",
+      "article": "#"
+    },
+    {
+      "id": 8,
+      "title": "Project Knowledge Base & User Manual (Internal)",
+      "category": "Internal Tool",
+      "description": "A documentation hub that gathers each project's business logic, workflows, architecture, API specs, and user manuals in one place — with an embedded Admin UI that calls real APIs to manage master data and test endpoints directly from the docs. The single source of truth used daily by Dev, QA, BA, and Support teams.",
+      "techStack": ["Astro Starlight", "TypeScript", "Cloudflare Workers", "Cloudflare Access"],
+      "link": "#",
+      "sourceCode": "#",
+      "article": "#"
+    },
+    {
+      "id": 6,
+      "title": "ATP30 Auto Verify Tool (Internal)",
+      "category": "Internal Tool",
+      "description": "A web app that automatically verifies billing calculation results against the legacy system's logic — cutting manual verification time and helping the team catch discrepancies faster.",
+      "techStack": [
+        "React",
+        "Vite",
+        "JavaScript"
+      ],
+      "link": "#",
+      "sourceCode": "#",
+      "article": "#"
+    },
+    {
+      "id": 7,
+      "title": "Zeabix Bot — Internal Company Chatbot",
+      "category": "Internal Tool",
+      "description": "A full-stack chatbot connecting Supabase with Gemini AI, with a management dashboard and a Slack webhook integration for internal company use.",
+      "techStack": [
+        "React + Vite",
+        "TypeScript",
+        "Supabase Edge Functions (Deno)",
+        "Gemini AI",
+        "Slack Webhook"
+      ],
+      "link": "#",
+      "sourceCode": "#",
+      "article": "#"
     }
   ],
   "titles.keyAchievements": "Key Achievements",
@@ -399,9 +458,9 @@
   "stats.skills": "Technologies",
   "stats.certifications": "Certifications",
   "aboutMe.storyTitle": "My Journey",
-  "aboutMe.paragraph1": "I am a Lamphun native and currently live and work here. Starting as a Computer Teacher, I learned the art of knowledge transfer. Then, as a Software QA, I developed an eye for detail and quality. Advancing to Project Manager gave me a holistic view of business and management.",
-  "aboutMe.paragraph2": "Today, I merge all these experiences with a dream of having my own product. My strength lies in my passion for technology and leveraging modern tools—especially applying AI to multiply productivity.",
-  "aboutMe.paragraph3": "I don't just aim to \"write code\" but to \"build solutions\" because I understand the importance of Business Requirements (PM view), Quality Gates (QA view), and User Experience. I never stop learning and am always ready to adapt to the fast-paced world of innovation.",
+  "aboutMe.paragraph1": "Hi, I'm Ae. Born and raised in Lamphun, and I still call it home today. My story started simply — I loved playing games as a kid, and somewhere along the way I got curious about how computers actually work. That curiosity led me into the world of technology, and I've been here ever since.",
+  "aboutMe.paragraph2": "Along the way I've tried on a few different hats — computer teacher, Software QA, and project manager. Each role taught me something different, but they all revolved around the thing I love: technology.",
+  "aboutMe.paragraph3": "These days I still enjoy learning something new every day, especially AI, which is changing the way we all work.",
   "aboutMe.highlight1.title": "Diverse Background",
   "aboutMe.highlight1.desc": "Teacher -> QA -> PM -> Dev. A unique blend of skills.",
   "aboutMe.highlight2.title": "Full-Stack Capable",
