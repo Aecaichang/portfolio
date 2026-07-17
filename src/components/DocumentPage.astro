@@ -163,33 +163,21 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     <h2 id="doc-portfolio" class={sectionTitle}><Rocket class={sectionIcon} />{t['titles.featuredWorks']}</h2>
     <div class="divide-y divide-[#BDDDFC]/60">
       {
-        t['portfolio'].map((project, index) => (
-          <article class="group py-6 first:pt-0 grid grid-cols-[auto_1fr] gap-x-5 md:gap-x-8">
-            <span
-              class="text-4xl font-black leading-none text-[#BDDDFC] transition-colors duration-300 group-hover:text-[#88BDF2] select-none"
-              aria-hidden="true"
-            >
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <div>
-              <p class="text-lg font-bold text-[#384959]">{project.title}</p>
-              <p class="mt-1 text-[#384959]">{project.description}</p>
-              <p class={techMeta}>{project.techStack.join(' · ')}</p>
-              <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1">
-                {project.link && project.link !== '#' && (
+        t['portfolio'].map((project) => (
+          <article class="group py-6 first:pt-0">
+            <p class="text-lg font-bold text-[#384959]">{project.title}</p>
+            <p class="mt-1 text-[#384959]">{project.description}</p>
+            <p class={techMeta}>{project.techStack.join(' · ')}</p>
+            {
+              project.link && project.link !== '#' && (
+                <p class="mt-3">
                   <a href={project.link} target="_blank" rel="noopener" class={textLink}>
                     {t['titles.visitWebsite']}
                     <ArrowUpRight class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
-                )}
-                {project.sourceCode && project.sourceCode !== '#' && (
-                  <a href={project.sourceCode} target="_blank" rel="noopener" class={textLink}>
-                    {t['titles.sourceCode']}
-                    <ArrowUpRight class="w-3.5 h-3.5" />
-                  </a>
-                )}
-              </p>
-            </div>
+                </p>
+              )
+            }
           </article>
         ))
       }
