@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import profileImage from '../assets/images/profile-new-1.jpg';
 import { getContent, alternatePath, type Locale } from '../lib/i18n';
-import { UserRound, Briefcase, Rocket, Wrench, GraduationCap, Award, MapPin, Mail, Github, Linkedin, Facebook, Eye, Printer } from 'lucide-astro';
+import { UserRound, Briefcase, Rocket, Wrench, GraduationCap, Award, MapPin, Mail, Github, Linkedin, Facebook, Eye, Printer, ArrowUpRight } from 'lucide-astro';
 
 interface Props {
   locale: Locale;
@@ -16,14 +16,13 @@ const switchHref = alternatePath(locale, Astro.url.pathname);
 const sectionTitle =
   'flex items-center gap-2.5 text-xl font-bold mt-12 mb-4 pb-2 border-b-2 border-[#BDDDFC] text-[#384959]';
 const sectionIcon = 'w-5 h-5 shrink-0 text-[#6A89A7]';
-const companyName = 'text-base font-bold text-[#6A89A7]';
+const companyName = 'text-lg font-bold text-[#384959]';
 const roleTitle = 'font-semibold text-[#384959]';
 const meta = 'text-sm text-[#6A89A7]';
 const bullets = 'list-disc pl-5 mt-1 space-y-1 text-[#384959] marker:text-[#88BDF2]';
-const chip =
-  'inline-block rounded-full border border-[#BDDDFC] bg-[#BDDDFC]/40 px-2.5 py-0.5 text-xs text-[#384959] transition-all duration-200 hover:bg-[#88BDF2]/50 hover:border-[#88BDF2] hover:-translate-y-0.5';
-const card =
-  'border border-[#BDDDFC] border-l-4 border-l-[#88BDF2] rounded-lg p-5 md:p-6 bg-[#BDDDFC]/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg print:bg-transparent';
+const techMeta = 'mt-3 text-xs uppercase tracking-[0.14em] leading-relaxed text-[#6A89A7]';
+const textLink =
+  'inline-flex items-center gap-1 text-sm font-medium text-[#6A89A7] underline decoration-[#88BDF2] decoration-2 underline-offset-4 transition-colors hover:text-[#384959] hover:decoration-[#6A89A7]';
 
 const contactLinks = [
   { label: 'GitHub', href: t['personalInfo.socials.github'], Icon: Github },
@@ -124,18 +123,17 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     <h2 id="doc-experience" class={sectionTitle}><Briefcase class={sectionIcon} />{t['titles.experience']}</h2>
     <div class="relative space-y-6 pl-6 before:content-[''] before:absolute before:left-[5px] before:top-3 before:bottom-3 before:w-0.5 before:bg-[#BDDDFC]">
       {
-        t['experience'].map((job) => (
-          <div class="relative">
+        t['experience'].map((job, jobIndex) => (
+          <div class={`relative ${jobIndex < t['experience'].length - 1 ? 'pb-8 border-b border-[#BDDDFC]/60' : ''}`}>
             <span
-              class="absolute -left-6 top-7 w-3 h-3 rounded-full bg-[#88BDF2] border-2 border-white shadow-[0_0_0_3px_rgba(189,221,252,0.6)]"
+              class="absolute -left-6 top-2 w-3 h-3 rounded-full bg-[#88BDF2] border-2 border-white shadow-[0_0_0_3px_rgba(189,221,252,0.6)]"
               aria-hidden="true"
             />
-            <div class={card}>
             <p class={companyName}>{job.company}</p>
             <p class={meta}>
               {job.type} · {job.location}
             </p>
-            <div class="mt-3 space-y-5">
+            <div class="mt-4 space-y-5">
               {job.roles.map((role) => (
                 <div>
                   <p class={roleTitle}>{role.title}</p>
@@ -154,7 +152,6 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
                 </div>
               ))}
             </div>
-            </div>
           </div>
         ))
       }
@@ -164,30 +161,36 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   <!-- Projects -->
   <section class="reveal" aria-labelledby="doc-portfolio">
     <h2 id="doc-portfolio" class={sectionTitle}><Rocket class={sectionIcon} />{t['titles.featuredWorks']}</h2>
-    <div class="space-y-6">
+    <div class="divide-y divide-[#BDDDFC]/60">
       {
-        t['portfolio'].map((project) => (
-          <div class={card}>
-            <p class="font-semibold text-[#384959]">{project.title}</p>
-            <p class="mt-1 text-[#384959]">{project.description}</p>
-            <p class="mt-2 flex flex-wrap gap-1.5">
-              {project.techStack.map((tech) => (
-                <span class={chip}>{tech}</span>
-              ))}
-            </p>
-            <p class="mt-1 text-sm">
-              {project.link && project.link !== '#' && (
-                <a href={project.link} target="_blank" rel="noopener" class="text-[#6A89A7] hover:underline mr-4">
-                  {t['titles.visitWebsite']}
-                </a>
-              )}
-              {project.sourceCode && project.sourceCode !== '#' && (
-                <a href={project.sourceCode} target="_blank" rel="noopener" class="text-[#6A89A7] hover:underline">
-                  {t['titles.sourceCode']}
-                </a>
-              )}
-            </p>
-          </div>
+        t['portfolio'].map((project, index) => (
+          <article class="group py-6 first:pt-0 grid grid-cols-[auto_1fr] gap-x-5 md:gap-x-8">
+            <span
+              class="text-4xl font-black leading-none text-[#BDDDFC] transition-colors duration-300 group-hover:text-[#88BDF2] select-none"
+              aria-hidden="true"
+            >
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <p class="text-lg font-bold text-[#384959]">{project.title}</p>
+              <p class="mt-1 text-[#384959]">{project.description}</p>
+              <p class={techMeta}>{project.techStack.join(' · ')}</p>
+              <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1">
+                {project.link && project.link !== '#' && (
+                  <a href={project.link} target="_blank" rel="noopener" class={textLink}>
+                    {t['titles.visitWebsite']}
+                    <ArrowUpRight class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                )}
+                {project.sourceCode && project.sourceCode !== '#' && (
+                  <a href={project.sourceCode} target="_blank" rel="noopener" class={textLink}>
+                    {t['titles.sourceCode']}
+                    <ArrowUpRight class="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </p>
+            </div>
+          </article>
         ))
       }
     </div>
@@ -196,16 +199,14 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   <!-- Skills -->
   <section class="reveal" aria-labelledby="doc-skills">
     <h2 id="doc-skills" class={sectionTitle}><Wrench class={sectionIcon} />{t['titles.skills']}</h2>
-    <dl class="grid gap-4 sm:grid-cols-2">
+    <dl class="grid gap-x-10 gap-y-7 sm:grid-cols-2">
       {
         t['skills'].map((group) => (
-          <div class={card}>
-            <dt class="font-semibold text-[#6A89A7]">{group.category}</dt>
-            <dd class="mt-2 flex flex-wrap gap-1.5">
-              {group.items.map((item) => (
-                <span class={chip}>{item}</span>
-              ))}
-            </dd>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.15em] text-[#6A89A7] pb-2 border-b border-[#BDDDFC]/60">
+              {group.category}
+            </dt>
+            <dd class="mt-2.5 leading-relaxed text-[#384959]">{group.items.join(' · ')}</dd>
           </div>
         ))
       }
@@ -215,10 +216,10 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   <!-- Education -->
   <section class="reveal" aria-labelledby="doc-education">
     <h2 id="doc-education" class={sectionTitle}><GraduationCap class={sectionIcon} />{t['titles.education']}</h2>
-    <div class="space-y-4">
+    <div class="divide-y divide-[#BDDDFC]/60">
       {
         t['education'].map((item) => (
-          <div class={card}>
+          <div class="py-3 first:pt-0 last:pb-0">
             <p class="font-semibold text-[#384959]">{item.degree}</p>
             <p class={meta}>
               {item.university}
@@ -233,13 +234,15 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   <!-- Certifications -->
   <section class="reveal" aria-labelledby="doc-certifications">
     <h2 id="doc-certifications" class={sectionTitle}><Award class={sectionIcon} />{t['titles.certifications']}</h2>
-    <ul class="space-y-4">
+    <ul class="divide-y divide-[#BDDDFC]/60">
       {
         t['certifications'].map((cert) => (
-          <li class={card}>
-            <span class="font-semibold text-[#384959]">{cert.name}</span>
-            <span class="text-[#6A89A7]"> — {cert.issuer}</span>
-            <span class={`ml-2 ${chip}`}>{cert.date}</span>
+          <li class="py-3 first:pt-0 last:pb-0 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <span>
+              <span class="font-semibold text-[#384959]">{cert.name}</span>
+              <span class="text-[#6A89A7]"> — {cert.issuer}</span>
+            </span>
+            <span class="text-sm text-[#6A89A7] tabular-nums">{cert.date}</span>
           </li>
         ))
       }
@@ -290,6 +293,70 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   h2.section-active svg {
     color: #384959;
     transform: scale(1.2) rotate(-6deg);
+  }
+
+  /* lucide-animated-style micro-motions, CSS only */
+  /* 1. Section icons: draw-in stroke when the section becomes active */
+  h2 svg :global(*) {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+  }
+  h2.section-active svg :global(*) {
+    animation: iconDraw 0.9s ease-out;
+  }
+  @keyframes iconDraw {
+    from {
+      stroke-dashoffset: 60;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  /* 2. Section icons: playful wiggle on heading hover */
+  h2:hover svg {
+    animation: iconWiggle 0.5s ease-in-out;
+  }
+  @keyframes iconWiggle {
+    0%,
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(-12deg) scale(1.15);
+    }
+    75% {
+      transform: rotate(10deg) scale(1.1);
+    }
+  }
+  h2.section-active:hover svg {
+    animation: iconWiggle 0.5s ease-in-out;
+  }
+  /* 3. Contact pills: icon springs up on hover */
+  a:hover > svg,
+  button:hover > svg {
+    animation: iconSpring 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes iconSpring {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    40% {
+      transform: translateY(-3px) scale(1.2);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }
+  svg {
+    will-change: transform;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    h2 svg :global(*),
+    h2:hover svg,
+    a:hover > svg,
+    button:hover > svg {
+      animation: none !important;
+    }
   }
 </style>
 
