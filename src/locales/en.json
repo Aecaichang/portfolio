@@ -49,6 +49,12 @@
       "link": "#"
     },
     {
+      "name": "Generative AI for Productivity",
+      "issuer": "Self Learning Track",
+      "date": "2025",
+      "link": "#"
+    },
+    {
       "name": "Automated Software Tester Class 2",
       "issuer": "indythaitester",
       "skill": "Software Testing",
@@ -83,7 +89,15 @@
       "items": [
         "Robot Framework",
         "Selenium",
-        "Postman (API Testing, Contract Testing, Collections)"
+        "Postman (API Testing, Contract Testing, Collections)",
+        "Bruno"
+      ]
+    },
+    {
+      "category": "Performance & Security Testing",
+      "items": [
+        "Performance/Load Testing with K6",
+        "Penetration Test case design"
       ]
     },
     {
@@ -95,11 +109,11 @@
       ]
     },
     {
-      "category": "AI-Assisted Development — building real products with AI pair programming; strong at system overview and choosing the right tools for the job",
+      "category": "AI-Assisted Development — building and shipping real products with AI pair programming (Claude Code, Gemini); strong at system overview, choosing the right stack, and verifying output quality",
       "items": [
         "Web: React, Next.js, Astro, Node.js, Tailwind CSS",
-        "Mobile: Flutter/Dart, Kotlin Multiplatform, Google Play Console",
-        "Backend & Cloud: Supabase, Cloudflare, SQL, Vercel"
+        "Mobile: Flutter/Dart, Kotlin Multiplatform, Google Play Console (Release Signing, IAP, Closed Testing)",
+        "Backend & Cloud: Supabase (PostgreSQL, Auth, RLS, Edge Functions), Cloudflare (Workers, D1, KV), SQL, Vercel"
       ]
     },
     {
@@ -140,10 +154,13 @@
           "title": "Senior QA",
           "period": "Apr 2026 - Present",
           "description": [
-            "Own software quality across 3 concurrent projects: LION (Sales Portal), ATP30 (driver data and billing), and Tokio Marine (insurance policy issuance for the Shopee platform).",
+            "Own software quality across 3 concurrent projects: LION (Sales Portal), ATP30 (driver data and billing), and Tokio Marine (insurance policy issuance for the Shopee platform, plus an App Modernization project migrating the Premium Queue Process to Azure)",
             "Owned test strategy and regression quality gates for critical modules.",
             "Applied AI to analyze and resolve user issues on the ATP30 project.",
-            "Delivered customer training sessions on the LION project."
+            "Delivered customer training sessions on the LION project.",
+            "Ran performance/load testing of the Partner API with K6, including test result reporting",
+            "Designed penetration test cases and executed E2E testing of the policy issuance system",
+            "Tested legacy-to-cloud data migration, validating document output (StreamServe) against the legacy system"
           ],
           "achievements": [
             "Reduced regression testing time by 40% using Robot Framework automation.",
@@ -335,7 +352,8 @@
       },
       "techStack": [
         "React 19 + Vite",
-        "DaisyUI + Tailwind CSS",
+        "TypeScript",
+        "shadcn/ui + DaisyUI + Tailwind CSS",
         "React Router v7",
         "TanStack Query",
         "Supabase (PostgreSQL)",
@@ -378,6 +396,37 @@
       "article": "#"
     },
     {
+      "id": 9,
+      "title": "Castiny — cast web videos to Chromecast / Android TV",
+      "category": "Mobile App",
+      "description": "Android app that casts video links (HLS, MP4, DASH, YouTube, X) to the TV — built end-to-end from code to Play Store release. Cast device discovery over mDNS, a stream sniffer that auto-detects video URLs, full monetization (In-App Purchase + AdMob) backed by 40+ unit tests, and a Kotlin Multiplatform rewrite targeting Android/iOS from a single codebase.",
+      "techStack": [
+        "Flutter/Dart",
+        "Kotlin Multiplatform",
+        "Compose Multiplatform",
+        "Google Cast Protocol",
+        "mDNS",
+        "Cloudflare Pages + KV",
+        "Google Play Console"
+      ],
+      "link": "",
+      "sourceCode": "",
+      "article": ""
+    },
+    {
+      "id": 10,
+      "title": "Runboard — macOS app for managing local projects",
+      "category": "Desktop App",
+      "description": "Desktop dashboard for starting, stopping, and inspecting multiple local npm projects from one place — auto-scans for projects, streams live logs, links detected localhost URLs, and switches git branches from the UI.",
+      "techStack": [
+        "Swift (native macOS + WebKit)",
+        "Node.js local server"
+      ],
+      "link": "",
+      "sourceCode": "",
+      "article": ""
+    },
+    {
       "id": 5,
       "title": "QA Test Toolkit — Tokio Marine (Internal)",
       "category": "Internal Tool",
@@ -399,7 +448,12 @@
       "title": "Project Knowledge Base & User Manual (Internal)",
       "category": "Internal Tool",
       "description": "A documentation hub that gathers each project's business logic, workflows, architecture, API specs, and user manuals in one place — with an embedded Admin UI that calls real APIs to manage master data and test endpoints directly from the docs. The single source of truth used daily by Dev, QA, BA, and Support teams.",
-      "techStack": ["Astro Starlight", "TypeScript", "Cloudflare Workers", "Cloudflare Access"],
+      "techStack": [
+        "Astro Starlight",
+        "TypeScript",
+        "Cloudflare Workers",
+        "Cloudflare Access"
+      ],
       "link": "#",
       "sourceCode": "#",
       "article": "#"

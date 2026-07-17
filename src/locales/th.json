@@ -49,6 +49,12 @@
       "link": "#"
     },
     {
+      "name": "Generative AI for Productivity",
+      "issuer": "Self Learning Track",
+      "date": "2025",
+      "link": "#"
+    },
+    {
       "name": "Automated Software Tester รุ่นที่ 2",
       "issuer": "indythaitester",
       "skill": "Software Testing",
@@ -83,7 +89,15 @@
       "items": [
         "Robot Framework",
         "Selenium",
-        "Postman (API Testing, Contract Testing, Collections)"
+        "Postman (API Testing, Contract Testing, Collections)",
+        "Bruno"
+      ]
+    },
+    {
+      "category": "Performance & Security Testing",
+      "items": [
+        "Performance/Load Testing ด้วย K6",
+        "ออกแบบ Test Cases สำหรับ Penetration Test"
       ]
     },
     {
@@ -95,11 +109,11 @@
       ]
     },
     {
-      "category": "AI-Assisted Development — พัฒนาโปรดักส์จริงโดยใช้ AI ช่วยเขียนโค้ดเป็นหลัก เข้าใจภาพรวมระบบและเลือกเครื่องมือให้เหมาะกับงาน",
+      "category": "AI-Assisted Development — พัฒนาโปรดักส์จริงโดยใช้ AI ช่วยเขียนโค้ดเป็นหลัก (Claude Code, Gemini) เข้าใจภาพรวมระบบ เลือกเครื่องมือให้เหมาะกับงาน และตรวจสอบคุณภาพของผลลัพธ์",
       "items": [
         "Web: React, Next.js, Astro, Node.js, Tailwind CSS",
-        "Mobile: Flutter/Dart, Kotlin Multiplatform, Google Play Console",
-        "Backend & Cloud: Supabase, Cloudflare, SQL, Vercel"
+        "Mobile: Flutter/Dart, Kotlin Multiplatform, Google Play Console (Release Signing, IAP, Closed Testing)",
+        "Backend & Cloud: Supabase (PostgreSQL, Auth, RLS, Edge Functions), Cloudflare (Workers, D1, KV), SQL, Vercel"
       ]
     },
     {
@@ -140,10 +154,13 @@
           "title": "นักทดสอบซอฟต์แวร์อาวุโส (Senior QA)",
           "period": "เม.ย. 2026 - ปัจจุบัน",
           "description": [
-            "ดูแลคุณภาพซอฟต์แวร์ 3 โปรเจกต์หลักพร้อมกัน: LION (Sales Portal), ATP30 (ข้อมูลนักขับและการวางบิล) และ Tokio Marine (ออกกรมธรรม์สำหรับแพลตฟอร์ม Shopee)",
+            "ดูแลคุณภาพซอฟต์แวร์ 3 โปรเจกต์หลักพร้อมกัน: LION (Sales Portal), ATP30 (ข้อมูลนักขับและการวางบิล) และ Tokio Marine (ออกกรมธรรม์สำหรับแพลตฟอร์ม Shopee และ App Modernization ย้ายระบบ Premium Queue Process ขึ้น Cloud Azure)",
             "ออกแบบ Test Strategy และบริหาร Regression Test ของระบบสำคัญ",
             "นำ AI มาช่วยวิเคราะห์และแก้ไขปัญหาให้ผู้ใช้งานในโปรเจกต์ ATP30",
-            "จัดเทรนนิ่งการใช้งานระบบให้ลูกค้าในโปรเจกต์ LION"
+            "จัดเทรนนิ่งการใช้งานระบบให้ลูกค้าในโปรเจกต์ LION",
+            "ทดสอบ Performance/Load ของ Partner API ด้วย K6 พร้อมจัดทำรายงานผลการทดสอบ",
+            "ออกแบบ Test Cases สำหรับ Penetration Test และทดสอบ E2E ระบบออกกรมธรรม์",
+            "ทดสอบการ Migrate ข้อมูลจากระบบ Legacy สู่ Cloud รวมถึงตรวจสอบความถูกต้องของเอกสาร (StreamServe) เทียบระบบเก่า-ใหม่"
           ],
           "achievements": [
             "ลดเวลาทำ Regression Test ลง 40% ด้วยการนำ Robot Framework มาช่วยอัตโนมัติ",
@@ -335,7 +352,8 @@
       },
       "techStack": [
         "React 19 + Vite",
-        "DaisyUI + Tailwind CSS",
+        "TypeScript",
+        "shadcn/ui + DaisyUI + Tailwind CSS",
         "React Router v7",
         "TanStack Query",
         "Supabase (PostgreSQL)",
@@ -378,6 +396,37 @@
       "article": "#"
     },
     {
+      "id": 9,
+      "title": "Castiny — แอปแคสต์วิดีโอขึ้น Chromecast / Android TV",
+      "category": "แอปมือถือ",
+      "description": "แอป Android สำหรับส่งวิดีโอจากลิงก์ (HLS, MP4, DASH, YouTube, X) ขึ้นทีวี พัฒนาครบวงจรตั้งแต่โค้ดถึงการวางขายบน Play Store — ค้นหา Cast device ผ่าน mDNS, Stream Sniffer วิเคราะห์หาลิงก์วิดีโออัตโนมัติ, ระบบ In-App Purchase + AdMob เต็มรูปแบบ พร้อม unit tests กว่า 40 ตัว และเขียนใหม่ด้วย Kotlin Multiplatform รองรับ Android/iOS จาก codebase เดียว",
+      "techStack": [
+        "Flutter/Dart",
+        "Kotlin Multiplatform",
+        "Compose Multiplatform",
+        "Google Cast Protocol",
+        "mDNS",
+        "Cloudflare Pages + KV",
+        "Google Play Console"
+      ],
+      "link": "",
+      "sourceCode": "",
+      "article": ""
+    },
+    {
+      "id": 10,
+      "title": "Runboard — แอป macOS จัดการโปรเจกต์ local",
+      "category": "แอปเดสก์ท็อป",
+      "description": "แดชบอร์ดเดสก์ท็อปสำหรับ start/stop และดู log ของโปรเจกต์ npm หลายตัวจากที่เดียว แทนการเปิด terminal หลายหน้าต่าง — สแกนหาโปรเจกต์อัตโนมัติ ดู log สด ลิงก์ localhost จาก log และสลับ git branch จาก UI ได้",
+      "techStack": [
+        "Swift (native macOS + WebKit)",
+        "Node.js local server"
+      ],
+      "link": "",
+      "sourceCode": "",
+      "article": ""
+    },
+    {
       "id": 5,
       "title": "QA Test Toolkit — Tokio Marine (ใช้ภายในทีม)",
       "category": "เครื่องมือภายในทีม",
@@ -399,7 +448,12 @@
       "title": "Project Knowledge Base & User Manual (ใช้ภายในทีม)",
       "category": "เครื่องมือภายในทีม",
       "description": "เว็บไซต์ศูนย์รวมเอกสารของแต่ละโปรเจกต์ — Business Logic, Workflow, Architecture, API Spec และ User Manual ไว้ที่เดียว พร้อม Admin UI ฝังในตัวสำหรับยิง API จริงเพื่อจัดการ Master Data และทดสอบ Endpoint ได้จากหน้าเอกสารโดยตรง เป็นแหล่งอ้างอิงกลางที่ทีม Dev, QA, BA และ Support ใช้ทำงานบนข้อมูลชุดเดียวกัน",
-      "techStack": ["Astro Starlight", "TypeScript", "Cloudflare Workers", "Cloudflare Access"],
+      "techStack": [
+        "Astro Starlight",
+        "TypeScript",
+        "Cloudflare Workers",
+        "Cloudflare Access"
+      ],
       "link": "#",
       "sourceCode": "#",
       "article": "#"

@@ -173,6 +173,23 @@
     transition: none !important;
   }
 
+  /* Gradient-clipped heading prints as invisible ink — force a solid color */
+  h1 {
+    background: none !important;
+    -webkit-text-fill-color: #384959 !important;
+    color: #384959 !important;
+  }
+
+  /* Never split a bullet mid-line across pages */
+  li {
+    break-inside: avoid;
+  }
+
+  /* Contact row: pills become plain text in print, so space them out */
+  header .flex.flex-wrap {
+    gap: 0.35rem 1.5rem !important;
+  }
+
   /* Keep headings attached to their section content */
   h2 {
     break-after: avoid;

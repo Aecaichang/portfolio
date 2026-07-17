@@ -2,7 +2,8 @@
 import { Image } from 'astro:assets';
 import profileImage from '../assets/images/profile-new-1.jpg';
 import { getContent, alternatePath, type Locale } from '../lib/i18n';
-import { UserRound, Briefcase, Rocket, Wrench, GraduationCap, Award, MapPin, Mail, Github, Linkedin, Facebook, Eye, Printer, ArrowUpRight } from 'lucide-astro';
+import AnimatedIcon from './icons/AnimatedIcon';
+import { Award, Mail, Eye, Printer, ArrowUpRight } from 'lucide-astro';
 
 interface Props {
   locale: Locale;
@@ -16,21 +17,21 @@ const switchHref = alternatePath(locale, Astro.url.pathname);
 const sectionTitle =
   'flex items-center gap-2.5 text-xl font-bold mt-12 mb-4 pb-2 border-b-2 border-[#BDDDFC] text-[#384959]';
 const sectionIcon = 'w-5 h-5 shrink-0 text-[#6A89A7]';
-const companyName = 'text-lg font-bold text-[#384959]';
+const companyName = 'text-lg font-bold text-[#384959] print:break-after-avoid';
 const roleTitle = 'font-semibold text-[#384959]';
-const meta = 'text-sm text-[#6A89A7]';
+const meta = 'text-sm text-[#6A89A7] print:break-after-avoid';
 const bullets = 'list-disc pl-5 mt-1 space-y-1 text-[#384959] marker:text-[#88BDF2]';
 const techMeta = 'mt-3 text-xs uppercase tracking-[0.14em] leading-relaxed text-[#6A89A7]';
 const textLink =
   'inline-flex items-center gap-1 text-sm font-medium text-[#6A89A7] underline decoration-[#88BDF2] decoration-2 underline-offset-4 transition-colors hover:text-[#384959] hover:decoration-[#6A89A7]';
 
 const contactLinks = [
-  { label: 'GitHub', href: t['personalInfo.socials.github'], Icon: Github },
-  { label: 'LinkedIn', href: t['personalInfo.socials.linkedin'], Icon: Linkedin },
-  { label: 'Facebook', href: t['personalInfo.socials.facebook'], Icon: Facebook },
+  { label: 'GitHub', href: t['personalInfo.socials.github'], icon: 'github' as const },
+  { label: 'LinkedIn', href: t['personalInfo.socials.linkedin'], icon: 'linkedin' as const },
+  { label: 'Facebook', href: t['personalInfo.socials.facebook'], icon: 'facebook' as const },
 ];
 const pillLink =
-  'inline-flex items-center gap-1.5 rounded-full border border-[#88BDF2] bg-[#88BDF2]/15 px-3 py-1 text-sm font-medium text-[#384959] transition-all duration-200 hover:bg-[#6A89A7] hover:border-[#6A89A7] hover:text-white hover:-translate-y-0.5 hover:shadow-md';
+  'inline-flex items-center gap-1.5 rounded-full border border-[#88BDF2] bg-[#88BDF2]/15 px-3 py-1 text-sm font-medium text-[#384959] transition-all duration-200 hover:bg-[#6A89A7] hover:border-[#6A89A7] hover:text-white hover:-translate-y-0.5 hover:shadow-md print:border-0 print:bg-transparent print:px-0 print:py-0';
 
 type Role = (typeof t)['experience'][number]['roles'][number];
 const getList = (role: Role, key: 'achievements' | 'leadership'): readonly string[] => {
@@ -73,27 +74,27 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
       <p id="typewriter" class="mt-1 text-lg text-[#6A89A7]" aria-label={t['personalInfo.title']}>
         {t['personalInfo.title']}
       </p>
-      <p class="mt-4 flex flex-wrap items-center gap-2">
+      <div class="mt-4 flex flex-wrap items-center gap-2">
         <a
           href="https://maps.google.com/?q=Lamphun,+Thailand"
           target="_blank"
           rel="noopener"
           class={pillLink}
         >
-          <MapPin class="w-4 h-4" />{t['personalInfo.location']}
+          <AnimatedIcon client:visible name="map-pin" size={16} />{t['personalInfo.location']}
         </a>
         <a href={`mailto:${t['personalInfo.email']}`} class={pillLink}>
           <Mail class="w-4 h-4" />{t['personalInfo.email']}
         </a>
         {
-          contactLinks.map(({ label, href, Icon }) => (
+          contactLinks.map(({ label, href, icon }) => (
             <a href={href} target="_blank" rel="noopener" class={pillLink}>
-              <Icon class="w-4 h-4" />
+              <AnimatedIcon client:visible name={icon} size={16} />
               {label}
             </a>
           ))
         }
-      </p>
+      </div>
     </div>
     <div id="profile-tilt" class="shrink-0 will-change-transform transition-transform duration-200 ease-out">
       <Image
@@ -110,7 +111,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
 
   <!-- About -->
   <section class="reveal" aria-labelledby="doc-about">
-    <h2 id="doc-about" class={sectionTitle}><UserRound class={sectionIcon} />{t['titles.aboutMe']}</h2>
+    <h2 id="doc-about" class={sectionTitle}><AnimatedIcon client:visible name="user" size={20} className={sectionIcon} />{t['titles.aboutMe']}</h2>
     <div class="space-y-3 text-[#384959]">
       <p>{t['aboutMe.paragraph1']}</p>
       <p>{t['aboutMe.paragraph2']}</p>
@@ -120,13 +121,13 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
 
   <!-- Experience -->
   <section class="reveal" aria-labelledby="doc-experience">
-    <h2 id="doc-experience" class={sectionTitle}><Briefcase class={sectionIcon} />{t['titles.experience']}</h2>
-    <div class="relative space-y-6 pl-6 before:content-[''] before:absolute before:left-[5px] before:top-3 before:bottom-3 before:w-0.5 before:bg-[#BDDDFC]">
+    <h2 id="doc-experience" class={sectionTitle}><AnimatedIcon client:visible name="briefcase" size={20} className={sectionIcon} />{t['titles.experience']}</h2>
+    <div class="relative space-y-6 pl-6 before:content-[''] before:absolute before:left-[5px] before:top-3 before:bottom-3 before:w-0.5 before:bg-[#BDDDFC] print:pl-0 print:before:hidden">
       {
         t['experience'].map((job, jobIndex) => (
           <div class={`relative ${jobIndex < t['experience'].length - 1 ? 'pb-8 border-b border-[#BDDDFC]/60' : ''}`}>
             <span
-              class="absolute -left-6 top-2 w-3 h-3 rounded-full bg-[#88BDF2] border-2 border-white shadow-[0_0_0_3px_rgba(189,221,252,0.6)]"
+              class="absolute -left-6 top-2 w-3 h-3 rounded-full bg-[#88BDF2] border-2 border-white shadow-[0_0_0_3px_rgba(189,221,252,0.6)] print:hidden"
               aria-hidden="true"
             />
             <p class={companyName}>{job.company}</p>
@@ -135,7 +136,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
             </p>
             <div class="mt-4 space-y-5">
               {job.roles.map((role) => (
-                <div>
+                <div class="print:break-inside-avoid">
                   <p class={roleTitle}>{role.title}</p>
                   <p class={meta}>{role.period}</p>
                   <ul class={bullets}>
@@ -160,11 +161,11 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
 
   <!-- Projects -->
   <section class="reveal" aria-labelledby="doc-portfolio">
-    <h2 id="doc-portfolio" class={sectionTitle}><Rocket class={sectionIcon} />{t['titles.featuredWorks']}</h2>
+    <h2 id="doc-portfolio" class={sectionTitle}><AnimatedIcon client:visible name="rocket" size={20} className={sectionIcon} />{t['titles.featuredWorks']}</h2>
     <div class="divide-y divide-[#BDDDFC]/60">
       {
         t['portfolio'].map((project) => (
-          <article class="group py-6 first:pt-0">
+          <article class="group py-6 first:pt-0 print:break-inside-avoid print:py-3">
             <p class="text-lg font-bold text-[#384959]">{project.title}</p>
             <p class="mt-1 text-[#384959]">{project.description}</p>
             <p class={techMeta}>{project.techStack.join(' · ')}</p>
@@ -186,11 +187,11 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
 
   <!-- Skills -->
   <section class="reveal" aria-labelledby="doc-skills">
-    <h2 id="doc-skills" class={sectionTitle}><Wrench class={sectionIcon} />{t['titles.skills']}</h2>
+    <h2 id="doc-skills" class={sectionTitle}><AnimatedIcon client:visible name="wrench" size={20} className={sectionIcon} />{t['titles.skills']}</h2>
     <dl class="grid gap-x-10 gap-y-7 sm:grid-cols-2">
       {
         t['skills'].map((group) => (
-          <div>
+          <div class="print:break-inside-avoid">
             <dt class="text-xs font-semibold uppercase tracking-[0.15em] text-[#6A89A7] pb-2 border-b border-[#BDDDFC]/60">
               {group.category}
             </dt>
@@ -203,7 +204,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
 
   <!-- Education -->
   <section class="reveal" aria-labelledby="doc-education">
-    <h2 id="doc-education" class={sectionTitle}><GraduationCap class={sectionIcon} />{t['titles.education']}</h2>
+    <h2 id="doc-education" class={sectionTitle}><AnimatedIcon client:visible name="graduation-cap" size={20} className={sectionIcon} />{t['titles.education']}</h2>
     <div class="divide-y divide-[#BDDDFC]/60">
       {
         t['education'].map((item) => (
@@ -272,24 +273,24 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     }
   }
 
-  h2 svg {
+  h2 > svg {
     transition: color 0.3s ease, transform 0.3s ease;
   }
   h2.section-active {
     border-color: #88bdf2;
   }
-  h2.section-active svg {
+  h2.section-active > svg {
     color: #384959;
     transform: scale(1.2) rotate(-6deg);
   }
 
   /* lucide-animated-style micro-motions, CSS only */
   /* 1. Section icons: draw-in stroke when the section becomes active */
-  h2 svg :global(*) {
+  h2 > svg :global(*) {
     stroke-dasharray: 60;
     stroke-dashoffset: 0;
   }
-  h2.section-active svg :global(*) {
+  h2.section-active > svg :global(*) {
     animation: iconDraw 0.9s ease-out;
   }
   @keyframes iconDraw {
@@ -301,7 +302,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     }
   }
   /* 2. Section icons: playful wiggle on heading hover */
-  h2:hover svg {
+  h2:hover > svg {
     animation: iconWiggle 0.5s ease-in-out;
   }
   @keyframes iconWiggle {
@@ -316,7 +317,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
       transform: rotate(10deg) scale(1.1);
     }
   }
-  h2.section-active:hover svg {
+  h2.section-active:hover > svg {
     animation: iconWiggle 0.5s ease-in-out;
   }
   /* 3. Contact pills: icon springs up on hover */
