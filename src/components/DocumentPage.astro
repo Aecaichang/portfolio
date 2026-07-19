@@ -14,6 +14,13 @@ const t = getContent(locale);
 
 const switchHref = alternatePath(locale, Astro.url.pathname);
 
+// ponytail: build-time version — Cloudflare Pages sets CF_PAGES_COMMIT_SHA; fall back to local git
+import { execSync } from 'node:child_process';
+const commitSha =
+  process.env.CF_PAGES_COMMIT_SHA ??
+  execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
+const version = `v${commitSha.slice(0, 7)} · ${new Date().toISOString().slice(0, 10)}`;
+
 const sectionTitle =
   'flex items-center gap-2.5 text-xl font-bold mt-12 mb-4 pb-2 border-b-2 border-[#BDDDFC] text-[#384959]';
 const sectionIcon = 'w-5 h-5 shrink-0 text-[#6A89A7]';
@@ -240,6 +247,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
 
     <footer class="mt-14 pt-6 border-t border-[#BDDDFC] text-sm text-[#6A89A7] flex items-center justify-between gap-4 flex-wrap">
       <span>© {new Date().getFullYear()} {t['personalInfo.name']}</span>
+      <span class="text-xs tabular-nums opacity-60 print:hidden">{version}</span>
       <span
         id="visit-counter"
         class="inline-flex items-center gap-1.5 text-xs opacity-0 transition-opacity duration-700 select-none print:hidden"
