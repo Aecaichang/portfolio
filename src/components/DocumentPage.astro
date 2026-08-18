@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import profileImage from '../assets/images/profile-new-1.jpg';
 import { getContent, alternatePath, type Locale } from '../lib/i18n';
 import AnimatedIcon from './icons/AnimatedIcon';
-import { Award, Mail, Eye, Printer, ArrowUpRight } from 'lucide-astro';
+import { Award, Mail, Eye, Printer, ArrowUp } from 'lucide-astro';
 
 interface Props {
   locale: Locale;
@@ -14,33 +14,49 @@ const t = getContent(locale);
 
 const switchHref = alternatePath(locale, Astro.url.pathname);
 
-// ponytail: version from package.json — bump it when releasing
-import pkg from '../../package.json';
-const version = `v${pkg.version}`;
-
 const sectionTitle =
-  'flex items-center gap-2.5 text-xl font-bold mt-12 mb-4 pb-2 border-b-2 border-[#BDDDFC] text-[#384959]';
-const sectionIcon = 'w-5 h-5 shrink-0 text-[#6A89A7]';
+  'flex items-center gap-2.5 text-2xl font-bold mt-12 mb-4 pb-2 border-b-2 border-[#BDDDFC] text-[#384959] scroll-mt-22';
+const sectionIcon = 'w-5 h-5 shrink-0 text-[#54718C]';
 const companyName = 'text-lg font-bold text-[#384959] print:break-after-avoid';
 const roleTitle = 'font-semibold text-[#384959]';
-const meta = 'text-sm text-[#6A89A7] print:break-after-avoid';
-const bullets = 'list-disc pl-5 mt-1 space-y-1 text-[#384959] marker:text-[#88BDF2]';
-const techMeta = 'mt-3 text-xs uppercase tracking-[0.14em] leading-relaxed text-[#6A89A7]';
-const textLink =
-  'inline-flex items-center gap-1 text-sm font-medium text-[#6A89A7] underline decoration-[#88BDF2] decoration-2 underline-offset-4 transition-colors hover:text-[#384959] hover:decoration-[#6A89A7]';
+const meta = 'text-sm text-[#54718C] print:break-after-avoid';
+// Achievements are the strongest content here, so the label carries real weight
+const subLabel = 'mt-3 text-xs font-bold uppercase tracking-[0.12em] text-[#384959]';
+// Paper is wider than a comfortable reading measure — cap prose, not the layout
+const prose = 'max-w-[70ch]';
+const bullets = `list-disc pl-5 mt-1 space-y-1 text-[#384959] marker:text-[#88BDF2] ${prose}`;
+const techMeta = `mt-3 text-sm leading-relaxed text-[#54718C] ${prose}`;
 
 const contactLinks = [
   { label: 'GitHub', href: t['personalInfo.socials.github'], icon: 'github' as const },
   { label: 'LinkedIn', href: t['personalInfo.socials.linkedin'], icon: 'linkedin' as const },
   { label: 'Facebook', href: t['personalInfo.socials.facebook'], icon: 'facebook' as const },
+  { label: 'Blog', href: t['personalInfo.socials.blog'], icon: 'rss' as const },
 ];
 const pillLink =
-  'inline-flex items-center gap-1.5 rounded-full border border-[#88BDF2] bg-[#88BDF2]/15 px-3 py-1 text-sm font-medium text-[#384959] transition-all duration-200 hover:bg-[#6A89A7] hover:border-[#6A89A7] hover:text-white hover:-translate-y-0.5 hover:shadow-md print:border-0 print:bg-transparent print:px-0 print:py-0';
+  'inline-flex items-center gap-1.5 rounded-full border border-[#88BDF2] bg-[#88BDF2]/15 px-3 py-2.5 sm:py-1.5 text-sm font-medium text-[#384959] transition-all duration-200 hover:bg-[#54718C] hover:border-[#54718C] hover:text-white hover:-translate-y-0.5 hover:shadow-md print:border-0 print:bg-transparent print:px-0 print:py-0';
+
+// Jump nav — the page is one long document, so wayfinding is the only way back
+const sectionNav = [
+  { id: 'doc-about', label: t['nav.aboutMe'] },
+  { id: 'doc-experience', label: t['nav.experience'] },
+  { id: 'doc-portfolio', label: t['nav.portfolio'] },
+  { id: 'doc-skills', label: t['nav.skills'] },
+  { id: 'doc-education', label: t['nav.education'] },
+  { id: 'doc-certifications', label: t['nav.certifications'] },
+  { id: 'doc-contact', label: t['nav.contact'] },
+];
 
 type Role = (typeof t)['experience'][number]['roles'][number];
 const getList = (role: Role, key: 'achievements' | 'leadership'): readonly string[] => {
   const value = (role as Record<string, unknown>)[key];
   return Array.isArray(value) ? value : [];
+};
+
+type SkillGroup = (typeof t)['skills'][number];
+const getNote = (group: SkillGroup): string => {
+  const value = (group as Record<string, unknown>).note;
+  return typeof value === 'string' ? value : '';
 };
 ---
 
@@ -49,6 +65,35 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   class="fixed top-0 left-0 w-full h-1 bg-[#88BDF2] z-50 origin-left scale-x-0 print:hidden"
   aria-hidden="true"
 >
+</div>
+
+<!-- Jump nav — hidden until the identity block scrolls away -->
+<div
+  id="jump-nav"
+  class="fixed top-1 left-0 right-0 z-40 print:hidden"
+>
+  <nav
+    aria-label={t['nav.sections']}
+    class="mx-auto max-w-5xl px-4 md:px-6"
+  >
+    <ul
+      class="flex gap-1 overflow-x-auto rounded-full border border-[#88BDF2] bg-white/95 px-2 py-1.5 shadow-[0_2px_8px_rgba(56,73,89,0.12)] backdrop-blur-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+    >
+      {
+        sectionNav.map(({ id, label }) => (
+          <li>
+            <a
+              href={`#${id}`}
+              data-jump={id}
+              class="jump-link inline-block whitespace-nowrap rounded-full px-3 py-2.5 sm:py-1 text-sm font-medium text-[#54718C] transition-colors hover:bg-[#BDDDFC]/60 hover:text-[#384959]"
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </div>
 
 <div class="min-h-screen bg-[#BDDDFC] py-6 md:py-12 px-4 print:bg-white print:p-0">
@@ -64,7 +109,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     class="relative z-10 max-w-5xl mx-auto px-6 py-10 md:px-16 md:py-14 leading-relaxed bg-white border border-[#88BDF2] rounded-sm shadow-[0_1px_3px_rgba(0,0,0,0.1),0_8px_24px_rgba(0,0,0,0.08)] print:max-w-full print:border-0 print:shadow-none print:p-0"
   >
   <!-- Top bar -->
-  <nav class="flex items-center justify-end gap-2 mb-10 text-sm print:hidden">
+  <nav aria-label={t['nav.documentActions']} class="flex items-center justify-end gap-2 mb-10 text-sm print:hidden">
     <button id="print-btn" type="button" class={`${pillLink} cursor-pointer`}>
       <Printer class="w-4 h-4" />{locale === 'en' ? 'Print / PDF' : 'พิมพ์ / PDF'}
     </button>
@@ -72,12 +117,10 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   </nav>
 
   <!-- Identity -->
-  <header class="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6">
+  <header id="doc-identity" class="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6">
     <div>
-      <h1 class="text-3xl font-bold bg-gradient-to-r from-[#384959] to-[#6A89A7] bg-clip-text text-transparent">{t['personalInfo.name']}</h1>
-      <p id="typewriter" class="mt-1 text-lg text-[#6A89A7]" aria-label={t['personalInfo.title']}>
-        {t['personalInfo.title']}
-      </p>
+      <h1 class="text-4xl font-bold text-[#384959]">{t['personalInfo.name']}</h1>
+      <p class="mt-1 text-lg text-[#54718C]">{t['personalInfo.title']}</p>
       <div class="mt-4 flex flex-wrap items-center gap-2">
         <a
           href="https://maps.google.com/?q=Lamphun,+Thailand"
@@ -108,7 +151,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
         height={352}
         loading="eager"
         fetchpriority="high"
-        class="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover border border-[#BDDDFC] shadow-[0_2px_6px_rgba(0,0,0,0.12),0_12px_28px_rgba(0,0,0,0.14)]"
+        class="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover shadow-[0_2px_4px_rgba(56,73,89,0.14),0_8px_16px_rgba(56,73,89,0.12)]"
       />
     </div>
   </header>
@@ -116,7 +159,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   <!-- About -->
   <section class="reveal" aria-labelledby="doc-about">
     <h2 id="doc-about" class={sectionTitle}><AnimatedIcon client:visible name="user" size={20} className={sectionIcon} />{t['titles.aboutMe']}</h2>
-    <div class="space-y-3 text-[#384959]">
+    <div class={`space-y-3 text-[#384959] ${prose}`}>
       <p>{t['aboutMe.paragraph1']}</p>
       <p>{t['aboutMe.paragraph2']}</p>
       <p>{t['aboutMe.paragraph3']}</p>
@@ -134,26 +177,40 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
               class="absolute -left-6 top-2 w-3 h-3 rounded-full bg-[#88BDF2] border-2 border-white shadow-[0_0_0_3px_rgba(189,221,252,0.6)] print:hidden"
               aria-hidden="true"
             />
-            <p class={companyName}>{job.company}</p>
+            <h3 class={companyName}>{job.company}</h3>
             <p class={meta}>
               {job.type} · {job.location}
             </p>
             <div class="mt-4 space-y-5">
               {job.roles.map((role) => (
                 <div class="print:break-inside-avoid">
-                  <p class={roleTitle}>{role.title}</p>
+                  <h4 class={roleTitle}>{role.title}</h4>
                   <p class={meta}>{role.period}</p>
                   <ul class={bullets}>
                     {role.description.map((line) => (
                       <li>{line}</li>
                     ))}
-                    {getList(role, 'achievements').map((line) => (
-                      <li>{line}</li>
-                    ))}
-                    {getList(role, 'leadership').map((line) => (
-                      <li>{line}</li>
-                    ))}
                   </ul>
+                  {getList(role, 'achievements').length > 0 && (
+                    <>
+                      <p class={subLabel}>{t['titles.keyAchievements']}</p>
+                      <ul class={bullets}>
+                        {getList(role, 'achievements').map((line) => (
+                          <li>{line}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                  {getList(role, 'leadership').length > 0 && (
+                    <>
+                      <p class={subLabel}>{t['titles.softLeadership']}</p>
+                      <ul class={bullets}>
+                        {getList(role, 'leadership').map((line) => (
+                          <li>{line}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
@@ -169,20 +226,13 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     <div class="divide-y divide-[#BDDDFC]/60">
       {
         t['portfolio'].map((project) => (
-          <article class="group py-6 first:pt-0 print:break-inside-avoid print:py-3">
-            <p class="text-lg font-bold text-[#384959]">{project.title}</p>
-            <p class="mt-1 text-[#384959]">{project.description}</p>
+          <article class="py-6 first:pt-0 print:break-inside-avoid print:py-3">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h3 class="text-lg font-bold text-[#384959]">{project.title}</h3>
+              <p class="text-sm text-[#54718C]">{project.status}</p>
+            </div>
+            <p class={`mt-1 text-[#384959] ${prose}`}>{project.description}</p>
             <p class={techMeta}>{project.techStack.join(' · ')}</p>
-            {
-              project.link && project.link !== '#' && (
-                <p class="mt-3">
-                  <a href={project.link} target="_blank" rel="noopener" class={textLink}>
-                    {t['titles.visitWebsite']}
-                    <ArrowUpRight class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
-                </p>
-              )
-            }
           </article>
         ))
       }
@@ -192,14 +242,18 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   <!-- Skills -->
   <section class="reveal" aria-labelledby="doc-skills">
     <h2 id="doc-skills" class={sectionTitle}><AnimatedIcon client:visible name="wrench" size={20} className={sectionIcon} />{t['titles.skills']}</h2>
-    <dl class="grid gap-x-10 gap-y-7 sm:grid-cols-2">
+    <!-- Columns, not a grid: group heights differ, and a grid row leaves a hole -->
+    <dl class="sm:columns-2 gap-x-10">
       {
         t['skills'].map((group) => (
-          <div class="print:break-inside-avoid">
-            <dt class="text-xs font-semibold uppercase tracking-[0.15em] text-[#6A89A7] pb-2 border-b border-[#BDDDFC]/60">
+          <div class="mb-7 break-inside-avoid">
+            <dt class="text-xs font-semibold uppercase tracking-[0.15em] text-[#54718C] pb-2 border-b border-[#BDDDFC]/60">
               {group.category}
             </dt>
-            <dd class="mt-2.5 leading-relaxed text-[#384959]">{group.items.join(' · ')}</dd>
+            <dd class="mt-2.5 leading-relaxed text-[#384959]">
+              {getNote(group) && <span class="block mb-1.5 text-sm text-[#54718C]">{getNote(group)}</span>}
+              {group.items.join(' · ')}
+            </dd>
           </div>
         ))
       }
@@ -213,7 +267,7 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
       {
         t['education'].map((item) => (
           <div class="py-3 first:pt-0 last:pb-0">
-            <p class="font-semibold text-[#384959]">{item.degree}</p>
+            <h3 class="font-semibold text-[#384959]">{item.degree}</h3>
             <p class={meta}>
               {item.university}
               {item.honors && ` · ${item.honors}`}
@@ -233,29 +287,44 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
           <li class="py-3 first:pt-0 last:pb-0 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <span>
               <span class="font-semibold text-[#384959]">{cert.name}</span>
-              <span class="text-[#6A89A7]"> — {cert.issuer}</span>
+              <span class="text-[#54718C]"> — {cert.issuer}</span>
             </span>
-            <span class="text-sm text-[#6A89A7] tabular-nums">{cert.date}</span>
+            <span class="text-sm text-[#54718C] tabular-nums">{cert.date}</span>
           </li>
         ))
       }
     </ul>
   </section>
 
-    <footer class="mt-14 pt-6 border-t border-[#BDDDFC] text-sm text-[#6A89A7] flex items-center justify-between gap-4 flex-wrap">
-      <span>© {new Date().getFullYear()} {t['personalInfo.name']}</span>
+  <!-- Contact — the page's single closing action -->
+  <section class="reveal" aria-labelledby="doc-contact">
+    <h2 id="doc-contact" class={sectionTitle}><Mail class={sectionIcon} />{t['contact.heading']}</h2>
+    <p class={`text-[#384959] ${prose}`}>{t['contact.line']}</p>
+    <a
+      href={`mailto:${t['personalInfo.email']}`}
+      class="mt-4 inline-flex items-center gap-2 rounded-full bg-[#384959] px-5 py-2.5 font-semibold text-white transition-all duration-200 hover:bg-[#2C3B49] hover:-translate-y-0.5 hover:shadow-lg print:bg-transparent print:px-0 print:py-0 print:text-[#384959] print:shadow-none"
+    >
+      <Mail class="w-4 h-4" />{t['contact.action']}
+    </a>
+  </section>
+
+  <footer class="mt-14 pt-6 border-t border-[#BDDDFC] text-sm text-[#54718C] flex items-center justify-between gap-4 flex-wrap">
+    <span>© {new Date().getFullYear()} {t['personalInfo.name']}</span>
+    <span class="flex items-center gap-4">
       <span
         id="visit-counter"
         class="inline-flex items-center gap-1.5 text-xs opacity-0 transition-opacity duration-700 select-none print:hidden"
+        aria-hidden="true"
       >
         <Eye class="w-3.5 h-3.5" />
         <span id="visit-count-value">0</span>
         {t['footer.visits']}
       </span>
-    </footer>
-    <p class="mt-4 text-center text-xs tabular-nums text-[#6A89A7] opacity-60 print:hidden">
-      {version}
-    </p>
+      <a href="#doc-identity" class="inline-flex items-center gap-1 py-1.5 hover:text-[#384959] print:hidden">
+        <ArrowUp class="w-3.5 h-3.5" />{t['nav.backToTop']}
+      </a>
+    </span>
+  </footer>
   </div>
 </div>
 
@@ -278,6 +347,28 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     66% {
       transform: translate(-3vw, 5vh) scale(0.92);
     }
+  }
+
+  /* Jump nav revealed once the identity block leaves the viewport.
+     State lives here, not in utilities — Tailwind's utility layer would win.
+     visibility, not just opacity: an invisible nav must not hold tab stops. */
+  #jump-nav {
+    transform: translateY(-130%);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      transform 0.3s ease-out,
+      opacity 0.3s ease-out,
+      visibility 0.3s;
+  }
+  #jump-nav.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  .jump-link.is-current {
+    background: #bdddfc;
+    color: #384959;
   }
 
   h2 > svg {
@@ -327,17 +418,17 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   h2.section-active:hover > svg {
     animation: iconWiggle 0.5s ease-in-out;
   }
-  /* 3. Contact pills: icon springs up on hover */
+  /* 3. Contact pills: icon lifts on hover */
   a:hover > svg,
   button:hover > svg {
-    animation: iconSpring 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: iconLift 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  @keyframes iconSpring {
+  @keyframes iconLift {
     0% {
       transform: translateY(0) scale(1);
     }
-    40% {
-      transform: translateY(-3px) scale(1.2);
+    45% {
+      transform: translateY(-3px) scale(1.12);
     }
     100% {
       transform: translateY(0) scale(1);
@@ -352,6 +443,9 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
     a:hover > svg,
     button:hover > svg {
       animation: none !important;
+    }
+    #jump-nav {
+      transition: none;
     }
   }
 </style>
@@ -384,43 +478,42 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   // Print / save-as-PDF button
   document.getElementById('print-btn')?.addEventListener('click', () => window.print());
 
-  // 3. Typewriter on the job title
-  const typewriter = document.getElementById('typewriter');
-  if (typewriter && !prefersReducedMotion) {
-    // If printing starts mid-animation, show the full title on paper
-    window.addEventListener('beforeprint', () => {
-      typewriter.textContent = typewriter.getAttribute('aria-label') ?? '';
-    });
-    const TYPE_INTERVAL_MS = 45;
-    const fullText = (typewriter.textContent ?? '').trim();
-    const caret = document.createElement('span');
-    caret.className = 'animate-caret text-[#88BDF2]';
-    caret.textContent = '|';
-    caret.setAttribute('aria-hidden', 'true');
-    typewriter.textContent = '';
-    typewriter.append(caret);
-    let index = 0;
-    const type = () => {
-      if (index < fullText.length) {
-        caret.before(fullText[index]);
-        index += 1;
-        setTimeout(type, TYPE_INTERVAL_MS);
-      } else {
-        setTimeout(() => caret.remove(), 2000);
-      }
-    };
-    setTimeout(type, 400);
+  // 2. Jump nav appears once the identity block scrolls out of view
+  const jumpNav = document.getElementById('jump-nav');
+  const identity = document.getElementById('doc-identity');
+  if (jumpNav && identity) {
+    new IntersectionObserver(
+      ([entry]) => jumpNav.classList.toggle('is-visible', !entry.isIntersecting),
+      { rootMargin: '-40px 0px 0px 0px' }
+    ).observe(identity);
   }
 
-  // 4. Highlight the section currently in view
+  // 3. Highlight the section currently in view, in the heading and the jump nav
   const headings = [...document.querySelectorAll('section[aria-labelledby] h2')];
   if (headings.length) {
+    // Several sections can straddle the band at once; only the topmost one
+    // is "current", so the jump nav never highlights two links together.
+    const inView = new Set<string>();
+    const syncJumpNav = () => {
+      for (const heading of headings) {
+        const link = document.querySelector(`[data-jump="${heading.id}"]`);
+        link?.classList.toggle('is-current', heading.id === [...inView][0]);
+      }
+    };
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           const heading = entry.target.querySelector('h2');
-          heading?.classList.toggle('section-active', entry.isIntersecting);
+          if (!heading) continue;
+          heading.classList.toggle('section-active', entry.isIntersecting);
+          if (entry.isIntersecting) inView.add(heading.id);
+          else inView.delete(heading.id);
         }
+        // Re-sort by document order — Set keeps insertion order, not position
+        const ordered = headings.map((h) => h.id).filter((id) => inView.has(id));
+        inView.clear();
+        for (const id of ordered) inView.add(id);
+        syncJumpNav();
       },
       { rootMargin: '-25% 0px -55% 0px' }
     );
@@ -451,11 +544,17 @@ const getList = (role: Role, key: 'achievements' | 'leadership'): readonly strin
   const tilt = document.getElementById('profile-tilt');
   if (tilt && !prefersReducedMotion) {
     const MAX_TILT_DEG = 10;
+    let queued = false;
     tilt.addEventListener('pointermove', (event) => {
-      const rect = tilt.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      tilt.style.transform = `perspective(600px) rotateY(${x * MAX_TILT_DEG}deg) rotateX(${-y * MAX_TILT_DEG}deg) scale(1.04)`;
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        const rect = tilt.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        tilt.style.transform = `perspective(600px) rotateY(${x * MAX_TILT_DEG}deg) rotateX(${-y * MAX_TILT_DEG}deg) scale(1.04)`;
+        queued = false;
+      });
     });
     tilt.addEventListener('pointerleave', () => {
       tilt.style.transform = '';

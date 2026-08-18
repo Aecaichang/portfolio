@@ -8,6 +8,7 @@ import { MapPinIcon } from './map-pin';
 import { GithubIcon } from './github';
 import { LinkedinIcon } from './linkedin';
 import { FacebookIcon } from './facebook';
+import { RssIcon } from './rss';
 
 const ICONS = {
   user: UserIcon,
@@ -19,6 +20,7 @@ const ICONS = {
   github: GithubIcon,
   linkedin: LinkedinIcon,
   facebook: FacebookIcon,
+  rss: RssIcon,
 } as const;
 
 interface AnimatedIconProps {

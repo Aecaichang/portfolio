@@ -6,6 +6,13 @@
   "nav.portfolio": "ผลงาน",
   "nav.contact": "ติดต่อฉัน",
   "nav.aboutMe": "เกี่ยวกับฉัน",
+  "nav.certifications": "ใบรับรอง",
+  "nav.sections": "สารบัญ",
+  "nav.documentActions": "เครื่องมือเอกสาร",
+  "contact.heading": "ติดต่อผม",
+  "contact.line": "อีเมลคือช่องทางที่ผมตอบเร็วที่สุด อ่านทุกข้อความครับ",
+  "contact.action": "ส่งอีเมล",
+  "nav.backToTop": "กลับขึ้นด้านบน",
   "titles.aboutMe": "เกี่ยวกับฉัน",
   "titles.experience": "ประสบการณ์ทำงาน",
   "titles.education": "การศึกษา",
@@ -23,6 +30,7 @@
   "personalInfo.socials.github": "https://github.com/Aecaichang",
   "personalInfo.socials.linkedin": "https://www.linkedin.com/in/chanchai-tasujai-030781214/",
   "personalInfo.socials.facebook": "https://www.facebook.com/aechanchaieiei",
+  "personalInfo.socials.blog": "https://aecaichang.com",
   "personalInfo.socials.line": "https://line.me/ti/p/~aecaichang",
   "education": [
     {
@@ -42,24 +50,21 @@
   ],
   "certifications": [
     {
-      "name": "Green Digital Skills",
-      "issuer": "INCO",
-      "date": "ได้รับเมื่อ มิ.ย. 2023",
-      "credentialId": "1193903779CT",
-      "link": "#"
-    },
-    {
       "name": "Generative AI for Productivity",
       "issuer": "Self Learning Track",
-      "date": "2025",
-      "link": "#"
+      "date": "2025"
     },
     {
       "name": "Automated Software Tester รุ่นที่ 2",
       "issuer": "indythaitester",
       "skill": "Software Testing",
-      "date": "2024",
-      "link": "#"
+      "date": "2024"
+    },
+    {
+      "name": "Green Digital Skills",
+      "issuer": "INCO",
+      "date": "มิ.ย. 2023",
+      "credentialId": "1193903779CT"
     }
   ],
   "skills": [
@@ -109,7 +114,8 @@
       ]
     },
     {
-      "category": "AI-Assisted Development — พัฒนาโปรดักส์จริงโดยใช้ AI ช่วยเขียนโค้ดเป็นหลัก (Claude Code, Gemini) เข้าใจภาพรวมระบบ เลือกเครื่องมือให้เหมาะกับงาน และตรวจสอบคุณภาพของผลลัพธ์",
+      "category": "AI-Assisted Development",
+      "note": "พัฒนาโปรดักส์จริงโดยใช้ AI ช่วยเขียนโค้ดเป็นหลัก (Claude Code, Gemini) เข้าใจภาพรวมระบบ เลือกเครื่องมือให้เหมาะกับงาน และตรวจสอบคุณภาพของผลลัพธ์",
       "items": [
         "Web: React, Next.js, Astro, Node.js, Tailwind CSS",
         "Mobile: Flutter/Dart, Kotlin Multiplatform, Google Play Console (Release Signing, IAP, Closed Testing)",
@@ -163,7 +169,6 @@
             "ทดสอบการ Migrate ข้อมูลจากระบบ Legacy สู่ Cloud รวมถึงตรวจสอบความถูกต้องของเอกสาร (StreamServe) เทียบระบบเก่า-ใหม่"
           ],
           "achievements": [
-            "ลดเวลาทำ Regression Test ลง 40% ด้วยการนำ Robot Framework มาช่วยอัตโนมัติ",
             "ลด defect หลุดถึง production ด้วย Risk-Based Testing และ Test Traceability"
           ]
         },
@@ -254,42 +259,16 @@
     {
       "id": 1,
       "title": "Portfolio Website",
+      "status": "หน้าที่คุณกำลังอ่านอยู่",
       "category": "เว็บไซต์",
-      "images": [
-        "/images/suchada-tms.png"
-      ],
-      "image": "/images/suchada-tms.png",
-      "description": "เว็บไซต์ Portfolio ส่วนตัวที่ออกแบบและพัฒนาเอง รองรับ 2 ภาษา (ไทย/อังกฤษ) พร้อม animation ที่ smooth และ responsive ทุก device",
-      "caseStudy": {
-        "problem": [
-          "ต้องการพื้นที่แสดงผลงานและประสบการณ์ที่ดูเป็นมืออาชีพ",
-          "CV แบบ PDF ไม่สามารถแสดง interactive content หรืออัปเดตได้ง่าย",
-          "ต้องการทดสอบทักษะ Full-Stack Development จากโปรเจกต์จริง"
-        ],
-        "solution": [
-          "สร้าง SPA ด้วย React + Vite พร้อม i18n (ไทย/อังกฤษ)",
-          "ใช้ Framer Motion สำหรับ animation และ 3D tilt effect บน profile image",
-          "Deploy บน Vercel พร้อม Analytics และ Visitor Counter"
-        ],
-        "impact": [
-          "Portfolio ที่อัปเดตได้ตลอดเวลาโดยไม่ต้องส่ง CV ใหม่",
-          "แสดงทักษะ Frontend development ได้จากของจริง",
-          "รองรับผู้ชมทั้งไทยและต่างชาติด้วย i18n"
-        ],
-        "architecture": [
-          "React SPA → Vite build → Vercel CDN",
-          "LanguageContext (i18n)",
-          "shadcn/ui components + Tailwind CSS design system",
-          "Vercel Analytics + CounterAPI visitor tracking"
-        ]
-      },
+      "description": "เว็บไซต์ Portfolio ส่วนตัวที่ออกแบบและพัฒนาเอง รองรับ 2 ภาษา (ไทย/อังกฤษ) พร้อม animation ที่ smooth, stylesheet สำหรับพิมพ์ลงกระดาษ A4 และ responsive ทุก device",
       "techStack": [
-        "React",
-        "Vite",
-        "Tailwind CSS",
-        "shadcn/ui",
-        "Framer Motion",
-        "React Router",
+        "Astro",
+        "TypeScript",
+        "Tailwind CSS v4",
+        "React (islands)",
+        "Motion",
+        "Cloudflare Workers + KV",
         "Vercel"
       ],
       "features": [
@@ -313,43 +292,14 @@
             "Portfolio — ผลงานพร้อม case study"
           ]
         }
-      ],
-      "link": "https://me.aecaichang.com",
-      "sourceCode": "https://github.com/Aecaichang/portfolio",
-      "article": "#"
+      ]
     },
     {
       "id": 4,
       "title": "ระบบจัดการขนส่ง (ShipManager)",
+      "status": "ใช้งานจริง · สุชาดา 2019",
       "category": "เว็บแอปพลิเคชัน",
-      "images": [
-        "/images/suchada2019.png"
-      ],
-      "image": "/images/suchada2019.png",
       "description": "ระบบบริหารงานขนส่งสำหรับ หจก. สุชาดา 2019 ที่เชื่อม AI OCR + LINE Bot + Dashboard เข้าด้วยกัน เพื่อลดงานเอกสารและเพิ่มความแม่นยำของข้อมูล",
-      "caseStudy": {
-        "problem": [
-          "คีย์ข้อมูลจากสลิปและใบเสร็จด้วยมือ ทำให้เกิด human error บ่อย",
-          "ค้นหาเอกสารย้อนหลังยากและใช้เวลามาก",
-          "การสรุปต้นทุนต่อเที่ยวล่าช้า ทำให้ตัดสินใจหน้างานไม่ทัน"
-        ],
-        "solution": [
-          "ใช้ Gemini OCR อ่านข้อมูลจากสลิป/ใบเสร็จอัตโนมัติและบันทึกเข้า Supabase",
-          "พนักงานอัปโหลดเอกสารผ่าน LINE Bot ได้ทันทีจากหน้างาน",
-          "ทำ dashboard และ export รายงาน Excel เพื่อให้ทีมบัญชีและผู้บริหารใช้งานเร็วขึ้น"
-        ],
-        "impact": [
-          "ลดเวลางานเอกสารซ้ำซ้อนต่อวันของทีมปฏิบัติการได้อย่างมีนัยสำคัญ",
-          "ลดความผิดพลาดจากการคีย์ข้อมูลมือในรายการค่าใช้จ่ายและเชื้อเพลิง",
-          "ผู้บริหารเห็นต้นทุนและผลประกอบการต่อรอบขนส่งได้เร็วขึ้น"
-        ],
-        "architecture": [
-          "React Web App -> Supabase (PostgreSQL/Auth/Storage)",
-          "LINE Bot -> Webhook/Edge Functions (Deno) -> Database",
-          "Gemini API -> OCR/Extract -> Validate -> Save",
-          "Dashboard/Excel Export -> รายงานสำหรับปฏิบัติการและผู้บริหาร"
-        ]
-      },
       "techStack": [
         "React 19 + Vite",
         "TypeScript",
@@ -390,14 +340,12 @@
             "Responsive Design: รองรับการใช้งานบนมือถือและเดสก์ท็อป"
           ]
         }
-      ],
-      "link": "https://github.com/Aecaichang",
-      "sourceCode": "https://github.com/Aecaichang",
-      "article": "#"
+      ]
     },
     {
       "id": 9,
       "title": "Castiny — แอปแคสต์วิดีโอขึ้น Chromecast / Android TV",
+      "status": "ปล่อยบน Google Play แล้ว",
       "category": "แอปมือถือ",
       "description": "แอป Android สำหรับส่งวิดีโอจากลิงก์ (HLS, MP4, DASH, YouTube, X) ขึ้นทีวี พัฒนาครบวงจรตั้งแต่โค้ดถึงการวางขายบน Play Store — ค้นหา Cast device ผ่าน mDNS, Stream Sniffer วิเคราะห์หาลิงก์วิดีโออัตโนมัติ, ระบบ In-App Purchase + AdMob เต็มรูปแบบ พร้อม unit tests กว่า 40 ตัว และเขียนใหม่ด้วย Kotlin Multiplatform รองรับ Android/iOS จาก codebase เดียว",
       "techStack": [
@@ -408,27 +356,23 @@
         "mDNS",
         "Cloudflare Pages + KV",
         "Google Play Console"
-      ],
-      "link": "",
-      "sourceCode": "",
-      "article": ""
+      ]
     },
     {
       "id": 10,
       "title": "Runboard — แอป macOS จัดการโปรเจกต์ local",
+      "status": "เครื่องมือส่วนตัว ใช้ทุกวัน",
       "category": "แอปเดสก์ท็อป",
       "description": "แดชบอร์ดเดสก์ท็อปสำหรับ start/stop และดู log ของโปรเจกต์ npm หลายตัวจากที่เดียว แทนการเปิด terminal หลายหน้าต่าง — สแกนหาโปรเจกต์อัตโนมัติ ดู log สด ลิงก์ localhost จาก log และสลับ git branch จาก UI ได้",
       "techStack": [
         "Swift (native macOS + WebKit)",
         "Node.js local server"
-      ],
-      "link": "",
-      "sourceCode": "",
-      "article": ""
+      ]
     },
     {
       "id": 5,
       "title": "QA Test Toolkit — Tokio Marine (ใช้ภายในทีม)",
+      "status": "ใช้ภายใน · Tokio Marine",
       "category": "เครื่องมือภายในทีม",
       "description": "ชุดเครื่องมือที่สร้างขึ้นเพื่อเร่งงานทดสอบของทีม: Payload Randomizer สุ่มชุดข้อมูลทดสอบ UAT, UAT Demo Runbook สำหรับเดโม่กับลูกค้า, ชุดสคริปต์ Performance Test ด้วย K6 พร้อมรายงานผล และเว็บไซต์เอกสารระบบ",
       "techStack": [
@@ -438,14 +382,12 @@
         "Postman",
         "Bruno",
         "Docusaurus"
-      ],
-      "link": "#",
-      "sourceCode": "#",
-      "article": "#"
+      ]
     },
     {
       "id": 8,
       "title": "Project Knowledge Base & User Manual (ใช้ภายในทีม)",
+      "status": "ใช้ภายใน · Dev, QA, BA, Support ใช้ทุกวัน",
       "category": "เครื่องมือภายในทีม",
       "description": "เว็บไซต์ศูนย์รวมเอกสารของแต่ละโปรเจกต์ — Business Logic, Workflow, Architecture, API Spec และ User Manual ไว้ที่เดียว พร้อม Admin UI ฝังในตัวสำหรับยิง API จริงเพื่อจัดการ Master Data และทดสอบ Endpoint ได้จากหน้าเอกสารโดยตรง เป็นแหล่งอ้างอิงกลางที่ทีม Dev, QA, BA และ Support ใช้ทำงานบนข้อมูลชุดเดียวกัน",
       "techStack": [
@@ -453,28 +395,24 @@
         "TypeScript",
         "Cloudflare Workers",
         "Cloudflare Access"
-      ],
-      "link": "#",
-      "sourceCode": "#",
-      "article": "#"
+      ]
     },
     {
       "id": 6,
       "title": "ATP30 Auto Verify Tool (ใช้ภายในทีม)",
+      "status": "ใช้ภายใน · Zeabix",
       "category": "เครื่องมือภายในทีม",
       "description": "เว็บแอปช่วยตรวจสอบผลการคำนวณของระบบวางบิลอัตโนมัติ เทียบผลลัพธ์กับ logic ของระบบเดิม ลดเวลาตรวจสอบด้วยมือและช่วยให้ทีมจับความคลาดเคลื่อนได้เร็วขึ้น",
       "techStack": [
         "React",
         "Vite",
         "JavaScript"
-      ],
-      "link": "#",
-      "sourceCode": "#",
-      "article": "#"
+      ]
     },
     {
       "id": 7,
       "title": "Zeabix Bot — Chatbot ภายในบริษัท",
+      "status": "ใช้ภายใน · Zeabix",
       "category": "เครื่องมือภายในทีม",
       "description": "ระบบ Chatbot แบบ Full-stack เชื่อม Supabase กับ Gemini AI พร้อม Dashboard จัดการบอทและ Webhook เชื่อมต่อ Slack สำหรับใช้งานภายในบริษัท",
       "techStack": [
@@ -483,10 +421,7 @@
         "Supabase Edge Functions (Deno)",
         "Gemini AI",
         "Slack Webhook"
-      ],
-      "link": "#",
-      "sourceCode": "#",
-      "article": "#"
+      ]
     }
   ],
   "titles.keyAchievements": "ผลงานที่วัดผลได้",

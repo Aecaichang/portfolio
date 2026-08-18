@@ -7,7 +7,9 @@ const observer = new IntersectionObserver(
       }
     }
   },
-  { threshold: 0.1 },
+  // Sections here are far taller than the viewport, so a ratio threshold can
+  // never be reached — fire as soon as any part of one enters.
+  { threshold: 0, rootMargin: '0px 0px -10% 0px' },
 );
 
 for (const el of document.querySelectorAll('.reveal')) {
