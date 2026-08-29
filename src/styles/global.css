@@ -42,19 +42,57 @@
   /* Sizes and weights come from the document components, not from here */
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  /* Avoid single-word orphans on the last line; ignored where unsupported */
+  p, li, blockquote {
+    text-wrap: pretty;
+  }
+}
+
+/* Cross-document view transition (th ↔ en switch) — progressive enhancement */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
   }
 }
 
 @layer utilities {
-  /* Scroll-triggered reveal (paired with src/scripts/reveal.ts) */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* Scroll-triggered reveal: native scroll-driven animation first;
+     JS fallback (src/scripts/reveal.ts) only where unsupported (Firefox) */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports ((animation-timeline: view()) and (animation-range: entry)) {
+      @keyframes reveal-in {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+      }
+      /* Longhands only — lightningcss merges a shorthand + animation-timeline
+         into `animation: ... view()`, which browsers reject wholesale */
+      .reveal {
+        animation-name: reveal-in;
+        animation-duration: auto;
+        animation-timing-function: ease-out;
+        animation-fill-mode: backwards;
+        animation-timeline: view();
+        /* Sections are far taller than the viewport — finish the reveal early
+           in the entry range so content isn't still faded while being read */
+        animation-range: entry 0% entry 30%;
+      }
+    }
+    @supports not ((animation-timeline: view()) and (animation-range: entry)) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 }
 
@@ -87,6 +125,7 @@
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+    animation: none !important;
   }
 
   /* Never split a bullet mid-line across pages */
