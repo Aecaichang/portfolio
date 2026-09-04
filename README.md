@@ -36,7 +36,7 @@ in a "Stormy Morning" blue palette. Bilingual (ไทย / English).
 | Styling    | [Tailwind CSS 4](https://tailwindcss.com) |
 | Icons      | [Lucide](https://lucide.dev)           |
 | Images     | `astro:assets` + Sharp                 |
-| Deployment | [Cloudflare Pages](https://pages.cloudflare.com) |
+| Deployment | [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/) (static assets) |
 
 ## 🗂️ Project Structure
 
@@ -74,7 +74,7 @@ npm run dev      # http://localhost:4321
 
 ## 🌐 Deployment
 
-Pushes to `main` deploy automatically via Cloudflare Pages → [me.aecaichang.com](https://me.aecaichang.com)
+Pushes to `main` deploy automatically to Cloudflare Workers (static assets) → [me.aecaichang.com](https://me.aecaichang.com)
 
 ---
 
