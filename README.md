@@ -12,7 +12,7 @@ in a "Stormy Morning" blue palette. Bilingual (ไทย / English).
 ![Astro](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8?logo=tailwindcss&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)
-![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?logo=vercel&logoColor=white)
+![Cloudflare](https://img.shields.io/badge/Deployed_on-Cloudflare-F38020?logo=cloudflare&logoColor=white)
 
 </div>
 
@@ -36,7 +36,7 @@ in a "Stormy Morning" blue palette. Bilingual (ไทย / English).
 | Styling    | [Tailwind CSS 4](https://tailwindcss.com) |
 | Icons      | [Lucide](https://lucide.dev)           |
 | Images     | `astro:assets` + Sharp                 |
-| Deployment | [Vercel](https://vercel.com)           |
+| Deployment | [Cloudflare Pages](https://pages.cloudflare.com) |
 
 ## 🗂️ Project Structure
 
@@ -74,7 +74,7 @@ npm run dev      # http://localhost:4321
 
 ## 🌐 Deployment
 
-Pushes to `main` deploy automatically to Vercel → [me.aecaichang.com](https://me.aecaichang.com)
+Pushes to `main` deploy automatically via Cloudflare Pages → [me.aecaichang.com](https://me.aecaichang.com)
 
 ---
 
