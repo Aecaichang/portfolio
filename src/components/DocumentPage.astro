@@ -4,7 +4,7 @@ import profileImage from '../assets/images/profile-new-1.jpg';
 import { getContent, alternatePath, type Locale } from '../lib/i18n';
 import AnimatedIcon from './icons/AnimatedIcon';
 import { ShaderBackground } from '@/components/ui/blue-waves';
-import { Award, Mail, Eye, Printer, ArrowUp } from 'lucide-astro';
+import { Award, Mail, Eye, Printer, ArrowUp, Copy } from 'lucide-astro';
 
 interface Props {
   locale: Locale;
@@ -299,13 +299,15 @@ const getNote = (group: SkillGroup): string => {
   <section class="reveal" aria-labelledby="doc-contact">
     <h2 id="doc-contact" class={sectionTitle}><Mail class={sectionIcon} />{t['contact.heading']}</h2>
     <p class={`text-[#384959] ${prose}`}>{t['contact.line']}</p>
-    <a href={`mailto:${t['personalInfo.email']}`} class="mt-3 inline-block font-mono text-[#384959] underline decoration-[#88BDF2] underline-offset-4 hover:decoration-[#384959]">{t['personalInfo.email']}</a>
-    <a
-      href={`mailto:${t['personalInfo.email']}`}
-      class="mt-4 flex w-fit items-center gap-2 rounded-full bg-[#384959] px-5 py-2.5 font-semibold text-white transition-all duration-200 hover:bg-[#2C3B49] hover:-translate-y-0.5 hover:shadow-lg print:bg-transparent print:px-0 print:py-0 print:text-[#384959] print:shadow-none"
+    <button
+      id="copy-email"
+      type="button"
+      data-copied={t['contact.copied']}
+      class="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-[#384959] px-5 py-2.5 font-mono text-white transition-all duration-200 hover:bg-[#2C3B49] hover:-translate-y-0.5 hover:shadow-lg print:bg-transparent print:px-0 print:py-0 print:text-[#384959] print:shadow-none"
     >
-      <Mail class="w-4 h-4" />{t['contact.action']}
-    </a>
+      <Copy class="w-4 h-4" /><span data-email>{t['personalInfo.email']}</span>
+    </button>
+    <p class="mt-2 text-sm text-[#54718C] print:hidden">{t['contact.hint']}</p>
   </section>
 
   <footer class="mt-14 pt-6 border-t border-[#BDDDFC] text-sm text-[#54718C] flex items-center justify-between gap-4 flex-wrap">
@@ -457,6 +459,24 @@ const getNote = (group: SkillGroup): string => {
 
   // Print / save-as-PDF button
   document.getElementById('print-btn')?.addEventListener('click', () => window.print());
+
+  // Contact: clicking the email copies it; label swaps briefly to confirm
+  const copyBtn = document.getElementById('copy-email');
+  const emailEl = copyBtn?.querySelector<HTMLElement>('[data-email]');
+  if (copyBtn && emailEl) {
+    const email = emailEl.textContent ?? '';
+    const COPIED_MS = 1600;
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        emailEl.textContent = copyBtn.dataset.copied ?? email;
+        setTimeout(() => (emailEl.textContent = email), COPIED_MS);
+      } catch {
+        // ponytail: clipboard blocked (http / permissions) — fall back to mail client
+        location.href = `mailto:${email}`;
+      }
+    });
+  }
 
   // 2. Jump nav appears once the identity block scrolls out of view
   const jumpNav = document.getElementById('jump-nav');
