@@ -299,7 +299,7 @@ const UNIFORMS = {
   saturation: 1.000,
   hue: 0.0000,
   vignette: 0.150,
-  blur: 0.0072,
+  blur: 0, // 5-tap blur costs 5x shade() per pixel; off for mobile battery
   grain: 0.098,
   seed: 5069.0,
   rotate: 2.7227,
