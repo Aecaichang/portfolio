@@ -23,7 +23,7 @@
   "titles.viewProject": "ดูโปรเจกต์",
   "titles.visitWebsite": "เยี่ยมชมเว็บไซต์",
   "personalInfo.name": "ชาญชัย ทะสุใจ",
-  "personalInfo.title": "Senior Quality Assurance Engineer",
+  "personalInfo.title": "QA Lead / Senior Quality Assurance Engineer",
   "personalInfo.phone": "098-650-9392",
   "personalInfo.email": "aecaichang@gmail.com",
   "personalInfo.location": "ลำพูน, ไทย",
@@ -93,6 +93,8 @@
     {
       "category": "Automation & API Testing",
       "items": [
+        "Playwright",
+        "MobileWright (Android/iOS)",
         "Robot Framework",
         "Selenium",
         "Postman (API Testing, Contract Testing, Collections)",
@@ -153,13 +155,34 @@
   ],
   "experience": [
     {
+      "company": "บริษัท ไอที แคท (IT-CAT)",
+      "type": "งานประจำ",
+      "location": "ไทย",
+      "roles": [
+        {
+          "title": "หัวหน้าทีม QA (QA Lead)",
+          "period": "ก.ย. 2026 - ปัจจุบัน",
+          "description": [
+            "ดูแลคุณภาพระบบบริหารงานบุคคล HumanOS ทั้งเว็บและแอปมือถือ รวมถึงงาน customize ให้ลูกค้าองค์กร",
+            "วางมาตรฐานงาน QA ของทีม ตั้งแต่ Test Case ภายใน, UAT Test Script ส่งลูกค้า ไปจนถึงเกณฑ์ตัดสิน severity",
+            "ทำ Load Test ด้วย K6 แสดงผลบน Grafana",
+            "ทำคู่มือผู้ใช้ (Word) และสไลด์อบรมส่งลูกค้า"
+          ],
+          "achievements": [
+            "สร้างชุด Automated Test ของทีม: เว็บด้วย Playwright, แอป Android/iOS ด้วย MobileWright และ regression ที่เปิดทุกเมนูหลังทุก deploy พร้อมส่งผลเข้าชีต Test Case อัตโนมัติ",
+            "สร้างเครื่องมือ AI (Claude Code skills) ให้ทีม QA ใช้ร่วมกัน เช่น เขียน Test Case, ทำ UAT, เปิดการ์ดบั๊กบน GitLab และสรุปงานเตรียมทดสอบเป็นเอกสาร HTML"
+          ]
+        }
+      ]
+    },
+    {
       "company": "บริษัท ซีบิกซ์ จำกัด (Zeabix)",
       "type": "งานประจำ · Work from Home 100%",
       "location": "กรุงเทพมหานคร, ไทย",
       "roles": [
         {
           "title": "นักทดสอบซอฟต์แวร์อาวุโส (Senior QA)",
-          "period": "เม.ย. 2026 - ปัจจุบัน",
+          "period": "เม.ย. 2026 - ส.ค. 2026 · 5 เดือน",
           "description": [
             "ดูแลคุณภาพซอฟต์แวร์ 3 โปรเจกต์หลักพร้อมกัน: LION (Sales Portal), ATP30 (ข้อมูลนักขับและการวางบิล) และ Tokio Marine (ออกกรมธรรม์สำหรับแพลตฟอร์ม Shopee และ App Modernization ย้ายระบบ Premium Queue Process ขึ้น Cloud Azure)",
             "ออกแบบ Test Strategy และบริหาร Regression Test ของระบบสำคัญ",
@@ -269,8 +292,7 @@
         "Tailwind CSS v4",
         "React (islands)",
         "Motion",
-        "Cloudflare Workers + KV",
-        "Vercel"
+        "Cloudflare Workers + KV"
       ],
       "features": [
         {
@@ -293,7 +315,8 @@
             "Portfolio — ผลงานพร้อม case study"
           ]
         }
-      ]
+      ],
+      "url": "https://me.aecaichang.com"
     },
     {
       "id": 4,
@@ -341,7 +364,8 @@
             "Responsive Design: รองรับการใช้งานบนมือถือและเดสก์ท็อป"
           ]
         }
-      ]
+      ],
+      "url": "https://tsm.aecaichang.com"
     },
     {
       "id": 9,
@@ -357,7 +381,8 @@
         "mDNS",
         "Cloudflare Pages + KV",
         "Google Play Console"
-      ]
+      ],
+      "url": "https://castiny.aecaichang.com"
     },
     {
       "id": 10,
@@ -368,6 +393,34 @@
       "techStack": [
         "Swift (native macOS + WebKit)",
         "Node.js local server"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "MEOS — ผู้ช่วยส่วนตัวผ่าน LINE",
+      "status": "ใช้งานทุกวัน",
+      "category": "เว็บแอปพลิเคชัน",
+      "url": "https://meos.aecaichang.com",
+      "description": "จดรายรับรายจ่าย นัดหมาย และงานผ่านแชท LINE พร้อมหน้าเว็บสรุปผล — ส่งรูปใบเสร็จหรือสลิปแล้วให้ Claude อ่านยอด ร้าน วันที่ และเดาประเภทให้, เชื่อม Google Calendar ทั้งดูนัดและเพิ่มนัดด้วยภาษาพูด, LINE เตือนงานเมื่อถึงเวลา และผู้ช่วย AI ตอบคำถามจากข้อมูลของตัวเองแบบอ่านอย่างเดียว",
+      "techStack": [
+        "Cloudflare Workers + D1",
+        "LINE Messaging API",
+        "Claude API",
+        "Gemini API",
+        "Google Calendar OAuth",
+        "Vitest"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "ลำพูน AI Tech",
+      "status": "ธุรกิจส่วนตัว",
+      "category": "เว็บไซต์",
+      "url": "https://lamphunaitech.aecaichang.com",
+      "description": "เพจและเว็บบริการให้คำปรึกษาและพัฒนาระบบ AI, ซอฟต์แวร์ และ automation สำหรับธุรกิจในลำพูนและเชียงใหม่ ทำเว็บ แบรนด์ และวางแผนคอนเทนต์ Facebook เอง",
+      "techStack": [
+        "HTML/CSS/JS",
+        "Cloudflare"
       ]
     },
     {

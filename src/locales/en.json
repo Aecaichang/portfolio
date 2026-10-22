@@ -23,7 +23,7 @@
   "titles.viewProject": "View Project",
   "titles.visitWebsite": "Visit Website",
   "personalInfo.name": "Chanchai Tasujai",
-  "personalInfo.title": "Senior Quality Assurance Engineer",
+  "personalInfo.title": "QA Lead / Senior Quality Assurance Engineer",
   "personalInfo.phone": "098-650-9392",
   "personalInfo.email": "aecaichang@gmail.com",
   "personalInfo.location": "Lamphun, Thailand",
@@ -93,6 +93,8 @@
     {
       "category": "Automation & API Testing",
       "items": [
+        "Playwright",
+        "MobileWright (Android/iOS)",
         "Robot Framework",
         "Selenium",
         "Postman (API Testing, Contract Testing, Collections)",
@@ -153,13 +155,34 @@
   ],
   "experience": [
     {
+      "company": "IT-CAT",
+      "type": "Full-time",
+      "location": "Thailand",
+      "roles": [
+        {
+          "title": "QA Lead",
+          "period": "Sep 2026 - Present",
+          "description": [
+            "Own quality of the HumanOS HR system (web and mobile), including customizations for enterprise clients",
+            "Set the team's QA standards, from internal test cases and client-facing UAT test scripts to severity rules",
+            "Ran load testing with K6 and reported results in Grafana",
+            "Produced user manuals (Word) and training slides for clients"
+          ],
+          "achievements": [
+            "Built the team's automated test suite: web with Playwright, Android/iOS with MobileWright, and a post-deploy regression that opens every menu and writes results back to the test case sheet",
+            "Built shared AI tooling (Claude Code skills) for the QA team: writing test cases, generating UAT scripts, filing GitLab bug cards, and turning code/specs into test-prep briefs"
+          ]
+        }
+      ]
+    },
+    {
       "company": "Zeabix Company Limited",
       "type": "Full-time · 100% Remote",
       "location": "Bangkok, Thailand",
       "roles": [
         {
           "title": "Senior QA",
-          "period": "Apr 2026 - Present",
+          "period": "Apr 2026 - Aug 2026 · 5 mos",
           "description": [
             "Own software quality across 3 concurrent projects: LION (Sales Portal), ATP30 (driver data and billing), and Tokio Marine (insurance policy issuance for the Shopee platform, plus an App Modernization project migrating the Premium Queue Process to Azure)",
             "Owned test strategy and regression quality gates for critical modules.",
@@ -269,8 +292,7 @@
         "Tailwind CSS v4",
         "React (islands)",
         "Motion",
-        "Cloudflare Workers + KV",
-        "Vercel"
+        "Cloudflare Workers + KV"
       ],
       "features": [
         {
@@ -293,7 +315,8 @@
             "Portfolio — projects with case studies"
           ]
         }
-      ]
+      ],
+      "url": "https://me.aecaichang.com"
     },
     {
       "id": 4,
@@ -341,7 +364,8 @@
             "Responsive UI for desktop and mobile users"
           ]
         }
-      ]
+      ],
+      "url": "https://tsm.aecaichang.com"
     },
     {
       "id": 9,
@@ -357,7 +381,8 @@
         "mDNS",
         "Cloudflare Pages + KV",
         "Google Play Console"
-      ]
+      ],
+      "url": "https://castiny.aecaichang.com"
     },
     {
       "id": 10,
@@ -368,6 +393,34 @@
       "techStack": [
         "Swift (native macOS + WebKit)",
         "Node.js local server"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "MEOS — personal assistant on LINE",
+      "status": "Used daily",
+      "category": "Web application",
+      "url": "https://meos.aecaichang.com",
+      "description": "Log income, expenses, appointments and tasks by chatting on LINE, with a web dashboard — send a receipt or slip photo and Claude reads the amount, shop and date and suggests a category; Google Calendar integration to view and add appointments in plain language; LINE reminders for tasks; and an AI assistant that answers questions from the user's own data (read-only)",
+      "techStack": [
+        "Cloudflare Workers + D1",
+        "LINE Messaging API",
+        "Claude API",
+        "Gemini API",
+        "Google Calendar OAuth",
+        "Vitest"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Lamphun AI Tech",
+      "status": "Own business",
+      "category": "Website",
+      "url": "https://lamphunaitech.aecaichang.com",
+      "description": "Page and website offering consulting and development of AI, software and automation for businesses in Lamphun and Chiang Mai; built the website, brand and Facebook content plan",
+      "techStack": [
+        "HTML/CSS/JS",
+        "Cloudflare"
       ]
     },
     {
