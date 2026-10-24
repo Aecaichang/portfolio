@@ -504,5 +504,16 @@
   "aboutMe.highlight3.title": "เรียนรู้ไว",
   "aboutMe.highlight3.desc": "ปรับตัวเร็วกับเทคโนโลยีใหม่ๆ เช่น AI, Cloud และ Framework ต่างๆ",
   "aboutMe.highlight4.title": "คุณภาพต้องมาก่อน",
-  "aboutMe.highlight4.desc": "พื้นฐานด้าน Testing ที่แน่น ทำให้โค้ดมีคุณภาพและบั๊กน้อย"
+  "aboutMe.highlight4.desc": "พื้นฐานด้าน Testing ที่แน่น ทำให้โค้ดมีคุณภาพและบั๊กน้อย",
+  "nav.showcase": "Showcase",
+  "titles.showcase": "Showcase เว็บไซต์",
+  "showcase.line": "เว็บที่ออกแบบและพัฒนาเองทั้งหมด ใช้งานจริงอยู่ — กดที่การ์ดเพื่อเปิดเว็บ",
+  "showcase": [
+    { "key": "aecaichang", "name": "aecaichang.com", "url": "https://aecaichang.com", "description": "บล็อกบันทึกงาน QA, AI และการพัฒนาซอฟต์แวร์" },
+    { "key": "lamphunaitech", "name": "ลำพูน AI Tech", "url": "https://lamphunaitech.aecaichang.com", "description": "เว็บธุรกิจ รับปรึกษาและพัฒนาระบบ AI ในลำพูน" },
+    { "key": "castiny", "name": "Castiny", "url": "https://castiny.aecaichang.com", "description": "หน้าแอปแคสต์วิดีโอขึ้นทีวี พร้อมสมัครทดสอบเบต้า" },
+    { "key": "tsm", "name": "Suchada 2019 TSM", "url": "https://tsm.aecaichang.com", "description": "ระบบจัดการขนส่ง ใช้งานจริงทุกวัน" },
+    { "key": "meos", "name": "MEOS", "url": "https://meos.aecaichang.com", "description": "ผู้ช่วยส่วนตัวผ่าน LINE: เงิน นัด งาน โน้ต" },
+    { "key": "health", "name": "สุขภาพของฉัน", "url": "https://health.aecaichang.com", "description": "จดยา อาการ และนัดหมอ" }
+  ]
 }

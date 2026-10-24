@@ -4,7 +4,8 @@ import profileImage from '../assets/images/profile-new-1.jpg';
 import { getContent, alternatePath, type Locale } from '../lib/i18n';
 import AnimatedIcon from './icons/AnimatedIcon';
 import { ShaderBackground } from '@/components/ui/blue-waves';
-import { Award, Mail, Eye, Printer, ArrowUp, Copy } from 'lucide-astro';
+import { Award, Mail, Eye, Printer, ArrowUp, Copy, LayoutGrid, ArrowUpRight } from 'lucide-astro';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
   locale: Locale;
@@ -46,7 +47,12 @@ const sectionNav = [
   { id: 'doc-education', label: t['nav.education'] },
   { id: 'doc-certifications', label: t['nav.certifications'] },
   { id: 'doc-contact', label: t['nav.contact'] },
+  { id: 'doc-showcase', label: t['nav.showcase'] },
 ];
+
+// Screenshots are named by showcase key: src/assets/images/showcase/<key>.jpg
+const showcaseShots = import.meta.glob<{ default: ImageMetadata }>('../assets/images/showcase/*.jpg', { eager: true });
+const showcaseShot = (key: string) => showcaseShots[`../assets/images/showcase/${key}.jpg`]?.default;
 
 type Role = (typeof t)['experience'][number]['roles'][number];
 const getList = (role: Role, key: 'achievements' | 'leadership'): readonly string[] => {
@@ -316,6 +322,48 @@ const getNote = (group: SkillGroup): string => {
       <Copy class="w-4 h-4" /><span data-email>{t['personalInfo.email']}</span>
     </button>
     <p class="mt-2 text-sm text-[#54718C] print:hidden">{t['contact.hint']}</p>
+  </section>
+
+  <!-- Showcase — screenshots of the live sites; left out of the printed CV -->
+  <section class="reveal print:hidden" aria-labelledby="doc-showcase">
+    <h2 id="doc-showcase" class={sectionTitle}><LayoutGrid class={sectionIcon} />{t['titles.showcase']}</h2>
+    <p class={`text-[#384959] ${prose}`}>{t['showcase.line']}</p>
+    <ul class="mt-5 grid gap-5 sm:grid-cols-2">
+      {
+        t['showcase'].map((site) => {
+          const shot = showcaseShot(site.key);
+          return (
+            <li>
+              <a
+                href={site.url}
+                target="_blank"
+                rel="noopener"
+                class="group block overflow-hidden rounded-xl border border-[#BDDDFC] bg-white transition-all duration-200 hover:-translate-y-1 hover:border-[#88BDF2] hover:shadow-lg"
+              >
+                {shot && (
+                  <Image
+                    src={shot}
+                    alt={site.name}
+                    widths={[400, 640]}
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    class="aspect-video w-full object-cover object-top border-b border-[#BDDDFC]/60"
+                    loading="lazy"
+                  />
+                )}
+                <div class="p-4">
+                  <h3 class="flex items-center justify-between gap-2 font-bold text-[#384959]">
+                    {site.name}
+                    <ArrowUpRight class="w-4 h-4 shrink-0 text-[#54718C] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </h3>
+                  <p class="mt-1 text-sm text-[#54718C]">{site.description}</p>
+                  <p class="mt-2 text-xs font-mono text-[#54718C]/80">{site.url.replace('https://', '')}</p>
+                </div>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
   </section>
 
   <footer class="mt-14 pt-6 border-t border-[#BDDDFC] text-sm text-[#54718C] flex items-center justify-between gap-4 flex-wrap">

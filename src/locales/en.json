@@ -504,5 +504,16 @@
   "aboutMe.highlight3.title": "Fast Learner",
   "aboutMe.highlight3.desc": "Adapting quickly to new tools like AI, Cloud, and Frameworks.",
   "aboutMe.highlight4.title": "Quality First",
-  "aboutMe.highlight4.desc": "Deeply rooted testing mindset ensures robust and bug-free code."
+  "aboutMe.highlight4.desc": "Deeply rooted testing mindset ensures robust and bug-free code.",
+  "nav.showcase": "Showcase",
+  "titles.showcase": "Website Showcase",
+  "showcase.line": "Sites I designed and built end to end, all live — tap a card to open it.",
+  "showcase": [
+    { "key": "aecaichang", "name": "aecaichang.com", "url": "https://aecaichang.com", "description": "Blog on QA, AI and software development" },
+    { "key": "lamphunaitech", "name": "Lamphun AI Tech", "url": "https://lamphunaitech.aecaichang.com", "description": "Business site for AI consulting and development in Lamphun" },
+    { "key": "castiny", "name": "Castiny", "url": "https://castiny.aecaichang.com", "description": "Landing page for a video-to-TV casting app, with beta sign-up" },
+    { "key": "tsm", "name": "Suchada 2019 TSM", "url": "https://tsm.aecaichang.com", "description": "Transport management system in daily use" },
+    { "key": "meos", "name": "MEOS", "url": "https://meos.aecaichang.com", "description": "Personal assistant over LINE: money, calendar, tasks, notes" },
+    { "key": "health", "name": "My Health", "url": "https://health.aecaichang.com", "description": "Track medicine, symptoms and doctor visits" }
+  ]
 }
