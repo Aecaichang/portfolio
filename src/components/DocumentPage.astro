@@ -328,12 +328,12 @@ const getNote = (group: SkillGroup): string => {
   <section class="reveal print:hidden" aria-labelledby="doc-showcase">
     <h2 id="doc-showcase" class={sectionTitle}><LayoutGrid class={sectionIcon} />{t['titles.showcase']}</h2>
     <p class={`text-[#384959] ${prose}`}>{t['showcase.line']}</p>
-    <ul class="mt-5 grid gap-5 sm:grid-cols-2">
+    <ul class="mt-5 grid gap-5 sm:grid-cols-2" data-stagger>
       {
-        t['showcase'].map((site) => {
+        t['showcase'].map((site, i) => {
           const shot = showcaseShot(site.key);
           return (
-            <li>
+            <li class="stagger-item" style={`--i: ${i}`}>
               <a
                 href={site.url}
                 target="_blank"
@@ -346,7 +346,7 @@ const getNote = (group: SkillGroup): string => {
                     alt={site.name}
                     widths={[400, 640]}
                     sizes="(min-width: 640px) 50vw, 100vw"
-                    class="aspect-video w-full object-cover object-top border-b border-[#BDDDFC]/60"
+                    class="aspect-video w-full object-cover object-top border-b border-[#BDDDFC]/60 origin-top transition-transform duration-700 ease-out group-hover:scale-[1.04] group-hover:-translate-y-[2%] motion-reduce:transition-none motion-reduce:group-hover:transform-none"
                     loading="lazy"
                   />
                 )}

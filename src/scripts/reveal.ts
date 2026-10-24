@@ -23,3 +23,21 @@ if (!hasNativeScrollReveal) {
     observer.observe(el);
   }
 }
+
+// Staggered children (showcase cards): CSS has no per-child delay on a scroll
+// timeline, so every browser uses the observer and a --i transition delay.
+const staggerObserver = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        staggerObserver.unobserve(entry.target);
+      }
+    }
+  },
+  { threshold: 0, rootMargin: '0px 0px -15% 0px' },
+);
+
+for (const el of document.querySelectorAll('[data-stagger]')) {
+  staggerObserver.observe(el);
+}

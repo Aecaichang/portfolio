@@ -93,6 +93,18 @@
         transform: translateY(0);
       }
     }
+
+    /* Children of [data-stagger] fade up one after another (--i = index) */
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      transition-delay: calc(var(--i, 0) * 90ms);
+    }
+    [data-stagger].is-visible .stagger-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
